@@ -6,10 +6,19 @@
     <description>Recent content on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Mar 2018 15:46:53 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Mar 2018 20:38:34 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Me</title>
+      <link>http://amoshyc.github.io/blog/abouts/me.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:38:34 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/abouts/me.html</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Numpy 中二維高斯分佈</title>
