@@ -33,19 +33,19 @@ math: false
 
 ## 改 config
 
-將 zmd 下的 `exampleSite/config.toml` 的內容加到你的 `config.toml` 中。裡面有我的 theme 的預設參數，如果你的 `config.toml` 中已經有相同的欄位，我是建議直接改掉，來確保 zmd theme 可以正確運作。所以在操作前，先備份你的 `config.toml` 會是不錯的選擇。
+將 zmd 下的 `themes/zmd/exampleSite/config.toml` 的內容加到你的 `config.toml` 中。裡面有我的 theme 的預設參數，如果你的 `config.toml` 中已經有相同的欄位，我是建議直接改掉，來確保 zmd theme 可以正確運作。所以在操作前，先備份你的 `config.toml` 會是不錯的選擇。
 
 ## 改 archetypes
 
-將 `exampleSite/archetypes/default.md` 的所有檔案複製到你的 `archetypes/default.md` 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。因為你的 archetypes 的優先權比 theme 中的 archetypes 高，所以這一步你也可以改成刪掉你的 `archetypes/default.md`。刪掉後 hugo 渲染時會去使用 theme 的 archetypes。
+將 `themes/zmd/exampleSite/archetypes/default.md` 的所有檔案複製到你的 `archetypes/default.md` 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。因為你的 archetypes 的優先權比 theme 中的 archetypes 高，所以這一步你也可以改成刪掉你的 `archetypes/default.md`。刪掉後 hugo 渲染時會去使用 theme 的 archetypes。
 
 ## abouts
 
-將 `themes/zmd/exampleSite/content/` 下的內容複製到你的 `content/` 下，或你也可以彷造同樣的結構創立相同檔案。其中 `abouts/` 是一個特殊的資料夾，裡面有一個檔案 `me.jpg` 是必不可少的，請將之換成你的圖片。另外，所有在 `abouts/` 下的文章都會被特殊分類，顯示於網站的 ABOUT 下。
+將 `themes/zmd/exampleSite/content/` 下的內容複製到你的 `content/` 下，或你也可以彷造同樣的結構創立檔案。其中 `abouts/` 是一個特殊的資料夾，裡面有一個檔案 `me.jpg` 是必不可少的，請將之換成你的圖片。另外，所有在 `abouts/` 下的文章都會被特殊分類，顯示於網站的 ABOUT 下。
 
 ## 與 Github 的結合
 
-如果你前面都沒有出錯，那當你下指令 `hugo` 時，HTML 會被產生至 `<name>/docs/` 資料夾中。並且，你這時可以透過平常的 `git add`, `git commit`, `git push` 流程將你整個專案推到 Github 上。有時我並不想每次都在想 commit message，畢竟就是寫個文章或改改字，所以我建立了 makefile 來加速這個流程：
+如果你前面都沒有出錯，那當你下指令 `hugo` 時，HTML 會被產生至 `docs/` 資料夾中。並且，你可以透過平常的 `git add`, `git commit`, `git push` 流程將你整個專案推到 Github 上。因為我並不想每次都在想 commit message，畢竟就是寫個文章或改改字，所以我建立了 makefile 來加速這個流程：
 
 {{< highlight sh "noclasses=false" >}}
 MSG = "Build at $(shell /bin/date '+%Y-%m-%d %H-%M-%S')"
@@ -56,7 +56,7 @@ upload:
 	git push origin master
 {{< /highlight >}}
 
-每次要推資料至 Github 時就只要下 `make upload` 即可。
+每次要推資料至 Github 時只要下 `make upload` 即可。
 
 
 # What's Next
