@@ -1,0 +1,8 @@
+baseURL = "http://amoshyc.github.io/blog"
+languageCode = "en-us"
+title = "Yu-Cheng Huang"
+theme = "zmd"
+publishDir = "docs"
+FootnoteReturnLinkContents = "↩"
+uglyurls = true
+preserveTaxonomyNames = true

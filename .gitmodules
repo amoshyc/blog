@@ -1,0 +1,3 @@
+[submodule "themes/zmd"]
+	path = themes/zmd
+	url = https://github.com/amoshyc/hugo-zmd-theme
