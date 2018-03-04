@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Csh on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/tags/csh.html</link>
+    <description>Recent content in Csh on Yu-Cheng Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Feb 2018 11:34:06 +0800</lastBuildDate>
+    
+	<atom:link href="http://amoshyc.github.io/blog/tags/csh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>工作站 bash 的顏色渲染</title>
+      <link>http://amoshyc.github.io/blog/2018/syntax-highlighting-of-bash.html</link>
+      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/syntax-highlighting-of-bash.html</guid>
+      <description> 前情提要 學校工作站預設的 shell 是 csh，用的很不習慣，而且也有一些 bug。 可以切換成 bash 但沒有顏色渲染，今天查了一下資料，筆記一下。
+顏色渲染 更改 ls 的顏色，在 .bashrc 中加入
+alias ls=&amp;#39;ls --color=auto&amp;#39; alias ll=&amp;#39;ls -alh --color=auto&amp;#39; 更改 prompt 顏色，這個指令來自 這，一樣在 .bashrc 中加入
+PS1=&amp;#39;\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] &amp;#39; 結果 </description>
+    </item>
+    
+  </channel>
+</rss>

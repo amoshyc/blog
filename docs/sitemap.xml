@@ -3,17 +3,204 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://amoshyc.github.io/blog/2018/2d-gaussian-distribution-in-numpy.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2018/syntax-highlighting-of-bash.html</loc>
+    <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2018/sending-gmail-in-python.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2018/install-matlab-on-fedora-25.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2017/markdown-cheatsheet.html</loc>
+    <lastmod>2017-12-09T13:55:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2017/markdown-cheatsheet-notebook.html</loc>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2017.html</loc>
+    <lastmod>2017-12-09T13:55:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/2018.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/2d.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/bash.html</loc>
+    <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/categories.html</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/tags/cheatsheet.html</loc>
+    <lastmod>2017-12-09T13:55:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/cheatsheet.html</loc>
+    <lastmod>2017-12-09T13:55:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/csh.html</loc>
+    <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/email.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/fedora.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/fedora.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/gaussian.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/gmail.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/imshow.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/linux.html</loc>
+    <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/markdown.html</loc>
+    <lastmod>2017-12-09T13:55:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/matlab.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/matlab.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/normal.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/numpy.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/python.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/python.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/r2016a.html</loc>
+    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/smtp.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/smtplib.html</loc>
+    <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/snippet.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/syntax-hightlight.html</loc>
+    <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/tags.html</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://amoshyc.github.io/blog/</loc>
+    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   

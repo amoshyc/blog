@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gaussian on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/tags/gaussian.html</link>
+    <description>Recent content in Gaussian on Yu-Cheng Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Mar 2018 15:46:53 +0800</lastBuildDate>
+    
+	<atom:link href="http://amoshyc.github.io/blog/tags/gaussian/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Numpy 中二維高斯分佈</title>
+      <link>http://amoshyc.github.io/blog/2018/2d-gaussian-distribution-in-numpy.html</link>
+      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/2d-gaussian-distribution-in-numpy.html</guid>
+      <description>前提提要 最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 1 2 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈來指示位置。但我翻了一下文檔，numpy 似乎沒有提供生成二維高斯分佈的函式，只提供從高斯分佈取樣的函式，於是我模彷了 skimage.draw 的 API，寫了一個函式。
+實作原理 二維高斯分佈就是兩個一維高斯分佈取外積。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [-3sigma, +3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 np.outer 即為所求。
+程式碼 Hint!  此函式不支援 double 型態的 mu 與 sigma！
+  1def gaussian2d(mu, sigma, shape=None): 2 &amp;#34;&amp;#34;&amp;#34;Generate 2d gaussian distribution coordinates and values. 34Parameters 5-------------- 6mu: tuple of int 7Coordinates of center, (mu_r, mu_c) 8sigma: tuple of int 9Intensity of the distribution, (sigma_r, sigma_c) 10shape: tuple of int, optional 11Image shape which is used to determine the maximum extent 12pixel coordinates, (r, c) 1314Returns 15-------------- 16rr, cc: (N,) ndarray of int 17Indices of pixels that belong to the distribution 18gaussian: (N, ) ndarray of float 19Values of corresponding position.</description>
+    </item>
+    
+  </channel>
+</rss>

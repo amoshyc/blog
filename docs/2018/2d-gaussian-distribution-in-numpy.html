@@ -1,0 +1,269 @@
+<html lang="tw">
+    <head>
+        <title>
+        
+    Numpy 中二維高斯分佈 | Yu-Cheng Huang
+
+        </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+            <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                asciimath2jax: {
+                    delimiters: [['$$','$$']]
+                },
+                tex2jax: {
+                    inlineMath: [['$[', ']$']],
+                    displayMath: [['$[[', ']]$']],
+                }
+            });
+            </script>
+        
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/03/03</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/snippet.html">Snippet</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">Numpy 中二維高斯分佈</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/2d.html">2d</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/gaussian.html">gaussian</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/numpy.html">numpy</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/normal.html">normal</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#前提提要">前提提要</a></li>
+<li><a href="#實作原理">實作原理</a></li>
+<li><a href="#程式碼">程式碼</a></li>
+<li><a href="#範例">範例</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="前提提要">前提提要</h1>
+
+<p>最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈來指示位置。但我翻了一下文檔，<code>numpy</code> 似乎沒有提供<strong>生成</strong>二維高斯分佈的函式，只提供從高斯分佈<strong>取樣</strong>的函式，於是我模彷了 <code>skimage.draw</code> 的 API，寫了一個函式。</p>
+
+<h1 id="實作原理">實作原理</h1>
+
+<p>二維高斯分佈就是兩個一維高斯分佈取外積。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [-3sigma, +3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 <code>np.outer</code> 即為所求。</p>
+
+<h1 id="程式碼">程式碼</h1>
+
+<div class="admonition">
+    
+    
+
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #64b5f6">
+        Hint!
+    </span>
+
+    <div class="content"><p>此函式不支援 double 型態的 mu 與 sigma！</p>
+</div>
+</div>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="k">def</span> <span class="nf">gaussian2d</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="ln"> 2</span>    <span class="sa"></span><span class="s2">&#34;&#34;&#34;Generate 2d gaussian distribution coordinates and values.
+</span><span class="ln"> 3</span><span class="s2">
+</span><span class="ln"> 4</span><span class="s2">    Parameters
+</span><span class="ln"> 5</span><span class="s2">    --------------
+</span><span class="ln"> 6</span><span class="s2">    mu: tuple of int
+</span><span class="ln"> 7</span><span class="s2">        Coordinates of center, (mu_r, mu_c)
+</span><span class="ln"> 8</span><span class="s2">    sigma: tuple of int
+</span><span class="ln"> 9</span><span class="s2">        Intensity of the distribution, (sigma_r, sigma_c)
+</span><span class="ln">10</span><span class="s2">    shape: tuple of int, optional
+</span><span class="ln">11</span><span class="s2">        Image shape which is used to determine the maximum extent
+</span><span class="ln">12</span><span class="s2">        pixel coordinates, (r, c)
+</span><span class="ln">13</span><span class="s2">
+</span><span class="ln">14</span><span class="s2">    Returns
+</span><span class="ln">15</span><span class="s2">    --------------
+</span><span class="ln">16</span><span class="s2">    rr, cc: (N,) ndarray of int
+</span><span class="ln">17</span><span class="s2">        Indices of pixels that belong to the distribution
+</span><span class="ln">18</span><span class="s2">    gaussian: (N, ) ndarray of float
+</span><span class="ln">19</span><span class="s2">        Values of corresponding position. Ranges from 0.0 to 1.0.
+</span><span class="ln">20</span><span class="s2">
+</span><span class="ln">21</span><span class="s2">    .. warning::
+</span><span class="ln">22</span><span class="s2">
+</span><span class="ln">23</span><span class="s2">        This function does NOT support mu, sigma as double.
+</span><span class="ln">24</span><span class="s2">    &#34;&#34;&#34;</span>
+<span class="ln">25</span>    <span class="n">mu_r</span><span class="p">,</span> <span class="n">mu_c</span> <span class="o">=</span> <span class="n">mu</span>
+<span class="ln">26</span>    <span class="n">sigma_r</span><span class="p">,</span> <span class="n">sigma_c</span> <span class="o">=</span> <span class="n">sigma</span>
+<span class="ln">27</span>
+<span class="ln">28</span>    <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">sigma_r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="ln">29</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_r</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu_r</span>
+<span class="ln">30</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_c</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu_c</span>
+<span class="ln">31</span>    <span class="k">if</span> <span class="n">shape</span><span class="p">:</span>
+<span class="ln">32</span>        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="ln">33</span>        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="ln">34</span>
+<span class="ln">35</span>    <span class="n">coef_r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="ln">36</span>    <span class="n">coef_c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="ln">37</span>    <span class="n">exp_r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_r</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">mu_r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="ln">38</span>    <span class="n">exp_c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">mu_c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="ln">39</span>
+<span class="ln">40</span>    <span class="n">gr</span> <span class="o">=</span> <span class="n">coef_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">exp_r</span><span class="p">)</span>
+<span class="ln">41</span>    <span class="n">gc</span> <span class="o">=</span> <span class="n">coef_c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">exp_c</span><span class="p">)</span>
+<span class="ln">42</span>    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">gc</span><span class="p">)</span>
+<span class="ln">43</span>
+<span class="ln">44</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="ln">45</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="ln">46</span>    <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+<span class="ln">47</span>    <span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+<span class="ln">48</span>    <span class="k">return</span> <span class="n">rr</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">cc</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">g</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span></code></pre></div>
+
+<h1 id="範例">範例</h1>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">gaussian2d</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">g</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+<span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">gaussian2d</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">g</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+<span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">gaussian2d</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">g</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+
+<span class="c1"># Save Image</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./out.jpg&#39;</span><span class="p">)</span></code></pre></div>
+
+<figure>
+    
+        <img src="https://i.imgur.com/uz8pX8l.jpg" width="400" />
+    
+    
+</figure>
+</p>
+
+<p>其中要注意的是函式的值可能太小（例如 <code>sigma=1</code> 時，函式值最大為 0.5），可以考慮將之 normalize，如程式碼所示。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://arxiv.org/abs/1611.08050">Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields</a>
+ <a class="footnote-return" href="#fnref:1">↩</a></li>
+<li id="fn:2"><a href="https://arxiv.org/abs/1611.05424">Associative Embedding: End-to-End Learning for Joint Detection and Grouping</a>
+ <a class="footnote-return" href="#fnref:2">↩</a></li>
+</ol>
+</div>
+
+    </div>
+
+    
+</article>
+    <div class="social">
+    <a class="icon facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2famoshyc.github.io%2fblog%2f2018%2f2d-gaussian-distribution-in-numpy.html" title="Share to Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+    <a class="icon googleplus" target="_blank" href="https://plus.google.com/share?url=http%3a%2f%2famoshyc.github.io%2fblog%2f2018%2f2d-gaussian-distribution-in-numpy.html" title="Share to Google+">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M5.09 7.273v1.745h2.89c-.116.75-.873 2.197-2.887 2.197-1.737 0-3.155-1.44-3.155-3.215S3.353 4.785 5.09 4.785c.99 0 1.652.422 2.03.786l1.382-1.33c-.887-.83-2.037-1.33-3.41-1.33C2.275 2.91 0 5.19 0 8s2.276 5.09 5.09 5.09c2.94 0 4.888-2.065 4.888-4.974 0-.334-.036-.59-.08-.843H5.09zm10.91 0h-1.455V5.818H13.09v1.455h-1.454v1.454h1.455v1.455h1.46V8.727H16"
+            />
+        </svg>
+    </a>
+    <a class="icon twitter" target="_blank" href="https://twitter.com/home?status=http%3a%2f%2famoshyc.github.io%2fblog%2f2018%2f2d-gaussian-distribution-in-numpy.html" title="Share to Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+</div>
+
+        </main>
+
+        
+        <footer>
+    <div class="hr"></div>
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<html lang="tw">
+    <head>
+        <title>
+        
+    使用 Python 寄發 Gmail | Yu-Cheng Huang
+
+        </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/02/22</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/python.html">Python</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">使用 Python 寄發 Gmail</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/python.html">python</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/gmail.html">gmail</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/smtp.html">smtp</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/smtplib.html">smtplib</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/email.html">email</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#前情提要">前情提要</a></li>
+<li><a href="#程式碼">程式碼</a></li>
+<li><a href="#注意事項">注意事項</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="前情提要">前情提要</h1>
+
+<p>之前跟學長在聊天，聊到他需要寄大量通知信給許多人，但希望每封信都有對方的名字。剛好有興趣，就搜了一下網路上的範例，整理出一個使用 python 3.x 從 Gmail 寄發 email 的程式。使用 SMTP、登入並且信件 SSL 加密。修改一下、加個迴圈就可以讓你的 gmail 大量寄垃圾信了（笑~</p>
+
+<h1 id="程式碼">程式碼</h1>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+
+<span class="n">gmail_user</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;amoshuangyc@gmail.com&#39;</span>
+<span class="n">gmail_password</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;---&#39;</span> <span class="c1"># your gmail password</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+<span class="n">msg</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;Test&#39;</span>
+<span class="n">msg</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmail_user</span>
+<span class="n">msg</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;xxx@gmail.com&#39;</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP_SSL</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">465</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
+<span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_password</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Email sent!&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="注意事項">注意事項</h1>
+
+<ol>
+<li>第一次寄信時，Google 會寄 email 警告寄信者「查看遭拒的登入嘗試」，開啟「低安全性應用程式」即可。</li>
+<li>port 465 是 Google <a href="https://support.google.com/mail/answer/7126229?hl=zh-Hant">訂定</a> 的。</li>
+<li>Gmail 有單天 500 封及單封 500 人的<a href="https://support.google.com/mail/answer/22839?hl=en">限制</a>。</li>
+<li>你可以不登入直接寄的樣子，只是很可能被判定為垃圾郵件或被 Gmail 說「不是本人寄的」，我沒試過~</li>
+</ol>
+
+    </div>
+
+    
+</article>
+    <div class="social">
+    <a class="icon facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2famoshyc.github.io%2fblog%2f2018%2fsending-gmail-in-python.html" title="Share to Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+    <a class="icon googleplus" target="_blank" href="https://plus.google.com/share?url=http%3a%2f%2famoshyc.github.io%2fblog%2f2018%2fsending-gmail-in-python.html" title="Share to Google+">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M5.09 7.273v1.745h2.89c-.116.75-.873 2.197-2.887 2.197-1.737 0-3.155-1.44-3.155-3.215S3.353 4.785 5.09 4.785c.99 0 1.652.422 2.03.786l1.382-1.33c-.887-.83-2.037-1.33-3.41-1.33C2.275 2.91 0 5.19 0 8s2.276 5.09 5.09 5.09c2.94 0 4.888-2.065 4.888-4.974 0-.334-.036-.59-.08-.843H5.09zm10.91 0h-1.455V5.818H13.09v1.455h-1.454v1.454h1.455v1.455h1.46V8.727H16"
+            />
+        </svg>
+    </a>
+    <a class="icon twitter" target="_blank" href="https://twitter.com/home?status=http%3a%2f%2famoshyc.github.io%2fblog%2f2018%2fsending-gmail-in-python.html" title="Share to Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+</div>
+
+        </main>
+
+        
+        <footer>
+    <div class="hr"></div>
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+</footer>
+</body>
+
+</html>

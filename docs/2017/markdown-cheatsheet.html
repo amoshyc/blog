@@ -1,0 +1,654 @@
+<html lang="tw">
+    <head>
+        <title>
+        
+    Markdown Cheatsheet | Yu-Cheng Huang
+
+        </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+            <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                asciimath2jax: {
+                    delimiters: [['$$','$$']]
+                },
+                tex2jax: {
+                    inlineMath: [['$[', ']$']],
+                    displayMath: [['$[[', ']]$']],
+                }
+            });
+            </script>
+        
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2017/12/09</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/cheatsheet.html">Cheatsheet</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">Markdown Cheatsheet</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/markdown.html">markdown</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/cheatsheet.html">cheatsheet</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#standard-markdown">Standard Markdown</a>
+<ul>
+<li><a href="#inline-markup">Inline Markup</a></li>
+<li><a href="#image">Image</a></li>
+<li><a href="#code-block">Code Block</a></li>
+<li><a href="#block-quote">Block Quote</a></li>
+<li><a href="#table">Table</a></li>
+<li><a href="#hr">Hr</a></li>
+<li><a href="#list">List</a>
+<ul>
+<li><a href="#unordered-list">Unordered List</a></li>
+<li><a href="#ordered-list">Ordered List</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hugo-shortcodes">Hugo Shortcodes</a>
+<ul>
+<li><a href="#highlight">Highlight</a></li>
+<li><a href="#gists">Gists</a></li>
+<li><a href="#figure">Figure</a></li>
+<li><a href="#youtube">Youtube</a></li>
+<li><a href="#tweet">Tweet</a></li>
+</ul></li>
+<li><a href="#custom-shortcodes">Custom Shortcodes</a>
+<ul>
+<li><a href="#jupyter-notebook">Jupyter Notebook</a></li>
+<li><a href="#admonition">Admonition</a></li>
+<li><a href="#color-square">Color Square</a></li>
+<li><a href="#expansion">Expansion</a></li>
+</ul></li>
+<li><a href="#math-formula">Math Formula</a>
+<ul>
+<li><a href="#latex">Latex</a></li>
+<li><a href="#asciimath">AsciiMath</a></li>
+</ul></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="standard-markdown">Standard Markdown</h1>
+
+<h2 id="inline-markup">Inline Markup</h2>
+
+<p>常見的 Markdown 行內標記包含<strong>粗體</strong>、<em>斜體</em> 、<del>刪除</del>、<code>程式碼</code>、Footnote<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> 與<a href="https://example.org/" title="tooltip">超連結</a>。他們使用方法分別為：</p>
+
+<ul>
+<li><strong>粗體</strong> ：<code>**粗體**</code> 或 <code>__粗體__</code>。</li>
+<li><em>斜體</em> ：<code>*斜體*</code> 或 <code>_斜體_</code>。</li>
+<li><del>刪除</del> ：<code>~~刪除~~</code>。</li>
+<li><code>程式碼</code> ：將內容用 ` 包起來。</li>
+<li><sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>：<code>[^id]</code>，其連結的位置為 <code>[^id]: xxx</code>。</li>
+<li><a href="https://example.org/">超連結</a>：<code>[text](link “tooltip&quot;)</code>，<code>&quot;tooltip&quot;</code> 可以不寫。</li>
+</ul>
+
+<p>其中要注意的是斜體後面得有空白，造成中文書寫時會有多餘空白，因此書寫中文時建議使用粗體代替。在這個 theme 中，<strong>所有</strong>的換行都會被保留，這有別於其他 theme，我認為這樣的書寫比較符合我自己的習慣。如果使用本 theme，建議將你的編輯器調成 wrap line 的模式。</p>
+
+<h2 id="image">Image</h2>
+
+<p><img src="https://i.imgur.com/QzfKyxm.jpg" alt="Fedora 26" /></p>
+
+<pre><code>![Fedora 26](https://i.imgur.com/QzfKyxm.jpg)
+</code></pre>
+
+<p>這種圖片寬度固定為 theme 的寬度（預設是 700px）。</p>
+
+<h2 id="code-block">Code Block</h2>
+
+<p>Code Block 一般用來放置一些簡短的、<strong>不需要</strong>顏色渲染的程式碼，例如在 conda 中創造一個虛擬環境的指令為：</p>
+
+<pre><code>conda create -n venv python=3.6
+source activate venv
+</code></pre>
+
+<h2 id="block-quote">Block Quote</h2>
+
+<blockquote>
+<p>Block Quote 一般用來放要強調的東西。
+也可以用來放詩詞等。</p>
+
+<blockquote>
+<p>它可以巢狀使用，但很少用到。也可以包含其他東西，像是 List:
+1. list item 1
+2. list item 2</p>
+</blockquote>
+</blockquote>
+
+<h2 id="table">Table</h2>
+
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="hr">Hr</h2>
+
+<p>分隔線之前的文字</p>
+
+<hr />
+
+<p>分隔線之後的文字</p>
+
+<h2 id="list">List</h2>
+
+<h3 id="unordered-list">Unordered List</h3>
+
+<ul>
+<li>第 1 級</li>
+<li>第 1 級</li>
+<li>another list
+
+<ul>
+<li>第 2 級</li>
+<li>第 2 級</li>
+</ul></li>
+<li>第 1 級</li>
+</ul>
+
+<h3 id="ordered-list">Ordered List</h3>
+
+<ol>
+<li>第 1 級</li>
+<li>第 1 級</li>
+<li>another list
+
+<ol>
+<li>第 2 級</li>
+<li>第 2 級</li>
+</ol></li>
+<li>第 1 級</li>
+</ol>
+
+<h1 id="hugo-shortcodes">Hugo Shortcodes</h1>
+
+<h2 id="highlight">Highlight</h2>
+
+<p>用來顯示顏色渲染的程式碼，可以指定：</p>
+
+<ol>
+<li>顯示行號或模式</li>
+<li>加亮顯示哪些行</li>
+<li>行數起始值</li>
+</ol>
+
+<p>無行號模式：</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">TC</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TC</span><span class="p">):</span>
+    <span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span></code></pre></div>
+
+<p>Inline 模式，方便觀看（尤其在手機上），但不適合複製程式碼（選取時會選到行號）：</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln">199</span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="ln">200</span>
+<span class="hl"><span class="ln">201</span><span class="n">TC</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</span><span class="ln">202</span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TC</span><span class="p">):</span>
+<span class="hl"><span class="ln">203</span>    <span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class="hl"><span class="ln">204</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span><span class="hl"><span class="ln">205</span>        <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+</span><span class="ln">206</span>        <span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span></code></pre></div>
+
+<p>Table 模式：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">199</span><span class="lnt">200</span><span class="hl"><span class="lnt">201</span></span><span class="lnt">202</span><span class="hl"><span class="lnt">203</span></span><span class="hl"><span class="lnt">204</span></span><span class="hl"><span class="lnt">205</span></span><span class="lnt">206</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="hl"><span class="n">TC</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TC</span><span class="p">):</span>
+<span class="hl">    <span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class="hl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span><span class="hl">        <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+</span>        <span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="gists">Gists</h2>
+
+<p>Hugo 內建，可以引入外部 gist：</p>
+
+<script src="//gist.github.com/spf13/7896402.js"></script>
+
+<h2 id="figure">Figure</h2>
+
+
+<figure>
+    
+        <img src="https://i.imgur.com/KdlKPx8.jpg" width="600" />
+    
+    
+    <figcaption>
+        <h4>人類衰退之後</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>與 Image 的差別在於可以指定大小，但仍不能超出這個 theme 的寬度（預設 700px），並且可以指定圖片的 caption。</p>
+
+<h2 id="youtube">Youtube</h2>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/_J73EqmpZ7k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+ </div>
+
+
+<h2 id="tweet">Tweet</h2>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hugo 0.24 Released: Big archetype update + <a href="https://twitter.com/Netlify?ref_src=twsrc%5Etfw">@Netlify</a> _redirects etc. file support<a href="https://t.co/X94FmYDEZJ">https://t.co/X94FmYDEZJ</a> <a href="https://twitter.com/hashtag/gohugo?src=hash&amp;ref_src=twsrc%5Etfw">#gohugo</a> <a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a> <a href="https://twitter.com/spf13?ref_src=twsrc%5Etfw">@spf13</a> <a href="https://twitter.com/bepsays?ref_src=twsrc%5Etfw">@bepsays</a></p>&mdash; GoHugo.io (@GoHugoIO) <a href="https://twitter.com/GoHugoIO/status/877500564405444608?ref_src=twsrc%5Etfw">June 21, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<h1 id="custom-shortcodes">Custom Shortcodes</h1>
+
+<h2 id="jupyter-notebook">Jupyter Notebook</h2>
+
+<p>Jupyter Notebook 是非常常見的程式碼格式，易於分享並重現結果，在 ML 領域中大量被使用。本 theme 支援顯示 notebook，首先透過 <code>nbconvert</code> 將 notebook 轉成 html。</p>
+
+<pre><code>jupyter nbconvert --to html notebook.ipynb
+</code></pre>
+
+<p>將產生的 html 移到與文章相同的資料夾，然後使用 shortcode:</p>
+
+<pre><code>{{&lt; jupyter &quot;notebook.html&quot; &gt;}}
+</code></pre>
+
+<p>結果如下：</p>
+
+<div class="jupyter-notebook">
+    
+    
+        <script defer>
+            function notebook_onload(obj) {
+                var bg = window.getComputedStyle(document.body, null)['background-color']
+                obj.style.height = obj.contentDocument.body.scrollHeight + 'px';
+                obj.contentDocument.body.style.backgroundColor = bg;
+            }
+        </script>
+    
+    
+        <iframe src="markdown-cheatsheet-notebook.html" scrolling="no" onload="notebook_onload(this)"></iframe>
+    
+</div>
+
+<div class="admonition">
+    
+    
+
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #64b5f6">
+        Hint!
+    </span>
+
+    <div class="content"><p>檔名中的空格要 <code>urlize</code> ，即全小寫、空白換成 <code>-</code>！</p>
+</div>
+</div>
+
+<h2 id="admonition">Admonition</h2>
+
+<p>警示窗是好用的東西，可以指定標題與顏色，顏色可以為任意 css 顏色或預定義的顏色。4 個預定義顏色如下：</p>
+
+<div class="admonition">
+    
+    
+
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #f44336">
+        Warning!
+    </span>
+
+    <div class="content"><p>Don&rsquo;t panic! This is predefined color red.</p>
+</div>
+</div>
+
+<div class="admonition">
+    
+    
+
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #64b5f6">
+        Hint!
+    </span>
+
+    <div class="content"><p>Color blue</p>
+</div>
+</div>
+
+<div class="admonition">
+    
+    
+
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #ffc107">
+        title
+    </span>
+
+    <div class="content"><p>Color yellow</p>
+</div>
+</div>
+
+<div class="admonition">
+    
+    
+
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #009688">
+        中文標題
+    </span>
+
+    <div class="content"><p>Color teal</p>
+</div>
+</div>
+
+<h2 id="color-square">Color Square</h2>
+
+<p>You can use this to show some colors <span class="colorsq" style="background-color: #f44336;" title="#f44336"></span>.</p>
+
+<h2 id="expansion">Expansion</h2>
+
+<p>用來放一些隱藏的東西，例如題解的程式碼。但每篇文只支援最多 8 個。</p>
+
+
+
+
+<div class="expansion">
+
+    <input id="ck2" type="checkbox">
+
+    <label id="lb2" for="ck2">
+     Click to Open 
+    </label>
+
+    <div id="in2" class="content">
+        <p>test
+test
+test</p>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="expansion">
+
+    <input id="ck1" type="checkbox">
+
+    <label id="lb1" for="ck1">
+     程式碼 
+    </label>
+
+    <div id="in1" class="content">
+        <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">199</span><span class="lnt">200</span><span class="lnt">201</span><span class="lnt">202</span><span class="lnt">203</span><span class="lnt">204</span><span class="lnt">205</span><span class="lnt">206</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">TC</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TC</span><span class="p">):</span>
+    <span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+
+</div>
+
+<h1 id="math-formula">Math Formula</h1>
+
+<p>數學公式是不可少的。本 theme 支援兩種數學公式表示法：Latex &amp; Asciimath。個人建議盡量使用 Asciimath，表達不了時再轉用 Latex，因為 Asciimath 比 Latex 好寫太多了。</p>
+
+<h2 id="latex">Latex</h2>
+
+<p>Inline Latex code should be wrapped in <code>$[</code> and <code>]$</code>.
+Block Latex code in <code>{{&lt; tex &gt;}}</code> short code.</p>
+
+<p><code>$[N_1]$</code> produces $[N_1]$</p>
+
+<pre><code>{{&lt; tex &gt;}}
+x = \frac{-b \pm \sqrt{c^2 - 4ac}}{2a}
+{{&lt; /tex &gt;}}
+</code></pre>
+
+<p>produces</p>
+
+<div>$[[
+    
+x = \frac{-b \pm \sqrt{c^2 - 4ac}}{2a}
+
+]]$</div>
+
+<h2 id="asciimath">AsciiMath</h2>
+
+<p>Inline AsciiMath code should be wrappedn in <code>$$</code> and <code>$$</code>.
+Block AsciiMath code in <code>{{&lt; am &gt;}}</code> short code.</p>
+
+<p><code>$$N_1$$</code> produces $$N_1$$ .</p>
+
+<pre><code>{{&lt; am &gt;}}
+x = (-b +- sqrt(c^2 - 4ac)) / (2a)
+{{&lt; /am &gt;}}
+</code></pre>
+
+<p>produces</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+    
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$$x = (-b &#43;- sqrt(c^2 - 4ac)) / (2a)$$</div>
+        
+    
+        
+    
+</div>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://example.org/">https://example.org/</a>
+ <a class="footnote-return" href="#fnref:1">↩</a></li>
+</ol>
+</div>
+
+    </div>
+
+    
+</article>
+    <div class="social">
+    <a class="icon facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2famoshyc.github.io%2fblog%2f2017%2fmarkdown-cheatsheet.html" title="Share to Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+    <a class="icon googleplus" target="_blank" href="https://plus.google.com/share?url=http%3a%2f%2famoshyc.github.io%2fblog%2f2017%2fmarkdown-cheatsheet.html" title="Share to Google+">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M5.09 7.273v1.745h2.89c-.116.75-.873 2.197-2.887 2.197-1.737 0-3.155-1.44-3.155-3.215S3.353 4.785 5.09 4.785c.99 0 1.652.422 2.03.786l1.382-1.33c-.887-.83-2.037-1.33-3.41-1.33C2.275 2.91 0 5.19 0 8s2.276 5.09 5.09 5.09c2.94 0 4.888-2.065 4.888-4.974 0-.334-.036-.59-.08-.843H5.09zm10.91 0h-1.455V5.818H13.09v1.455h-1.454v1.454h1.455v1.455h1.46V8.727H16"
+            />
+        </svg>
+    </a>
+    <a class="icon twitter" target="_blank" href="https://twitter.com/home?status=http%3a%2f%2famoshyc.github.io%2fblog%2f2017%2fmarkdown-cheatsheet.html" title="Share to Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+</div>
+
+        </main>
+
+        
+        <footer>
+    <div class="hr"></div>
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+</footer>
+</body>
+
+</html>
