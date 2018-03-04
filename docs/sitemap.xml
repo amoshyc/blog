@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://amoshyc.github.io/blog/abouts/license.html</loc>
+    <lastmod>2018-03-04T20:47:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/abouts/site.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/abouts/me.html</loc>
     <lastmod>2018-03-04T20:38:34+08:00</lastmod>
   </url>
@@ -55,8 +65,14 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/categories/about.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/abouts.html</loc>
-    <lastmod>2018-03-04T20:38:34+08:00</lastmod>
+    <lastmod>2018-03-04T20:47:34+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -68,6 +84,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/categories.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -86,6 +103,12 @@
   <url>
     <loc>http://amoshyc.github.io/blog/tags/csh.html</loc>
     <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/docs.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -114,8 +137,20 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/tags/github.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/tags/gmail.html</loc>
     <lastmod>2018-02-22T17:32:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/hugo.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -180,6 +215,12 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/tags/site.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/tags/smtp.html</loc>
     <lastmod>2018-02-22T17:32:32+08:00</lastmod>
     <priority>0</priority>
@@ -210,8 +251,26 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/tags/theme.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/categories/tutorial.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/</loc>
-    <lastmod>2018-03-04T20:38:34+08:00</lastmod>
+    <lastmod>2018-03-04T20:47:34+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/zmd.html</loc>
+    <lastmod>2018-03-04T20:45:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   

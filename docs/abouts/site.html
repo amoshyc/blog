@@ -1,0 +1,211 @@
+<html lang="tw">
+    <head>
+        <title>
+        
+    About Site | Yu-Cheng Huang
+
+        </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/03/04</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/about.html">About</a>
+                
+                   , 
+                   <a href="http://amoshyc.github.io/blog/categories/tutorial.html">Tutorial</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">About Site</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/hugo.html">hugo</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/github.html">github</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/zmd.html">zmd</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/theme.html">theme</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/site.html">site</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/docs.html">docs</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#tl-dr">TL;DR</a></li>
+<li><a href="#初使化">初使化</a></li>
+<li><a href="#設定-github">設定 Github</a></li>
+<li><a href="#設定-theme">設定 theme</a>
+<ul>
+<li><a href="#下載">下載</a></li>
+<li><a href="#改-config">改 config</a></li>
+<li><a href="#改-archetypes">改 archetypes</a></li>
+<li><a href="#abouts">abouts</a></li>
+<li><a href="#與-github-的結合">與 Github 的結合</a></li>
+</ul></li>
+<li><a href="#what-s-next">What&rsquo;s Next</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="tl-dr">TL;DR</h1>
+
+<p>這個網站是使用 <a href="https://gohugo.io/">hugo</a> 架設，使用我自己寫的 theme。在此我記錄一下架設的步驟，主要有三個：<strong>初使化</strong>、<strong>設定 Github</strong>、<strong>設定 theme</strong>。另外，因為這個 theme 我是設計給自己使用，所以有一些地方寫得比較死，如果你有任何建議，歡迎 PR。這個網站架設在 Github Page 上，並使用同一個 repo 同時儲存與管理原始碼（你寫的 md 與 hugo 的設定檔）與渲染出來的 html。</p>
+
+<h1 id="初使化">初使化</h1>
+
+<ol>
+<li><code>hugo new site &lt;name&gt;</code>：初化化一個 hugo 專案。</li>
+<li><code>cd &lt;name&gt;</code>：之後所有操作都是在這個資料夾下。</li>
+<li><code>git init</code>：讓這專案使用 git 管理。</li>
+</ol>
+
+<h1 id="設定-github">設定 Github</h1>
+
+<ol>
+<li>在 Github 新增一個 repo，並在這個 repo 的 Setting 中，將 Github Page 設為從 docs/ 顯示。</li>
+<li><code>git remote add origin &lt;repo&gt;</code>：<repo> 是 1. 的 SSH/HTTPS 位置。這個指令將專案的 orgin 設為 1. 新增的 repo。</li>
+<li><code>git pull origin master</code>：將 LICENSE 等預設內容拉下來。</li>
+</ol>
+
+<h1 id="設定-theme">設定 theme</h1>
+
+<p>分成 5 個小步驟。</p>
+
+<h2 id="下載">下載</h2>
+
+<p>透過 <code>git submodule add https://github.com/amoshyc/hugo-zmd-theme themes/zmd</code> 將我的 zmd theme 複製下來，儲存在 <code>theme/zmd</code>，並做為這個專案的一個 submodule。當然，你可以直接用我 theme 的 zip，但這會造成一旦 theme 更新，你無法透過 <code>git pull</code> 更新，得自己手動更新。</p>
+
+<h2 id="改-config">改 config</h2>
+
+<p>將 zmd 下的 <code>exampleSite/config.toml</code> 的內容加到你的 <code>config.toml</code> 中。裡面有我的 theme 的預設參數，如果你的 <code>config.toml</code> 中已經有相同的欄位，我是建議直接改掉，來確保 zmd theme 可以正確運作。所以在操作前，先備份你的 <code>config.toml</code> 會是不錯的選擇。</p>
+
+<h2 id="改-archetypes">改 archetypes</h2>
+
+<p>將 <code>exampleSite/archetypes/default.md</code> 的所有檔案複製到你的 <code>archetypes/default.md</code> 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。因為你的 archetypes 的優先權比 theme 中的 archetypes 高，所以這一步你也可以改成刪掉你的 <code>archetypes/default.md</code>。刪掉後 hugo 渲染時會去使用 theme 的 archetypes。</p>
+
+<h2 id="abouts">abouts</h2>
+
+<p>將 <code>themes/zmd/exampleSite/content/</code> 下的內容複製到你的 <code>content/</code> 下，或你也可以彷造同樣的結構創立相同檔案。其中 <code>abouts/</code> 是一個特殊的資料夾，裡面有一個檔案 <code>me.jpg</code> 是必不可少的，請將之換成你的圖片。另外，所有在 <code>abouts/</code> 下的文章都會被特殊分類，顯示於網站的 ABOUT 下。</p>
+
+<h2 id="與-github-的結合">與 Github 的結合</h2>
+
+<p>如果你前面都沒有出錯，那當你下指令 <code>hugo</code> 時，HTML 會被產生至 <code>&lt;name&gt;/docs/</code> 資料夾中。並且，你這時可以透過平常的 <code>git add</code>, <code>git commit</code>, <code>git push</code> 流程將你整個專案推到 Github 上。有時我並不想每次都在想 commit message，畢竟就是寫個文章或改改字，所以我建立了 makefile 來加速這個流程：</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">MSG</span> <span class="o">=</span> <span class="s2">&#34;Build at </span><span class="k">$(</span>shell /bin/date <span class="s1">&#39;+%Y-%m-%d %H-%M-%S&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
+upload: 
+	rm -rf ./docs <span class="o">&amp;&amp;</span> hugo
+	git add -A
+	git commit -m <span class="k">$(</span>MSG<span class="k">)</span>
+	git push origin master</code></pre></div>
+
+<p>每次要推資料至 Github 時就只要下 <code>make upload</code> 即可。</p>
+
+<h1 id="what-s-next">What&rsquo;s Next</h1>
+
+<p>到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。
+關於 hugo 的使用可以參考 <a href="https://example.org">官網</a> 或我的 <a href="https://example.org">教學</a>。
+關於 zmd theme 的詳細設定可以參考 <a href="https://example.org">這裡</a>。</p>
+
+    </div>
+
+    
+</article>
+    <div class="social">
+    <a class="icon facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2famoshyc.github.io%2fblog%2fabouts%2fsite.html" title="Share to Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+    <a class="icon googleplus" target="_blank" href="https://plus.google.com/share?url=http%3a%2f%2famoshyc.github.io%2fblog%2fabouts%2fsite.html" title="Share to Google+">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M5.09 7.273v1.745h2.89c-.116.75-.873 2.197-2.887 2.197-1.737 0-3.155-1.44-3.155-3.215S3.353 4.785 5.09 4.785c.99 0 1.652.422 2.03.786l1.382-1.33c-.887-.83-2.037-1.33-3.41-1.33C2.275 2.91 0 5.19 0 8s2.276 5.09 5.09 5.09c2.94 0 4.888-2.065 4.888-4.974 0-.334-.036-.59-.08-.843H5.09zm10.91 0h-1.455V5.818H13.09v1.455h-1.454v1.454h1.455v1.455h1.46V8.727H16"
+            />
+        </svg>
+    </a>
+    <a class="icon twitter" target="_blank" href="https://twitter.com/home?status=http%3a%2f%2famoshyc.github.io%2fblog%2fabouts%2fsite.html" title="Share to Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
+            stroke-miterlimit="1.414">
+            <path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+                fill-rule="nonzero" />
+        </svg>
+    </a>
+</div>
+
+        </main>
+
+        
+        <footer>
+    <div class="hr"></div>
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+</footer>
+</body>
+
+</html>

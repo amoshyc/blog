@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Abouts on Yu-Cheng Huang</title>
-    <link>http://amoshyc.github.io/blog/abouts.html</link>
-    <description>Recent content in Abouts on Yu-Cheng Huang</description>
+    <title>Tutorial on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/categories/tutorial.html</link>
+    <description>Recent content in Tutorial on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Mar 2018 20:47:34 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Mar 2018 20:45:49 +0800</lastBuildDate>
     
-	<atom:link href="http://amoshyc.github.io/blog/abouts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://amoshyc.github.io/blog/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>License</title>
-      <link>http://amoshyc.github.io/blog/abouts/license.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:47:34 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/abouts/license.html</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>About Site</title>
@@ -28,15 +19,6 @@
       <guid>http://amoshyc.github.io/blog/abouts/site.html</guid>
       <description>TL;DR 這個網站是使用 hugo 架設，使用我自己寫的 theme。在此我記錄一下架設的步驟，主要有三個：初使化、設定 Github、設定 theme。另外，因為這個 theme 我是設計給自己使用，所以有一些地方寫得比較死，如果你有任何建議，歡迎 PR。這個網站架設在 Github Page 上，並使用同一個 repo 同時儲存與管理原始碼（你寫的 md 與 hugo 的設定檔）與渲染出來的 html。
 初使化  hugo new site &amp;lt;name&amp;gt;：初化化一個 hugo 專案。 cd &amp;lt;name&amp;gt;：之後所有操作都是在這個資料夾下。 git init：讓這專案使用 git 管理。  設定 Github  在 Github 新增一個 repo，並在這個 repo 的 Setting 中，將 Github Page 設為從 docs/ 顯示。 git remote add origin &amp;lt;repo&amp;gt;： 是 1. 的 SSH/HTTPS 位置。這個指令將專案的 orgin 設為 1. 新增的 repo。 git pull origin master：將 LICENSE 等預設內容拉下來。  設定 theme 分成 5 個小步驟。</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://amoshyc.github.io/blog/abouts/me.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:38:34 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/abouts/me.html</guid>
-      <description></description>
     </item>
     
   </channel>
