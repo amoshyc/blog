@@ -20,7 +20,7 @@ math: false
 # 設定 Github
 
 1. 在 Github 新增一個 repo，並在這個 repo 的 Setting 中，將 Github Page 設為從 docs/ 顯示。
-2. `git remote add origin <repo>`：<repo> 是 1. 的 SSH/HTTPS 位置。這個指令將專案的 orgin 設為 1. 新增的 repo。
+2. `git remote add origin <repo>`：<repo> 是 1. 的 SSH/HTTPS 位置。這個指令將專案的 origin 設為剛新增的 repo。
 3. `git pull origin master`：將 LICENSE 等預設內容拉下來。
 
 # 設定 theme
