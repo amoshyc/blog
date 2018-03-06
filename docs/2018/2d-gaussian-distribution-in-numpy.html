@@ -139,54 +139,60 @@
 </div>
 </div>
 
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ln"> 1</span><span class="k">def</span> <span class="nf">gaussian2d</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-<span class="ln"> 2</span>    <span class="sa"></span><span class="s2">&#34;&#34;&#34;Generate 2d gaussian distribution coordinates and values.
-</span><span class="ln"> 3</span><span class="s2">
-</span><span class="ln"> 4</span><span class="s2">    Parameters
-</span><span class="ln"> 5</span><span class="s2">    --------------
-</span><span class="ln"> 6</span><span class="s2">    mu: tuple of int
-</span><span class="ln"> 7</span><span class="s2">        Coordinates of center, (mu_r, mu_c)
-</span><span class="ln"> 8</span><span class="s2">    sigma: tuple of int
-</span><span class="ln"> 9</span><span class="s2">        Intensity of the distribution, (sigma_r, sigma_c)
-</span><span class="ln">10</span><span class="s2">    shape: tuple of int, optional
-</span><span class="ln">11</span><span class="s2">        Image shape which is used to determine the maximum extent
-</span><span class="ln">12</span><span class="s2">        pixel coordinates, (r, c)
-</span><span class="ln">13</span><span class="s2">
-</span><span class="ln">14</span><span class="s2">    Returns
-</span><span class="ln">15</span><span class="s2">    --------------
-</span><span class="ln">16</span><span class="s2">    rr, cc: (N,) ndarray of int
-</span><span class="ln">17</span><span class="s2">        Indices of pixels that belong to the distribution
-</span><span class="ln">18</span><span class="s2">    gaussian: (N, ) ndarray of float
-</span><span class="ln">19</span><span class="s2">        Values of corresponding position. Ranges from 0.0 to 1.0.
-</span><span class="ln">20</span><span class="s2">
-</span><span class="ln">21</span><span class="s2">    .. warning::
-</span><span class="ln">22</span><span class="s2">
-</span><span class="ln">23</span><span class="s2">        This function does NOT support mu, sigma as double.
-</span><span class="ln">24</span><span class="s2">    &#34;&#34;&#34;</span>
-<span class="ln">25</span>    <span class="n">mu_r</span><span class="p">,</span> <span class="n">mu_c</span> <span class="o">=</span> <span class="n">mu</span>
-<span class="ln">26</span>    <span class="n">sigma_r</span><span class="p">,</span> <span class="n">sigma_c</span> <span class="o">=</span> <span class="n">sigma</span>
-<span class="ln">27</span>
-<span class="ln">28</span>    <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">sigma_r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="ln">29</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_r</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu_r</span>
-<span class="ln">30</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_c</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu_c</span>
-<span class="ln">31</span>    <span class="k">if</span> <span class="n">shape</span><span class="p">:</span>
-<span class="ln">32</span>        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="ln">33</span>        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="ln">34</span>
-<span class="ln">35</span>    <span class="n">coef_r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="ln">36</span>    <span class="n">coef_c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="ln">37</span>    <span class="n">exp_r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_r</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">mu_r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="ln">38</span>    <span class="n">exp_c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">mu_c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="ln">39</span>
-<span class="ln">40</span>    <span class="n">gr</span> <span class="o">=</span> <span class="n">coef_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">exp_r</span><span class="p">)</span>
-<span class="ln">41</span>    <span class="n">gc</span> <span class="o">=</span> <span class="n">coef_c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">exp_c</span><span class="p">)</span>
-<span class="ln">42</span>    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">gc</span><span class="p">)</span>
-<span class="ln">43</span>
-<span class="ln">44</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="ln">45</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
-<span class="ln">46</span>    <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
-<span class="ln">47</span>    <span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
-<span class="ln">48</span>    <span class="k">return</span> <span class="n">rr</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">cc</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">g</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span><span class="lnt">28</span><span class="lnt">29</span><span class="lnt">30</span><span class="lnt">31</span><span class="lnt">32</span><span class="lnt">33</span><span class="lnt">34</span><span class="lnt">35</span><span class="lnt">36</span><span class="lnt">37</span><span class="lnt">38</span><span class="lnt">39</span><span class="lnt">40</span><span class="lnt">41</span><span class="lnt">42</span><span class="lnt">43</span><span class="lnt">44</span><span class="lnt">45</span><span class="lnt">46</span><span class="lnt">47</span><span class="lnt">48</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">gaussian2d</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sa"></span><span class="s2">&#34;&#34;&#34;Generate 2d gaussian distribution coordinates and values.
+</span><span class="s2">
+</span><span class="s2">    Parameters
+</span><span class="s2">    --------------
+</span><span class="s2">    mu: tuple of int
+</span><span class="s2">        Coordinates of center, (mu_r, mu_c)
+</span><span class="s2">    sigma: tuple of int
+</span><span class="s2">        Intensity of the distribution, (sigma_r, sigma_c)
+</span><span class="s2">    shape: tuple of int, optional
+</span><span class="s2">        Image shape which is used to determine the maximum extent
+</span><span class="s2">        pixel coordinates, (r, c)
+</span><span class="s2">
+</span><span class="s2">    Returns
+</span><span class="s2">    --------------
+</span><span class="s2">    rr, cc: (N,) ndarray of int
+</span><span class="s2">        Indices of pixels that belong to the distribution
+</span><span class="s2">    gaussian: (N, ) ndarray of float
+</span><span class="s2">        Values of corresponding position. Ranges from 0.0 to 1.0.
+</span><span class="s2">
+</span><span class="s2">    .. warning::
+</span><span class="s2">
+</span><span class="s2">        This function does NOT support mu, sigma as double.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">mu_r</span><span class="p">,</span> <span class="n">mu_c</span> <span class="o">=</span> <span class="n">mu</span>
+    <span class="n">sigma_r</span><span class="p">,</span> <span class="n">sigma_c</span> <span class="o">=</span> <span class="n">sigma</span>
+
+    <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">sigma_r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_r</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu_r</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_c</span><span class="p">,</span> <span class="o">+</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu_c</span>
+    <span class="k">if</span> <span class="n">shape</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">coef_r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="n">coef_c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="n">exp_r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_r</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">mu_r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">exp_c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">mu_c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">gr</span> <span class="o">=</span> <span class="n">coef_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">exp_r</span><span class="p">)</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">coef_c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">exp_c</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">gc</span><span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">rr</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">cc</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">g</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
 
 <h1 id="範例">範例</h1>
 

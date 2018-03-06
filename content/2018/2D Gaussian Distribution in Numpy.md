@@ -24,7 +24,7 @@ math: true
 此函式不支援 double 型態的 mu 與 sigma！
 {{% /admonition %}}
 
-{{< highlight python "linenos=inline,noclasses=false" >}}
+{{< highlight python "linenos=table,noclasses=false" >}}
 def gaussian2d(mu, sigma, shape=None):
     """Generate 2d gaussian distribution coordinates and values.
 
