@@ -16,7 +16,7 @@ math: true
 
 # 實作原理
 
-二維高斯分佈就是兩個一維高斯分佈取外積。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [-3sigma, +3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 `np.outer` 即為所求。
+二維高斯分佈就是兩個一維高斯分佈取[外積](https://en.wikipedia.org/wiki/Outer_product#Definition_(matrix_multiplication))。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [sigma-3sigma, sigma+3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 `np.outer` 即為所求。
 
 # 程式碼
 

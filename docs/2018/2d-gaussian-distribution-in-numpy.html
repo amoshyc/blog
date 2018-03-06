@@ -113,7 +113,7 @@
 
 <h1 id="實作原理">實作原理</h1>
 
-<p>二維高斯分佈就是兩個一維高斯分佈取外積。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [-3sigma, +3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 <code>np.outer</code> 即為所求。</p>
+<p>二維高斯分佈就是兩個一維高斯分佈取<a href="https://en.wikipedia.org/wiki/Outer_product#Definition_(matrix_multiplication)">外積</a>。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [sigma-3sigma, sigma+3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 <code>np.outer</code> 即為所求。</p>
 
 <h1 id="程式碼">程式碼</h1>
 
