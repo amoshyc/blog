@@ -56,8 +56,8 @@ def gaussian2d(mu, sigma, shape=None):
     r = np.arange(-3 * sigma_r, +3 * sigma_r + 1) + mu_r
     c = np.arange(-3 * sigma_c, +3 * sigma_c + 1) + mu_c
     if shape:
-        r = np.clip(r, 0, shape[0])
-        c = np.clip(c, 0, shape[1])
+        r = np.clip(r, 0, shape[0] - 1)
+        c = np.clip(c, 0, shape[1] - 1)
 
     coef_r = 1 / (sigma_r * np.sqrt(2 * np.pi))
     coef_c = 1 / (sigma_c * np.sqrt(2 * np.pi))
