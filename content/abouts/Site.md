@@ -1,7 +1,7 @@
 ---
 title: "About Site"
 date: 2018-03-04T20:45:49+08:00
-categories: ["Tutorial"]
+categories: ["Misc."]
 tags: ["hugo", "github", "zmd", "theme", "site", "docs"]
 toc: true
 math: false

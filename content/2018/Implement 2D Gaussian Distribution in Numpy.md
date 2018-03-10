@@ -1,5 +1,5 @@
 ---
-title: "Numpy 中二維高斯分佈"
+title: "Numpy 中實現二維高斯分佈"
 date: 2018-03-03T15:46:53+08:00
 categories: ["Snippet"]
 tags: ["2d", "gaussian", "numpy", "normal"]
@@ -7,7 +7,7 @@ toc: true
 math: true
 ---
 
-# 前提提要
+# 前情
 
 最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 [^1] [^2] 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈來指示位置。但我翻了一下文檔，`numpy` 似乎沒有提供**生成**二維高斯分佈的函式，只提供從高斯分佈**取樣**的函式，於是我模彷了 `skimage.draw` 的 API，寫了一個函式。
 
