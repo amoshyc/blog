@@ -115,7 +115,7 @@ for _ in range(TC):
         cards.append(set(nums))
 {{< / highlight >}}
 
-Inline 模式，方便觀看（尤其在手機上），但不適合複製程式碼（選取時會選到行號）：
+Inline 模式，不適合複製程式碼，會選取到行號，建議用在不想給別人複製的程式碼上：
 
 {{< highlight python "linenos=inline,hl_lines=3 5-7,linenostart=199,noclasses=false" >}}
 from pprint import pprint
