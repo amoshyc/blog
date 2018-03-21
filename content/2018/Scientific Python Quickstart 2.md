@@ -169,9 +169,7 @@ pip install matplotlib
 conda install -c anaconda matplotlib -n <venv>
 ```
 
-預設使用 tkinter 作為 backend，如果要搭配 Jupyter 使用，可以使用 Jupyter 的 Magic: `%matplotlib inline`
-兩套通行的 API，一套模彷 Matlab，一套是 OOP，我推薦使用後者。
-關於這個的討論可以參考 [這篇文章](http://pbpython.com/effective-matplotlib.html) 與在 Hacker News 上引起的 [討論](https://news.ycombinator.com/item?id=14668706)。
+預設使用 tkinter 作為 backend，如果要搭配 Jupyter 使用，可以使用 Jupyter 的 Magic: `%matplotlib inline`。Matplotlib 有兩套通行的 API，一套模彷 Matlab，一套是 OOP，我推薦使用後者。關於哪一種比較適合的討論可以參考 [這篇文章](http://pbpython.com/effective-matplotlib.html) 與這篇文章在 Hacker News 上引起的 [討論](https://news.ycombinator.com/item?id=14668706)。
 
 {{< highlight py "linenos=inline,noclasses=false" >}}
 import numpy as np
@@ -291,6 +289,67 @@ plt.show()
 {{< /highlight >}}
 
 ![Imgur](https://i.imgur.com/YZkATZc.png)
+
+
+# Pandas
+
+Python Data Analysis Library.
+並提供了類似 SQL(Groupby, Aggregate) 的 API 來處理資料。
+通常處理跟 csv 格式的資料。
+
+```
+pip install pandas
+conda install -c anaconda pandas -n <venv>
+```
+
+假設某個 model 訓練的 `log.csv`
+```
+epoch,loss,val_loss
+0,0.23864770321934312,0.21966337550569465
+1,0.2220521014597681,0.21648829954641838
+2,0.2085989675036183,0.20305737356344858
+3,0.19611482432595007,0.19096619166709758
+4,0.18444789283805424,0.17433363806318353
+5,0.17353567122309296,0.16783567435211605
+6,0.16323213500005226,0.15828283075933103
+7,0.15361370780953648,0.14617725710074106
+8,0.14468227299275224,0.13705951085797063
+9,0.13636652407822786,0.13190272671205025
+10,0.12863782531133408,0.12024934286320652
+11,0.12145082045484472,0.11333680125298323
+12,0.11468735199283671,0.10783445200434437
+13,0.10838553005898441,0.10270808609547438
+14,0.10251046979316959,0.10072824579698068
+15,0.09707315804229842,0.0883282607904187
+```
+
+{{< highlight py "linenos=inline,noclasses=false" >}}
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+
+import pandas as pd
+
+df = pd.read_csv('./log.csv')   # a DataFrame
+print(df.head())
+#    epoch      loss  val_loss
+# 0      0  0.238648  0.219663
+# 1      1  0.222052  0.216488
+# 2      2  0.208599  0.203057
+# 3      3  0.196115  0.190966
+# 4      4  0.184448  0.174334
+
+fig, ax = plt.subplots(dpi=150)
+df = df[['loss', 'val_loss']]
+df.plot(kind='line', ax=ax)
+ax.set_xlabel('epoch')
+ax.set_ylabel('mse')
+fig.tight_layout()
+plt.show()
+{{< /highlight >}}
+
+
+![Imgur](https://i.imgur.com/PupLW6Z.png)
+
 
 
 # Pathlib

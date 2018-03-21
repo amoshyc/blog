@@ -257,6 +257,46 @@ else:
     pass
 {{< /highlight >}}
 
+`==` 與 `is` 的差別在於 `==` 是比較值是不是相同的；而 `is` 是比較是不是指向記憶體中同一個物件，即他們的 `id()` 是不是相同的。如果你寫過 javascript，這個相同於 `==` 與 `===`。
+
+{{< highlight python "linenos=table,noclasses=false" >}}
+a = 1000
+b = 1000
+
+a == b              # True
+a is b              # False
+id(a) == id(b)      # False
+
+b = a
+
+a == b              # True
+a is b              # True
+id(a) == id(b)      # True
+{{< /highlight >}}
+
+`is` 的比較速度比 `==` 快上許多，如果再綜合之前所說的，Python 會將 -5 ~ 256 這幾個值都先建好物件，那如果我們知道變數的值在這個範圍，是可以用 `is` 來取代 `==` 的，但強烈 **不建議** 這麼做，因為如果一不小心，變數的值超出這個範圍，你的程式就壞掉了，而且這個範圍會隨著你的平臺，使用的 python 版本而變化。
+
+唯一的例外是測試一個變數是不是 `None` 時，`None` 也是一個常駐記憶體的常量，因為每個 python 版本都一定會這個變數，因為在這個情況下，我們會使用 `is` 而不是 `==`。
+
+{{< highlight python "linenos=table,noclasses=false" >}}
+a = None
+b = None
+
+a == b              # True
+a is b              # True
+id(a) == id(b)      # True
+a == None
+{{< /highlight >}}
+
+所以程式碼中常會看到
+
+{{< highlight python "linenos=table,noclasses=false" >}}
+if xxx is None:
+    pass
+
+if xxx is not None:
+    pass
+{{< /highlight >}}
 
 ## For, While
 
@@ -479,10 +519,10 @@ class Classifier(object):
         self.var1 = var
         self.var2 = None
 
-    def publicMethod(self, x):
+    def public_method(self, x):
         return self.__privateMethod() + x
 
-    def __privateMethod(self):
+    def __private_method(self):
         return self.var1
 
 clf = Classifier(var=2)
@@ -593,7 +633,56 @@ trainer.start()
 {{< /highlight >}}
 
 
-# Examples
+# PEP 8
+
+Style Guide.
+
+{{< highlight py "linenos=table,noclasses=false" >}}
+
+class ClassName(object):
+    def __init__(self):
+        pass
+
+    def public_method(self):
+        pass
+
+    def __private_method(self):
+        pass
+
+def function_name(...):
+    CONSTANT_VAR = 1
+    local_var = 1
+    dir_ = 2
+
+{{< /highlight >}}
+
+一些常見的 linters 有 `autopep8`, `yapf`。
+
+# Exception
+
+{{< highlight py "linenos=table,noclasses=false" >}}
+try:
+    f = open(...)
+except FileNotFoundError as e:
+    print(e)
+finally:
+    pass
+{{< /highlight >}}
+
+{{< highlight py "linenos=table,noclasses=false" >}}
+def f(x):
+    if x is None:
+        raise Exception('abc')
+
+f(None)
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+#   File "<stdin>", line 3, in f
+# Exception: abc
+{{< /highlight >}}
+
+
+# Example
 
 從 `data.rec` 中取出各筆資料，存成 json 格式。
 

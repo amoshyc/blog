@@ -91,6 +91,7 @@
 <li><a href="#scikit-image">Scikit-Image</a></li>
 <li><a href="#opencv">OpenCV</a></li>
 <li><a href="#scikt-learn">Scikt-learn</a></li>
+<li><a href="#pandas">Pandas</a></li>
 <li><a href="#pathlib">Pathlib</a></li>
 <li><a href="#homework">Homework</a></li>
 </ul>
@@ -253,9 +254,7 @@ conda install -c anaconda pillow -n &lt;venv&gt;
 conda install -c anaconda matplotlib -n &lt;venv&gt;
 </code></pre>
 
-<p>預設使用 tkinter 作為 backend，如果要搭配 Jupyter 使用，可以使用 Jupyter 的 Magic: <code>%matplotlib inline</code>
-兩套通行的 API，一套模彷 Matlab，一套是 OOP，我推薦使用後者。
-關於這個的討論可以參考 <a href="http://pbpython.com/effective-matplotlib.html">這篇文章</a> 與在 Hacker News 上引起的 <a href="https://news.ycombinator.com/item?id=14668706">討論</a>。</p>
+<p>預設使用 tkinter 作為 backend，如果要搭配 Jupyter 使用，可以使用 Jupyter 的 Magic: <code>%matplotlib inline</code>。Matplotlib 有兩套通行的 API，一套模彷 Matlab，一套是 OOP，我推薦使用後者。關於哪一種比較適合的討論可以參考 <a href="http://pbpython.com/effective-matplotlib.html">這篇文章</a> 與這篇文章在 Hacker News 上引起的 <a href="https://news.ycombinator.com/item?id=14668706">討論</a>。</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="ln"> 2</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -287,7 +286,7 @@ conda install -c anaconda matplotlib -n &lt;venv&gt;
 conda install -c anaconda scikit-image -n &lt;venv&gt;
 </code></pre>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># since default style is ugly</span>
 <span class="ln"> 3</span>
 <span class="ln"> 4</span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
@@ -309,7 +308,7 @@ conda install -c anaconda scikit-image -n &lt;venv&gt;
 <span class="ln">20</span>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
 <span class="ln">21</span>        <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="ln">22</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="ln">23</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div></p>
+<span class="ln">23</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
 <p><img src="https://i.imgur.com/vkEglfX.png" alt="Imgur" /></p>
 
@@ -363,11 +362,66 @@ conda install -c anaconda scikit-learn -n &lt;venv&gt;
 
 <p><img src="https://i.imgur.com/YZkATZc.png" alt="Imgur" /></p>
 
+<h1 id="pandas">Pandas</h1>
+
+<p>Python Data Analysis Library.
+並提供了類似 SQL(Groupby, Aggregate) 的 API 來處理資料。
+通常處理跟 csv 格式的資料。</p>
+
+<pre><code>pip install pandas
+conda install -c anaconda pandas -n &lt;venv&gt;
+</code></pre>
+
+<p>假設某個 model 訓練的 <code>log.csv</code></p>
+
+<pre><code>epoch,loss,val_loss
+0,0.23864770321934312,0.21966337550569465
+1,0.2220521014597681,0.21648829954641838
+2,0.2085989675036183,0.20305737356344858
+3,0.19611482432595007,0.19096619166709758
+4,0.18444789283805424,0.17433363806318353
+5,0.17353567122309296,0.16783567435211605
+6,0.16323213500005226,0.15828283075933103
+7,0.15361370780953648,0.14617725710074106
+8,0.14468227299275224,0.13705951085797063
+9,0.13636652407822786,0.13190272671205025
+10,0.12863782531133408,0.12024934286320652
+11,0.12145082045484472,0.11333680125298323
+12,0.11468735199283671,0.10783445200434437
+13,0.10838553005898441,0.10270808609547438
+14,0.10251046979316959,0.10072824579698068
+15,0.09707315804229842,0.0883282607904187
+</code></pre>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="ln"> 5</span>
+<span class="ln"> 6</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./log.csv&#39;</span><span class="p">)</span>   <span class="c1"># a DataFrame</span>
+<span class="ln"> 7</span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="ln"> 8</span><span class="c1">#    epoch      loss  val_loss</span>
+<span class="ln"> 9</span><span class="c1"># 0      0  0.238648  0.219663</span>
+<span class="ln">10</span><span class="c1"># 1      1  0.222052  0.216488</span>
+<span class="ln">11</span><span class="c1"># 2      2  0.208599  0.203057</span>
+<span class="ln">12</span><span class="c1"># 3      3  0.196115  0.190966</span>
+<span class="ln">13</span><span class="c1"># 4      4  0.184448  0.174334</span>
+<span class="ln">14</span>
+<span class="ln">15</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="ln">16</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;val_loss&#39;</span><span class="p">]]</span>
+<span class="ln">17</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="ln">18</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;epoch&#39;</span><span class="p">)</span>
+<span class="ln">19</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
+<span class="ln">20</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="ln">21</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div></p>
+
+<p><img src="https://i.imgur.com/PupLW6Z.png" alt="Imgur" /></p>
+
 <h1 id="pathlib">Pathlib</h1>
 
 <p>處理路徑的函式庫，是標準函式庫的一部份，不需要裝，但只支援 python 3.4+。仍然是一個新興的函式庫，使用的人不多，因為許多函式庫想同時支援各個版本的 python。</p>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="ln"> 2</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="ln"> 3</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span>
 <span class="ln"> 4</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
@@ -388,7 +442,7 @@ conda install -c anaconda scikit-learn -n &lt;venv&gt;
 <span class="ln">19</span><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;**/*.py&#39;</span><span class="p">)))[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="ln">20</span><span class="p">[</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/source/conf.py&#39;</span><span class="p">),</span> 
 <span class="ln">21</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html.py&#39;</span><span class="p">),</span> 
-<span class="ln">22</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html4.py&#39;</span><span class="p">)]</span></code></pre></div></p>
+<span class="ln">22</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html4.py&#39;</span><span class="p">)]</span></code></pre></div>
 
 <h1 id="homework">Homework</h1>
 

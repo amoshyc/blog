@@ -124,7 +124,9 @@
 <li><a href="#from-import-as">from &hellip; import &hellip; as &hellip;</a></li>
 <li><a href="#good-practice">Good Practice</a></li>
 </ul></li>
-<li><a href="#examples">Examples</a></li>
+<li><a href="#pep-8">PEP 8</a></li>
+<li><a href="#exception">Exception</a></li>
+<li><a href="#example">Example</a></li>
 </ul>
 </nav>
             </div>
@@ -460,6 +462,59 @@
 </div>
 </div>
 
+<p><code>==</code> 與 <code>is</code> 的差別在於 <code>==</code> 是比較值是不是相同的；而 <code>is</code> 是比較是不是指向記憶體中同一個物件，即他們的 <code>id()</code> 是不是相同的。如果你寫過 javascript，這個相同於 <code>==</code> 與 <code>===</code>。</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>              <span class="c1"># True</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>              <span class="c1"># False</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>      <span class="c1"># False</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>              <span class="c1"># True</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>              <span class="c1"># True</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>      <span class="c1"># True</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p><code>is</code> 的比較速度比 <code>==</code> 快上許多，如果再綜合之前所說的，Python 會將 -5 ~ 256 這幾個值都先建好物件，那如果我們知道變數的值在這個範圍，是可以用 <code>is</code> 來取代 <code>==</code> 的，但強烈 <strong>不建議</strong> 這麼做，因為如果一不小心，變數的值超出這個範圍，你的程式就壞掉了，而且這個範圍會隨著你的平臺，使用的 python 版本而變化。</p>
+
+<p>唯一的例外是測試一個變數是不是 <code>None</code> 時，<code>None</code> 也是一個常駐記憶體的常量，因為每個 python 版本都一定會這個變數，因為在這個情況下，我們會使用 <code>is</code> 而不是 <code>==</code>。</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">b</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>              <span class="c1"># True</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>              <span class="c1"># True</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>      <span class="c1"># True</span>
+<span class="n">a</span> <span class="o">==</span> <span class="bp">None</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>所以程式碼中常會看到</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">xxx</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">if</span> <span class="n">xxx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">pass</span></code></pre></td></tr></table>
+</div>
+</div>
+
 <h2 id="for-while">For, While</h2>
 
 <h3 id="syntax-1">Syntax</h3>
@@ -726,10 +781,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">var1</span> <span class="o">=</span> <span class="n">var</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var2</span> <span class="o">=</span> <span class="bp">None</span>
 
-    <span class="k">def</span> <span class="nf">publicMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">public_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__privateMethod</span><span class="p">()</span> <span class="o">+</span> <span class="n">x</span>
 
-    <span class="k">def</span> <span class="nf">__privateMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__private_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">var1</span>
 
 <span class="n">clf</span> <span class="o">=</span> <span class="n">Classifier</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -859,7 +914,65 @@
 </div>
 </div>
 
-<h1 id="examples">Examples</h1>
+<h1 id="pep-8">PEP 8</h1>
+
+<p>Style Guide.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">ClassName</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">public_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">__private_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="n">CONSTANT_VAR</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">local_var</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">dir_</span> <span class="o">=</span> <span class="mi">2</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>一些常見的 linters 有 <code>autopep8</code>, <code>yapf</code>。</p>
+
+<h1 id="exception">Exception</h1>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">pass</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span><span class="lnt">9</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="c1"># Traceback (most recent call last):</span>
+<span class="c1">#   File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;</span>
+<span class="c1">#   File &#34;&lt;stdin&gt;&#34;, line 3, in f</span>
+<span class="c1"># Exception: abc</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="example">Example</h1>
 
 <p>從 <code>data.rec</code> 中取出各筆資料，存成 json 格式。</p>
 
