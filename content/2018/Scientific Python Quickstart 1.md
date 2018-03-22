@@ -633,7 +633,7 @@ trainer.start()
 {{< /highlight >}}
 
 
-# PEP 8
+# PEP 8 & Exception
 
 Style Guide.
 
@@ -657,8 +657,6 @@ def function_name(...):
 {{< /highlight >}}
 
 一些常見的 linters 有 `autopep8`, `yapf`。
-
-# Exception
 
 {{< highlight py "linenos=table,noclasses=false" >}}
 try:
