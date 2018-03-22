@@ -316,7 +316,7 @@ while ...:
 
 {{< highlight py "linenos=table,noclasses=false" >}}
 ''' Loop certain times '''
-print(range(3)) # [1, 2, 3]
+print(range(3)) # [0, 1, 2]
 for _ in range(3):
     pass
 
@@ -526,7 +526,7 @@ class Classifier(object):
         return self.var1
 
 clf = Classifier(var=2)
-print(clf.publicMethod(5)) # 7
+print(clf.public_method(5)) # 7
 {{< /highlight >}}
 
 
