@@ -6,3 +6,6 @@ publishDir = "docs"
 FootnoteReturnLinkContents = "↩"
 uglyurls = true
 preserveTaxonomyNames = true
+
+[params]
+    avatar = "abouts/me.jpg"
