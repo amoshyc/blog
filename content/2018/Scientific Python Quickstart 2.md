@@ -381,6 +381,3 @@ PosixPath('/home/amoshyc/workspace/CPsolution/venv/bin/rst2html.py'),
 PosixPath('/home/amoshyc/workspace/CPsolution/venv/bin/rst2html4.py')]
 {{< /highlight >}}
 
-
-# Homework
-
