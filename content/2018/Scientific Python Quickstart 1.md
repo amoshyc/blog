@@ -183,7 +183,7 @@ x = 1       # Valid
 > `a = value`: 在記憶體中建立值為 value 的物件，讓變數名稱 a 指向他
 > `a = b`: 讓變數名稱 a 指向「變數名稱 b 所指的物件」
 
-![Imgur](https://i.imgur.com/Pr5nffM.png)
+![Imgur](https://i.imgur.com/Tdj6WnD.png)
 
 {{< highlight python "linenos=table,noclasses=false" >}}
 a = 998 # id(a) = 0x7f1f564d27d0
@@ -316,7 +316,7 @@ while ...:
 
 {{< highlight py "linenos=table,noclasses=false" >}}
 ''' Loop certain times '''
-print(range(3)) # [0, 1, 2]
+print(list(range(3))) # [0, 1, 2]
 for _ in range(3):
     pass
 
