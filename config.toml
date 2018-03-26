@@ -10,3 +10,4 @@ googleAnalytics = "UA-96104654-1"
 
 [params]
     avatar = "abouts/me.jpg"
+    anchor = true
