@@ -7,7 +7,9 @@ FootnoteReturnLinkContents = "↩"
 uglyurls = true
 preserveTaxonomyNames = true
 googleAnalytics = "UA-96104654-1"
+disqusShortName = "amoshyc-blog"
 
 [params]
     avatar = "abouts/me.jpg"
     anchor = true
+    author = "amoshyc"
