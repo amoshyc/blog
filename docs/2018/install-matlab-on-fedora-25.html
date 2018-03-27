@@ -189,8 +189,8 @@ version 'CXXABI_1.3.8' not found (required by /lib64/libGLU.so.1)
 function expand_disqus() {
     
     
-    
-    
+    if (window.location.hostname == "localhost")
+        return;
 
     document.getElementById('expand-btn').style.display = "none";
 
