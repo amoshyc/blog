@@ -217,25 +217,20 @@
 
 <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">gaussian2d</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">g</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span>
 <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">gaussian2d</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">g</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span>
 <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">gaussian2d</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">g</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+<span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span>
+
+<span class="k">if</span> <span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
 
 <span class="c1"># Save Image</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
-<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./out.jpg&#39;</span><span class="p">)</span></code></pre></div>
+<span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./out.jpg&#39;</span><span class="p">)</span></code></pre></div></p>
 
-<figure>
-    
-        <img src="https://i.imgur.com/uz8pX8l.jpg" width="400" />
-    
-    
-</figure>
-</p>
-
-<p>其中要注意的是函式的值可能太小（例如 <code>sigma=1</code> 時，函式值最大為 0.5），可以考慮將之 normalize，如程式碼所示。</p>
+<p>其中要注意的是函式的值可能太小（例如 <code>sigma=1</code> 時，函式值最大為 0.5），可以考慮將之調整。例如上段程式碼就是將整個圖的最大值縮放成 1。</p>
 <div class="footnotes">
 
 <hr />
