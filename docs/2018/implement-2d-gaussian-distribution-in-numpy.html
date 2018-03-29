@@ -125,7 +125,7 @@
 
 <h1 id="前情">前情</h1>
 
-<p>最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈來指示位置。但我翻了一下文檔，<code>numpy</code> 似乎沒有提供<strong>生成</strong>二維高斯分佈的函式，只提供從高斯分佈<strong>取樣</strong>的函式，於是我模彷了 <code>skimage.draw</code> 的 API，寫了一個函式。</p>
+<p>最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈 (Gaussian Distribution) 來指示位置。但我翻了一下文檔，<code>numpy</code> 似乎沒有提供<strong>生成</strong>二維高斯分佈的函式，只提供從高斯分佈<strong>取樣</strong>的函式，於是我模彷了 <code>skimage.draw</code> 的 API，寫了一個函式。</p>
 
 <h1 id="實作原理">實作原理</h1>
 
