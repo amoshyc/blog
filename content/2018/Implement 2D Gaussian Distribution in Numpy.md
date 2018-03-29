@@ -82,19 +82,19 @@ import numpy as np
 from PIL import Image
 
 img = np.zeros((100, 100), dtype=np.float32)
-rr, cc, g = gaussian2d([50, 50], [4, 4], shape=img.shape)
+rr, cc, g = gaussian2d([50, 50], [3, 3], shape=img.shape)
 img[rr, cc] += g
-rr, cc, g = gaussian2d([20, 40], [5, 2], shape=img.shape)
+rr, cc, g = gaussian2d([55, 55], [3, 3], shape=img.shape)
 img[rr, cc] += g
-rr, cc, g = gaussian2d([0, 0], [3, 3], shape=img.shape)
+rr, cc, g = gaussian2d([20, 20], [3, 3], shape=img.shape)
 img[rr, cc] += g
 
-if img[rr, cc].max() > 0:
-    img[rr, cc] /= img[rr, cc].max()
+img = img / img.max()
 
 # Save Image
 img = np.uint8(img * 255)
 Image.fromarray(img).save('./out.jpg')
 {{< /highlight >}}
+{{< figure src="https://i.imgur.com/WgYtjLb.jpg" width="100">}}
 
 其中要注意的是函式的值可能太小（例如 `sigma=1` 時，函式值最大為 0.5），可以考慮將之調整。例如上段程式碼就是將整個圖的最大值縮放成 1。
