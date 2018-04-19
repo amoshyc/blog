@@ -2,7 +2,7 @@
 title: "使用 Rime 在各大平臺安裝嘸蝦米輸入法"
 date: 2018-04-19T13:28:26+08:00
 categories: ["Linux"]
-tags: ["rime", "嘸蝦米輸入法", "嘸蝦米", "windows", "linux", "android"]
+tags: ["rime", "windows", "linux", "android", "嘸蝦米輸入法", "嘸蝦米", "同文輸入法"]
 toc: true
 math: false
 ---
