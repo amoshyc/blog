@@ -92,6 +92,7 @@ Rime 有被人 port 到 Android 上，名稱叫「同文輸入法」，可以在
 {{< figure src="https://i.imgur.com/UN67vbR.jpg" width="400" title="左圖：選擇嘸蝦米。右圖：使用中（配色為孤寺）">}}
 
 
-# 感想
+# 最後
 
 這篇文章以嘸蝦米在 Fedora 上使用 ibus-rime 打成。
+嘸蝦米不死，只是凋零！
