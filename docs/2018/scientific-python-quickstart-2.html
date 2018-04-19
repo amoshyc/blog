@@ -129,7 +129,7 @@ conda install -c anaconda numpy -n &lt;venv&gt;
 <span class="ln"> 3</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># (10, 10)</span>
 <span class="ln"> 4</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># dtype(&#39;float32&#39;)</span>
 <span class="ln"> 5</span>
-<span class="ln"> 6</span><span class="sa"></span><span class="s1">&#39;&#39;&#39; Other dtypes:
+<span class="ln"> 6</span><span class="s1">&#39;&#39;&#39; Other dtypes:
 </span><span class="ln"> 7</span><span class="s1">np.bool
 </span><span class="ln"> 8</span><span class="s1">np.uint8
 </span><span class="ln"> 9</span><span class="s1">np.int32
@@ -243,14 +243,14 @@ conda install -c anaconda pillow -n &lt;venv&gt;
 </code></pre>
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln">1</span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="ln">2</span><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./test.png&#39;</span><span class="p">)</span>
-<span class="ln">3</span><span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+<span class="ln">2</span><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./test.png&#39;</span><span class="p">)</span>
+<span class="ln">3</span><span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
 <span class="ln">4</span><span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
-<span class="ln">5</span><span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./out.jpg&#39;</span><span class="p">)</span></code></pre></div>
+<span class="ln">5</span><span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;./out.jpg&#39;</span><span class="p">)</span></code></pre></div>
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="ln"> 2</span><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./test.png&#39;</span><span class="p">)</span>
-<span class="ln"> 3</span><span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+<span class="ln"> 2</span><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./test.png&#39;</span><span class="p">)</span>
+<span class="ln"> 3</span><span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
 <span class="ln"> 4</span><span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">))</span>
 <span class="ln"> 5</span>
 <span class="ln"> 6</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
@@ -273,21 +273,21 @@ conda install -c anaconda matplotlib -n &lt;venv&gt;
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="ln"> 2</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="ln"> 3</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># since default style is ugly</span>
+<span class="ln"> 3</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># since default style is ugly</span>
 <span class="ln"> 4</span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="ln"> 5</span>
-<span class="ln"> 6</span><span class="n">img_rgb</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./rin.png&#39;</span><span class="p">)</span>
-<span class="ln"> 7</span><span class="n">img_gray</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="ln"> 6</span><span class="n">img_rgb</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./rin.png&#39;</span><span class="p">)</span>
+<span class="ln"> 7</span><span class="n">img_gray</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
 <span class="ln"> 8</span><span class="n">x_rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">)</span>
 <span class="ln"> 9</span><span class="n">x_gray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img_gray</span><span class="p">)</span>
 <span class="ln">10</span>
 <span class="ln">11</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="ln">12</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_rgb</span><span class="p">)</span> <span class="c1"># or img_rgb</span>
-<span class="ln">13</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="ln">14</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
-<span class="ln">15</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="ln">16</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;off&#39;</span><span class="p">)</span>   <span class="c1"># or img_gray</span>
-<span class="ln">17</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Gray&#39;</span><span class="p">)</span>
+<span class="ln">13</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="ln">14</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+<span class="ln">15</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="ln">16</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>   <span class="c1"># or img_gray</span>
+<span class="ln">17</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gray&#39;</span><span class="p">)</span>
 <span class="ln">18</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="ln">19</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
@@ -302,26 +302,26 @@ conda install -c anaconda scikit-image -n &lt;venv&gt;
 </code></pre>
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># since default style is ugly</span>
+<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># since default style is ugly</span>
 <span class="ln"> 3</span>
 <span class="ln"> 4</span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="ln"> 5</span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">color</span>
 <span class="ln"> 6</span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
 <span class="ln"> 7</span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">feature</span>
 <span class="ln"> 8</span>
-<span class="ln"> 9</span><span class="n">img_rgb</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./rin.png&#39;</span><span class="p">)</span> <span class="c1"># ndarray</span>
+<span class="ln"> 9</span><span class="n">img_rgb</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./rin.png&#39;</span><span class="p">)</span> <span class="c1"># ndarray</span>
 <span class="ln">10</span><span class="n">img_gray</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">)</span>
 <span class="ln">11</span><span class="n">img_sobel</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">sobel</span><span class="p">(</span><span class="n">img_gray</span><span class="p">)</span>
 <span class="ln">12</span><span class="n">img_canny</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">canny</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="ln">13</span>
 <span class="ln">14</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="ln">15</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">)</span>
-<span class="ln">16</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="ln">17</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_sobel</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
-<span class="ln">18</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_canny</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+<span class="ln">16</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="ln">17</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_sobel</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="ln">18</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_canny</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
 <span class="ln">19</span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
 <span class="ln">20</span>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-<span class="ln">21</span>        <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="ln">21</span>        <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="ln">22</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="ln">23</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
@@ -350,7 +350,7 @@ conda install -c anaconda scikit-learn -n &lt;venv&gt;
 </code></pre>
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
 <span class="ln"> 3</span>
 <span class="ln"> 4</span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="ln"> 5</span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -371,7 +371,7 @@ conda install -c anaconda scikit-learn -n &lt;venv&gt;
 <span class="ln">20</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
 <span class="ln">21</span>    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">target_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="ln">22</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="ln">23</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;PCA of iris dataset&#39;</span><span class="p">)</span>
+<span class="ln">23</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PCA of iris dataset&#39;</span><span class="p">)</span>
 <span class="ln">24</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="ln">25</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
@@ -409,11 +409,11 @@ conda install -c anaconda pandas -n &lt;venv&gt;
 </code></pre>
 
 <p><div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="ln"> 2</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
 <span class="ln"> 3</span>
 <span class="ln"> 4</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="ln"> 5</span>
-<span class="ln"> 6</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./log.csv&#39;</span><span class="p">)</span>   <span class="c1"># a DataFrame</span>
+<span class="ln"> 6</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./log.csv&#39;</span><span class="p">)</span>   <span class="c1"># a DataFrame</span>
 <span class="ln"> 7</span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 <span class="ln"> 8</span><span class="c1">#    epoch      loss  val_loss</span>
 <span class="ln"> 9</span><span class="c1"># 0      0  0.238648  0.219663</span>
@@ -423,10 +423,10 @@ conda install -c anaconda pandas -n &lt;venv&gt;
 <span class="ln">13</span><span class="c1"># 4      4  0.184448  0.174334</span>
 <span class="ln">14</span>
 <span class="ln">15</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-<span class="ln">16</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sa"></span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;val_loss&#39;</span><span class="p">]]</span>
-<span class="ln">17</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="ln">18</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;epoch&#39;</span><span class="p">)</span>
-<span class="ln">19</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
+<span class="ln">16</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_loss&#39;</span><span class="p">]]</span>
+<span class="ln">17</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="ln">18</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;epoch&#39;</span><span class="p">)</span>
+<span class="ln">19</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
 <span class="ln">20</span><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="ln">21</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div></p>
 
@@ -437,27 +437,27 @@ conda install -c anaconda pandas -n &lt;venv&gt;
 <p>處理路徑的函式庫，是標準函式庫的一部份，不需要裝，但只支援 python 3.4+。仍然是一個新興的函式庫，使用的人不多，因為許多函式庫想同時支援各個版本的 python。</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="ln"> 1</span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="ln"> 2</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="ln"> 2</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="ln"> 3</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span>
-<span class="ln"> 4</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="ln"> 4</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="ln"> 5</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="ln"> 6</span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span>
-<span class="ln"> 7</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/test&#39;</span><span class="p">)</span>
-<span class="ln"> 8</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="sa"></span><span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
+<span class="ln"> 7</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;/home/amoshyc/workspace/test&#39;</span><span class="p">)</span>
+<span class="ln"> 8</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
 <span class="ln"> 9</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
 <span class="ln">10</span><span class="bp">True</span>
 <span class="ln">11</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parent</span>
 <span class="ln">12</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
-<span class="ln">13</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace&#39;</span><span class="p">)</span>
-<span class="ln">14</span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span> <span class="o">/</span> <span class="sa"></span><span class="s1">&#39;ckpt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="c1"># /home/amoshyc/workspace/ckpt/</span>
+<span class="ln">13</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;/home/amoshyc/workspace&#39;</span><span class="p">)</span>
+<span class="ln">14</span><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span> <span class="o">/</span> <span class="s1">&#39;ckpt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="c1"># /home/amoshyc/workspace/ckpt/</span>
 <span class="ln">15</span><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-<span class="ln">16</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace&#39;</span>
-<span class="ln">17</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;**/*.py&#39;</span><span class="p">)</span>
+<span class="ln">16</span><span class="s1">&#39;/home/amoshyc/workspace&#39;</span>
+<span class="ln">17</span><span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;**/*.py&#39;</span><span class="p">)</span>
 <span class="ln">18</span><span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">Path</span><span class="o">.</span><span class="n">glob</span> <span class="n">at</span> <span class="mh">0x7f111eec3ca8</span><span class="o">&gt;</span>
-<span class="ln">19</span><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;**/*.py&#39;</span><span class="p">)))[:</span><span class="mi">3</span><span class="p">]</span>
-<span class="ln">20</span><span class="p">[</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/source/conf.py&#39;</span><span class="p">),</span> 
-<span class="ln">21</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html.py&#39;</span><span class="p">),</span> 
-<span class="ln">22</span><span class="n">PosixPath</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html4.py&#39;</span><span class="p">)]</span></code></pre></div>
+<span class="ln">19</span><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;**/*.py&#39;</span><span class="p">)))[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="ln">20</span><span class="p">[</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/source/conf.py&#39;</span><span class="p">),</span> 
+<span class="ln">21</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html.py&#39;</span><span class="p">),</span> 
+<span class="ln">22</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">&#39;/home/amoshyc/workspace/CPsolution/venv/bin/rst2html4.py&#39;</span><span class="p">)]</span></code></pre></div>
 
     </div>
 

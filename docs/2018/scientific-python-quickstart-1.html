@@ -192,27 +192,45 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">input</span><span class="p">()</span>
 <span class="n">_</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;&gt; &#39;</span><span class="p">)</span>         <span class="c1"># x is str</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;&gt; &#39;</span><span class="p">))</span>    </code></pre></td></tr></table>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;&gt; &#39;</span><span class="p">)</span>         <span class="c1"># x is str</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;&gt; &#39;</span><span class="p">))</span>    </code></pre></td></tr></table>
 </div>
 </div>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">loss</span> <span class="o">=</span> <span class="mf">2e-1</span>
 <span class="n">acc</span> <span class="o">=</span> <span class="mf">0.98</span>
 <span class="k">print</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">loss</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;loss:&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;acc:&#39;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;loss: {:.2f}, acc: {:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="sa"></span><span class="s1">&#39;loss: {loss:.2f}, acc: {acc:.2f}&#39;</span><span class="p">)</span> <span class="c1"># format literal</span>
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;loss: </span><span class="si">%.2f</span><span class="s1">, acc: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;loss:&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;acc:&#39;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;loss: {:.2f}, acc: {:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;loss: {loss:.2f}, acc: {acc:.2f}&#39;</span><span class="p">)</span> <span class="c1"># format literal</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;loss: </span><span class="si">%.2f</span><span class="s1">, acc: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span><span class="p">))</span>
 <span class="c1"># 0.2</span>
 <span class="c1"># &lt;class &#39;float&#39;&gt;</span>
 <span class="c1"># loss: 0.2 acc: 0.98</span>
@@ -224,10 +242,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># This is a comment</span>
-<span class="sa"></span><span class="s1">&#39;&#39;&#39;doc or long
+<span class="s1">&#39;&#39;&#39;doc or long
 </span><span class="s1">comment&#39;&#39;&#39;</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -238,7 +259,18 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">123456789123456789</span>      <span class="c1"># int（任意精度）</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mf">1e-16</span>                   <span class="c1"># float</span>
@@ -247,8 +279,8 @@
 
 <span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>               <span class="c1"># list</span>
 <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>               <span class="c1"># tuple</span>
-<span class="n">g</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>        <span class="c1"># dict</span>
-<span class="n">h</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;string&#39;</span>                <span class="c1"># str</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>        <span class="c1"># dict</span>
+<span class="n">h</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span>                <span class="c1"># str</span>
 
 <span class="n">l</span> <span class="o">=</span> <span class="bp">None</span>                    <span class="c1"># None</span></code></pre></td></tr></table>
 </div>
@@ -258,7 +290,15 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="mi">2</span> <span class="o">^</span> <span class="mi">1</span>                   <span class="c1"># xor: 3</span>
 <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>         <span class="c1"># +-*: -9</span>
@@ -277,10 +317,14 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>         <span class="c1"># l: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
-<span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;d&#39;</span>              <span class="c1"># l: [&#39;a&#39;, &#39;d&#39;, &#39;c&#39;]</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>         <span class="c1"># l: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+<span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span>              <span class="c1"># l: [&#39;a&#39;, &#39;d&#39;, &#39;c&#39;]</span>
 <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c1"># l: [&#39;a&#39;, &#39;d&#39;, &#39;c&#39;, 1]</span>
 <span class="n">l</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>        <span class="c1"># l: [&#39;a&#39;, &#39;d&#39;, &#39;c&#39;, 1, 2, 3]</span></code></pre></td></tr></table>
 </div>
@@ -292,10 +336,14 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>        <span class="c1"># t: (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)</span>
-<span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;d&#39;</span>              <span class="c1"># error</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>        <span class="c1"># t: (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)</span>
+<span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span>              <span class="c1"># error</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">t</span>             <span class="c1"># x: &#39;a&#39;, y: &#39;b&#39;, z: &#39;c&#39;</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>             <span class="c1"># parenthesis omitted</span></code></pre></td></tr></table>
 </div>
@@ -312,7 +360,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>                  <span class="c1"># 5</span>
@@ -329,13 +383,21 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
-<span class="n">d</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>              <span class="c1"># d: {&#39;a&#39;: 0, &#39;b&#39;: 2}</span>
-<span class="n">d</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">]</span>                  <span class="c1"># error</span>
-<span class="sa"></span><span class="s1">&#39;c&#39;</span> <span class="ow">in</span> <span class="n">d</span>                <span class="c1"># False</span>
-<span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>      <span class="c1"># d: {&#39;a&#39;: 3, &#39;b&#39;: 2}</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>              <span class="c1"># d: {&#39;a&#39;: 0, &#39;b&#39;: 2}</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>                  <span class="c1"># error</span>
+<span class="s1">&#39;c&#39;</span> <span class="ow">in</span> <span class="n">d</span>                <span class="c1"># False</span>
+<span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>      <span class="c1"># d: {&#39;a&#39;: 3, &#39;b&#39;: 2}</span>
 <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>               <span class="c1"># [(&#39;a&#39;, 0), (&#39;b&#39;, 2)]</span>
 <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>                <span class="c1"># [&#39;a&#39;, &#39;b&#39;]</span>
 <span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>              <span class="c1"># [0, 2]</span></code></pre></td></tr></table>
@@ -348,19 +410,30 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;單引號&#39;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;雙引號&#34;</span>
-<span class="n">c</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;It&#39;s time&#34;</span>         <span class="c1"># mix</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;單引號&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">&#34;雙引號&#34;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s2">&#34;It&#39;s time&#34;</span>         <span class="c1"># mix</span>
 <span class="n">d</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\n\t\b&#39;</span>           <span class="c1"># raw string</span>
-<span class="n">e</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;&#39;&#39;多
+<span class="n">e</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;多
 </span><span class="s1">行&#39;&#39;&#39;</span>
-<span class="n">f</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa"></span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;xyz&#39;</span><span class="p">])</span> <span class="c1"># abc-def-xyz</span>
-<span class="n">g</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;a b c&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>     <span class="c1"># [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
-<span class="n">h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;a b c&#39;</span><span class="p">)</span>        <span class="c1"># 5</span>
-<span class="n">i</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;pp&#39;</span> <span class="ow">in</span> <span class="sa"></span><span class="s1">&#39;apple&#39;</span>     <span class="c1"># True</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;我&#39;</span>             <span class="c1"># error</span></code></pre></td></tr></table>
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">])</span> <span class="c1"># abc-def-xyz</span>
+<span class="n">g</span> <span class="o">=</span> <span class="s1">&#39;a b c&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>     <span class="c1"># [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;a b c&#39;</span><span class="p">)</span>        <span class="c1"># 5</span>
+<span class="n">i</span> <span class="o">=</span> <span class="s1">&#39;pp&#39;</span> <span class="ow">in</span> <span class="s1">&#39;apple&#39;</span>     <span class="c1"># True</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;我&#39;</span>             <span class="c1"># error</span></code></pre></td></tr></table>
 </div>
 </div>
 
@@ -370,10 +443,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="sa"></span><span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># error</span>
-<span class="n">x</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;s&#39;</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># error</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># Valid</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -387,7 +463,12 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">998</span> <span class="c1"># id(a) = 0x7f1f564d27d0</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">999</span> <span class="c1"># id(b) = 0x7f1f564d2a50</span>
@@ -401,7 +482,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
@@ -418,7 +505,21 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -445,7 +546,15 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="o">...</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -462,9 +571,19 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="bp">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">(),</span> <span class="p">{}</span>   <span class="c1"># False Condition</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="bp">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">(),</span> <span class="p">{}</span>   <span class="c1"># False Condition</span>
 <span class="ow">and</span><span class="p">,</span> <span class="ow">or</span><span class="p">,</span> <span class="ow">not</span>                    <span class="c1"># Operations</span>
 <span class="o">&lt;</span><span class="p">,</span> <span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;=</span><span class="p">,</span> <span class="o">=&gt;</span><span class="p">,</span> <span class="o">!=</span><span class="p">,</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">is</span> <span class="ow">not</span>    <span class="c1"># Comparison</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>         <span class="c1"># Ternary operator</span>
@@ -481,7 +600,19 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -504,7 +635,14 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">b</span> <span class="o">=</span> <span class="bp">None</span>
@@ -520,7 +658,12 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">xxx</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -536,7 +679,14 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="c1"># do something</span>
@@ -552,26 +702,48 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="sa"></span><span class="s1">&#39;&#39;&#39; Loop certain times &#39;&#39;&#39;</span>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="s1">&#39;&#39;&#39; Loop certain times &#39;&#39;&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="c1"># [0, 1, 2]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="k">pass</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; Iterate items of a list &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; Iterate items of a list &#39;&#39;&#39;</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span> <span class="c1"># a is a copy of each item</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span>   <span class="c1"># will NOT modify A</span>
 <span class="c1"># A: [1, 2, 3]</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; Iterate indices of a list &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; Iterate indices of a list &#39;&#39;&#39;</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <span class="c1"># A: [2, 4, 6]</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; Iterate indices, items of a list &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; Iterate indices, items of a list &#39;&#39;&#39;</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="c1"># a is a copy</span>
     <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span>
@@ -581,20 +753,36 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="sa"></span><span class="s1">&#39;&#39;&#39; Iterate items of 2 lists &#39;&#39;&#39;</span>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="s1">&#39;&#39;&#39; Iterate items of 2 lists &#39;&#39;&#39;</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)]</span> <span class="c1"># [4, 4, 4]</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; Iterate over dict &#39;&#39;&#39;</span>
-<span class="n">C</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="s1">&#39;&#39;&#39; Iterate over dict &#39;&#39;&#39;</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># k, v is copies</span>
     <span class="n">C</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v</span>
 <span class="c1"># C: {&#39;a&#39;: 0, &#39;b&#39;: 2}</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; List comprehension&#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; List comprehension&#39;&#39;&#39;</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>          
 <span class="n">b</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>         <span class="c1"># [0, 1, 0, 1, 0, 1]</span>
 <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>      <span class="c1"># [4, 5]</span>
@@ -608,7 +796,12 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">for</span> <span class="o">...</span><span class="p">:</span>
     <span class="k">if</span> <span class="o">...</span><span class="p">:</span>
@@ -622,7 +815,18 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span></code></pre></td>
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">False</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(...)</span> <span class="p">{</span>
@@ -642,14 +846,22 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="sa"></span><span class="s1">&#39;&#39;&#39; something that need to be closed &#39;&#39;&#39;</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./test.txt&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="s1">&#39;&#39;&#39; something that need to be closed &#39;&#39;&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="o">...</span>
 
 <span class="c1"># equivalent to</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./test.txt&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></td></tr></table>
 </div>
@@ -661,10 +873,39 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span><span class="lnt">28</span><span class="lnt">29</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">n1</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mi">456</span><span class="p">):</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;Doc string of this function.
+    <span class="s2">&#34;&#34;&#34;Doc string of this function.
 </span><span class="s2">    Arguments in Python is **passed by assignment**.
 </span><span class="s2">
 </span><span class="s2">    Parameters
@@ -677,20 +918,20 @@
     <span class="n">p1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># valid, is visible outside (i.e. a now is [1])</span>
     <span class="n">p1</span> <span class="o">=</span> <span class="p">[]</span>         <span class="c1"># valid, p1 now points to another list</span>
     <span class="n">p2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># error, because b is immutable</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;&#39;</span>         <span class="c1"># valid, p2 now points to a empty str</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>         <span class="c1"># valid, p2 now points to a empty str</span>
 
     <span class="k">return</span> <span class="o">...</span>      <span class="c1"># optional</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; invoked by &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; invoked by &#39;&#39;&#39;</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">()</span>
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>                   <span class="c1"># p1 = [], p2 = [], n1 = 123, n2 = 456</span>
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">789</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># p1 = [], p2 = [], n1 = 789, n2 = -1</span>
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n2</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># p1 = [], p2 = [], n1 = 123, n2 = -1</span>
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n1</span><span class="o">=</span><span class="mi">789</span><span class="p">)</span>    <span class="c1"># p1 = [], p2 = [], n1 = 789, n2 = -1</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; Unpacking arguments &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; Unpacking arguments &#39;&#39;&#39;</span>
 <span class="n">args</span> <span class="o">=</span> <span class="p">([],</span> <span class="p">())</span>
-<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;n1&#39;</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;n2&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
 <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -699,14 +940,25 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">ae_loss</span><span class="p">(</span><span class="n">y_pred</span><span class="p">):</span>
     <span class="n">loss1</span> <span class="o">=</span> <span class="o">...</span>
     <span class="n">loss2</span> <span class="o">=</span> <span class="o">...</span>
     <span class="k">return</span> <span class="n">loss1</span><span class="p">,</span> <span class="n">loss2</span> <span class="c1"># i.e. return a tuple (loss1, loss2)</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; invoked by &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; invoked by &#39;&#39;&#39;</span>
 <span class="n">losses</span> <span class="o">=</span> <span class="n">ae_loss</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># losses is a tuple</span>
 <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">ae_loss</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># general way</span>
 <span class="n">l1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ae_loss</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># discard loss2</span>
@@ -719,9 +971,29 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="sa"></span><span class="s1">&#39;&#39;&#39; Instead of &#39;&#39;&#39;</span>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="s1">&#39;&#39;&#39; Instead of &#39;&#39;&#39;</span>
 <span class="k">def</span> <span class="nf">read_all_imgs</span><span class="p">(</span><span class="n">img_paths</span><span class="p">):</span>
     <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">img_paths</span><span class="p">:</span>
@@ -732,7 +1004,7 @@
 <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">:</span>
     <span class="n">convert</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; Use &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; Use &#39;&#39;&#39;</span>
 <span class="k">def</span> <span class="nf">gen_imgs</span><span class="p">(</span><span class="n">img_paths</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">img_paths</span><span class="p">:</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">load_img</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
@@ -746,7 +1018,12 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># Some builtin functions are generator,</span>
 <span class="c1"># you can convert generator to values using</span>
@@ -760,7 +1037,25 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="c1"># [start, start + step, start + 2 * step, ...]</span>
 <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>            <span class="c1"># [(0, A[0]), (1, A[1]), (2, A[2]), ...]   </span>
@@ -777,8 +1072,8 @@
 <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>          <span class="c1"># min</span>
 <span class="nb">round</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>              <span class="c1"># 2</span>
 <span class="nb">int</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>                <span class="c1"># 1</span>
-<span class="nb">int</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;123&#39;</span><span class="p">)</span>              <span class="c1"># 123</span>
-<span class="nb">float</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;123&#39;</span><span class="p">)</span>            <span class="c1"># 123.0</span>
+<span class="nb">int</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)</span>              <span class="c1"># 123</span>
+<span class="nb">float</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)</span>            <span class="c1"># 123.0</span>
 <span class="nb">hex</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>                <span class="c1"># 0xff</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -787,10 +1082,25 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">Classifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sa"></span><span class="s1">&#39;&#39;&#39; Don&#39;t forget the first argument is self
+    <span class="s1">&#39;&#39;&#39; Don&#39;t forget the first argument is self
 </span><span class="s1">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var1</span> <span class="o">=</span> <span class="n">var</span>
@@ -815,7 +1125,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -832,7 +1148,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span><span class="p">,</span> <span class="n">ceil</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span> <span class="k">as</span> <span class="n">zs</span>
@@ -850,18 +1172,33 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># kaggle-catdog/</span>
 <span class="c1">#     .git/</span>
 <span class="c1">#     a.py</span>
 <span class="c1">#     b.py</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; a.py &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; a.py &#39;&#39;&#39;</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">1</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; b.py &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; b.py &#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">a</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">())</span>
 <span class="c1"># or</span>
@@ -874,7 +1211,34 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># kaggle-catdog/</span>
 <span class="c1">#     .git/</span>
@@ -891,12 +1255,12 @@
 <span class="c1">#     script1.py        # can be executed: python script1.py</span>
 <span class="c1">#     script2.py        # can be executed: python script2.py   </span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; catdog/model1/model.py &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; catdog/model1/model.py &#39;&#39;&#39;</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">feature</span> <span class="c1"># import modules from same folder</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">config</span><span class="p">,</span> <span class="n">util</span> <span class="c1"># import modules from parent folder</span>
 <span class="o">...</span>
 
-<span class="sa"></span><span class="s1">&#39;&#39;&#39; script1.py &#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39; script1.py &#39;&#39;&#39;</span>
 <span class="c1"># import module catdog/util.py</span>
 <span class="kn">from</span> <span class="nn">catdot</span> <span class="kn">import</span> <span class="n">util</span>
 <span class="c1"># import class in catdog/model1/trainer.py</span>
@@ -908,7 +1272,23 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># kaggle-catdog/</span>
 <span class="c1">#     .git/</span>
@@ -935,7 +1315,21 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">ClassName</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -958,7 +1352,13 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">try</span><span class="p">:</span>
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
@@ -971,11 +1371,20 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span><span class="lnt">9</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
 
 <span class="n">f</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
 <span class="c1"># Traceback (most recent call last):</span>
@@ -1018,35 +1427,63 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span><span class="lnt">28</span></code></pre></td>
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># 清掉字串前後的空格、換行</span>
-        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;@GAISRec:&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;@GAISRec:&#39;</span><span class="p">):</span>
             <span class="n">record</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;@U:&#39;</span><span class="p">):</span>
-            <span class="n">record</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
-        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;@T:&#39;</span><span class="p">):</span>
-            <span class="n">record</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
-        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;@B:&#39;</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;@U:&#39;</span><span class="p">):</span>
+            <span class="n">record</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;@T:&#39;</span><span class="p">):</span>
+            <span class="n">record</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;@B:&#39;</span><span class="p">):</span>
             <span class="k">pass</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">record</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;body&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span>
+            <span class="n">record</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span>
             <span class="k">yield</span> <span class="n">record</span>
 
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;./data.rec&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./data.rec&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">extract</span><span class="p">(</span><span class="n">f</span><span class="p">)):</span>
         <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
         <span class="k">print</span><span class="p">()</span>
 
         <span class="c1"># save as json</span>
-        <span class="n">filepath</span> <span class="o">=</span> <span class="n">f</span><span class="sa"></span><span class="s1">&#39;./{i:08d}.json&#39;</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">filepath</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;./{i:08d}.json&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>

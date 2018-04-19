@@ -119,26 +119,44 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span></code></pre></td>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 
-<span class="n">gmail_user</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;amoshuangyc@gmail.com&#39;</span>
-<span class="n">gmail_password</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;---&#39;</span> <span class="c1"># your gmail password</span>
+<span class="n">gmail_user</span> <span class="o">=</span> <span class="s1">&#39;amoshuangyc@gmail.com&#39;</span>
+<span class="n">gmail_password</span> <span class="o">=</span> <span class="s1">&#39;---&#39;</span> <span class="c1"># your gmail password</span>
 
-<span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
-<span class="n">msg</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;Test&#39;</span>
-<span class="n">msg</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmail_user</span>
-<span class="n">msg</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;xxx@gmail.com&#39;</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmail_user</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxx@gmail.com&#39;</span>
 
-<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP_SSL</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">465</span><span class="p">)</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP_SSL</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">465</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
 <span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_password</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;Email sent!&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Email sent!&#39;</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
 

@@ -17,8 +17,8 @@
       <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/2018/sending-gmail-in-python.html</guid>
-      <description> 前情提要 之前跟學長在聊天，聊到他需要寄大量通知信給許多人，但希望每封信都有對方的名字。剛好有興趣，就搜了一下網路上的範例，整理出一個使用 python 3.x 從 Gmail 寄發 email 的程式。使用 SMTP、登入並且信件 SSL 加密。修改一下、加個迴圈就可以讓你的 gmail 大量寄垃圾信了（笑~
-程式碼 123456789101112131415161718 import smtplib from email.mime.text import MIMEText gmail_user = &amp;#39;amoshuangyc@gmail.com&amp;#39; gmail_password = &amp;#39;---&amp;#39; # your gmail password msg = MIMEText(&amp;#39;content&amp;#39;) msg[&amp;#39;Subject&amp;#39;] = &amp;#39;Test&amp;#39; msg[&amp;#39;From&amp;#39;] = gmail_user msg[&amp;#39;To&amp;#39;] = &amp;#39;xxx@gmail.com&amp;#39; server = smtplib.SMTP_SSL(&amp;#39;smtp.gmail.com&amp;#39;, 465) server.ehlo() server.login(gmail_user, gmail_password) server.send_message(msg) server.quit() print(&amp;#39;Email sent!&amp;#39;)   注意事項  第一次寄信時，Google 會寄 email 警告寄信者「查看遭拒的登入嘗試」，開啟「低安全性應用程式」即可。 port 465 是 Google 訂定 的。 Gmail 有單天 500 封及單封 500 人的限制。 你可以不登入直接寄的樣子，只是很可能被判定為垃圾郵件或被 Gmail 說「不是本人寄的」，我沒試過~  </description>
+      <description>前情提要 之前跟學長在聊天，聊到他需要寄大量通知信給許多人，但希望每封信都有對方的名字。剛好有興趣，就搜了一下網路上的範例，整理出一個使用 python 3.x 從 Gmail 寄發 email 的程式。使用 SMTP、登入並且信件 SSL 加密。修改一下、加個迴圈就可以讓你的 gmail 大量寄垃圾信了（笑~
+程式碼 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  import smtplib from email.mime.text import MIMEText gmail_user = &amp;#39;amoshuangyc@gmail.com&amp;#39; gmail_password = &amp;#39;---&amp;#39; # your gmail password msg = MIMEText(&amp;#39;content&amp;#39;) msg[&amp;#39;Subject&amp;#39;] = &amp;#39;Test&amp;#39; msg[&amp;#39;From&amp;#39;] = gmail_user msg[&amp;#39;To&amp;#39;] = &amp;#39;xxx@gmail.com&amp;#39; server = smtplib.SMTP_SSL(&amp;#39;smtp.gmail.com&amp;#39;, 465) server.ehlo() server.login(gmail_user, gmail_password) server.</description>
     </item>
     
   </channel>

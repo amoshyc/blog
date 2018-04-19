@@ -30,7 +30,7 @@ pip install numpy conda install -c anaconda numpy -n &amp;lt;venv&amp;gt;  1impo
       <description>Introduction Python
  Interpreter 一行一行執行 Use indention Python 3.6  Virtual Environment 主流是 Conda，共分兩個版本：Anaconda, Miniconda。前者預設就安裝了非常多的 package，所以要非常大的硬碟空間（3GB+）1。但大部份 package 我們都不會用，所以推薦使用 Miniconda。
 安裝方法為去官方下載 bash，並執行，一般來說會將 conda 的執行檔加進系統的 bash：
-Editor/IDE   ides   Input/Output 1234 input() _ = input() x = input(&amp;#39;&amp;gt; &amp;#39;) # x is str x = int(input(&amp;#39;&amp;gt; &amp;#39;))    1234567891011121314 loss = 2e-1 acc = 0.98 print(loss) print(type(loss)) print(&amp;#39;loss:&amp;#39;, loss, &amp;#39;acc:&amp;#39;, acc) print(&amp;#39;loss: {:.2f}, acc: {:.2f}&amp;#39;.format(loss, acc)) print(f&amp;#39;loss: {loss:.</description>
+Editor/IDE   ides   Input/Output 1 2 3 4  input() _ = input() x = input(&amp;#39;&amp;gt; &amp;#39;) # x is str x = int(input(&amp;#39;&amp;gt; &amp;#39;))    1 2 3 4 5 6 7 8 9 10 11 12 13 14  loss = 2e-1 acc = 0.</description>
     </item>
     
   </channel>
