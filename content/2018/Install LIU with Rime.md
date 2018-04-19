@@ -17,7 +17,7 @@ Rime 可以執行在各大平臺上：Windows, Linux, Mac, Android, etc。但我
 
 # Linux
 
-我以 Fedora 27 (GNOME, Wayland) 為例，當代的 Linux 預設的中文輸入法框架應該都是 [ibus](https://github.com/ibus/ibus)，應該都只要小修改即可使用。ibus 本身是一個框架，而 Rime 也是一個框架，透過 Rime 的 ibus 版本，我們可以將 Rime 整合進 ibus 裡。架構圖如下：
+底下以 Fedora 27 (GNOME, Wayland) 為例，當代的 Linux 預設的中文輸入法框架應該都是 [ibus](https://github.com/ibus/ibus)，應該都只要小修改即可使用。ibus 本身是一個框架，而 Rime 也是一個框架，透過 Rime 的 ibus 版本，我們可以將 Rime 整合進 ibus 裡。架構圖如下：
 
 ```
 ibus:
