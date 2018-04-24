@@ -6,10 +6,23 @@
     <description>Recent content on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Apr 2018 13:28:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Apr 2018 13:29:33 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最佳化 HW1</title>
+      <link>http://amoshyc.github.io/blog/2018/%E6%9C%80%E4%BD%B3%E5%8C%96-hw1-%E5%A0%B1%E5%91%8A.html</link>
+      <pubDate>Tue, 24 Apr 2018 13:29:33 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/%E6%9C%80%E4%BD%B3%E5%8C%96-hw1-%E5%A0%B1%E5%91%8A.html</guid>
+      <description>Abstract 我實作了 2 種最佳化的方法：原始的 Gradient Descent 與帶 Momentum 的 Gradient Descent，然後在 4 個函式上應用這 2 種方法並進行比較。這 2 種方法都需要計算函式的導數（偏微分），我使用數值方法來計算導數而不使用代數方法。最後展示了每個函數的 1. 可視化 2. 隨著迭代的函式值 3. 隨著迭代 x 到全域最佳解的距離。
+Environment 使用 Python 的科學計算環境在 Fedora 27 上完成這個作業：
+ Python 3.6 Matplotlib Numpy Jupyter  程式碼放在 Github 上。如果想復現請在安裝好 Dependencies 後，在 Jupyter 中選 Cell/Run All。
+Gradient Descent Numerical Gradient 我使用以下式子來求偏微分：
+$$(del)/(del x_i) f(bbx) = lim_(2h -&amp;gt; 0) (f(x_0, ..., x_i &amp;#43; h, ..., x_(n-1)) - f(x_0, .</description>
+    </item>
     
     <item>
       <title>使用 Rime 在各大平臺安裝嘸蝦米輸入法</title>

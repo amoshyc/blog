@@ -9,6 +9,9 @@ preserveTaxonomyNames = true
 googleAnalytics = "UA-96104654-1"
 disqusShortName = "amoshyc-blog"
 
+[blackfriday]
+    fractions = false
+
 [params]
     avatar = "abouts/me.jpg"
     anchor = true

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="tw">
+    <head>
+        <title> 
+    最佳化 HW1 | Yu-Cheng Huang
+ </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+        
+
+        
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96104654-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-96104654-1');
+            </script>
+        
+
+        
+        
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+            <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                asciimath2jax: {
+                    delimiters: [['$$','$$']]
+                },
+                tex2jax: {
+                    inlineMath: [['$[', ']$']],
+                    displayMath: [['$[[', ']]$']],
+                }
+            });
+            </script>
+        
+
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/04/24</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/ccu.html">CCU</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">最佳化 HW1</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/gradient-descent.html">gradient descent</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/momentum.html">momentum</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#gradient-descent">Gradient Descent</a>
+<ul>
+<li><a href="#numerical-gradient">Numerical Gradient</a></li>
+<li><a href="#gradient-descent-1">Gradient Descent</a></li>
+<li><a href="#momentum">Momentum</a></li>
+</ul></li>
+<li><a href="#experimental-results">Experimental Results</a>
+<ul>
+<li><a href="#f1">F1</a></li>
+<li><a href="#f2">F2</a></li>
+<li><a href="#f3">F3</a></li>
+<li><a href="#f4">F4</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="abstract">Abstract</h1>
+
+<p>我實作了 2 種最佳化的方法：原始的 Gradient Descent 與帶 Momentum 的 Gradient Descent，然後在 4 個函式上應用這 2 種方法並進行比較。這 2 種方法都需要計算函式的導數（偏微分），我使用數值方法來計算導數而不使用代數方法。最後展示了每個函數的 1. 可視化 2. 隨著迭代的函式值 3. 隨著迭代 x 到全域最佳解的距離。</p>
+
+<h1 id="environment">Environment</h1>
+
+<p>使用 Python 的科學計算環境在 Fedora 27 上完成這個作業：</p>
+
+<ol>
+<li>Python 3.6</li>
+<li>Matplotlib</li>
+<li>Numpy</li>
+<li>Jupyter</li>
+</ol>
+
+<p>程式碼放在 <a href="https://github.com/amoshyc/ccu-optimization/blob/master/hw1.ipynb">Github</a> 上。如果想復現請在安裝好 Dependencies 後，在 Jupyter 中選 Cell/Run All。</p>
+
+<h1 id="gradient-descent">Gradient Descent</h1>
+
+<h2 id="numerical-gradient">Numerical Gradient</h2>
+
+<p>我使用以下式子來求偏微分：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+    
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$$(del)/(del x_i) f(bbx) = lim_(2h -&gt; 0) (f(x_0, ..., x_i &#43; h, ..., x_(n-1)) - f(x_0, ..., x_i - h, ..., x_(n-1))) / (2h)$$</div>
+        
+    
+        
+    
+</div>
+
+<p>用以下式子來求 gradient：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+    
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$$grad f(bbx) = ((del f)/(del x_0), ..., (del f)/(del x_(n-1)))$$</div>
+        
+    
+        
+    
+</div>
+
+<p>於是 $$f$$ 在位置 $$bbx$$ 的 gradient 寫成程式是：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">numerical_gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-4</span>
+    <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="c1"># f(x + h)</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span> <span class="o">+</span> <span class="n">h</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="c1"># f(x - h)</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span> <span class="o">-</span> <span class="n">h</span>
+        <span class="n">f2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="c1"># grad</span>
+        <span class="n">grad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span> <span class="o">-</span> <span class="n">f2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+        <span class="c1"># restore</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="k">return</span> <span class="n">grad</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>注意程式碼中 <code>x</code> 的型態是 <code>numpy.ndarray</code>。</p>
+
+<h2 id="gradient-descent-1">Gradient Descent</h2>
+
+<p>有了 gradient 後，就能實作出 gradient descent，其更新為：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+    
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$$bbx_(n&#43;1) = bbx_n - gamma grad f(bbx_n)$$</div>
+        
+    
+        
+    
+</div>
+
+<p>對應的程式碼是：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">init_x</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">step_num</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">step_num</span><span class="p">,</span> <span class="n">init_x</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">step_num</span><span class="p">,</span> <span class="n">init_x</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">init_x</span>
+    <span class="n">grad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">numerical_gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">step_num</span><span class="p">):</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">lr</span> <span class="o">*</span> <span class="n">grad</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">grad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">numerical_gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">path</span><span class="p">,</span> <span class="n">grad</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="momentum">Momentum</h2>
+
+<p>在我實驗的過程中，發現原始的 gradient descent 在大片平坦區域時會停住（因為 grad 為 $$bb0$$），所以我實作了一個帶 Momentum（動量）的版本希望能解決這個問題。Momentum 模擬了球從山上滾下山時的物理現象：會有動量存在，球會順著方向繼續滾而不是馬上停住。</p>
+
+<p>Momentum 方法的更新公式為：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+    
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$$bbv = alpha bbv - gamma grad f(bbx_n)$$</div>
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$$bbx_(n&#43;1) = bbx_n &#43; bbv$$</div>
+        
+    
+        
+    
+</div>
+
+<p>一般建議的 $$alpha$$ 是 $$0.9$$，所以對應的程式碼為：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">momentum</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">init_x</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">step_num</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">step_num</span><span class="p">,</span> <span class="n">init_x</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">step_num</span><span class="p">,</span> <span class="n">init_x</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">velc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">step_num</span><span class="p">,</span> <span class="n">init_x</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">init_x</span>
+    <span class="n">grad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">numerical_gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">velc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">lr</span> <span class="o">*</span> <span class="n">grad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">step_num</span><span class="p">):</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">velc</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">grad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">numerical_gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">velc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">velc</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">grad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">path</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">velc</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="experimental-results">Experimental Results</h1>
+
+<p>我嘗試最小化的函式有 4 個：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+    
+        
+    
+        
+            <div class="am-line" style="margin: 5px auto">$${: (f_1(x) = x^4 - 3x^2 &#43; 2), (f_2(bbx) = 100(x_1 - x_0)^2 &#43; (1 - x_0)^2), (f_3(bbx) = x_0^2 &#43; x_1^2), (f_4(bbx) = 1/20 x_0^2 &#43; x_1^2) :}$$</div>
+        
+    
+        
+    
+</div>
+
+<p>利用 numpy，程式碼寫起來很簡單（再次強調，程式碼中的 <code>x</code> 是 <code>ndarray</code>）：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">f4</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">20</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>除了 $$f_1$$ 以外，$$f_2, f_3, f_4$$ 都是雙變數的函式，因此需要 3D 繪圖來可視化。所幸 matplotlib 有這個功能，利用 <code>Axes3D</code> 可以做到 3D 繪圖，並可以透過 <code>view_init</code> 調整視角，細節請參考我 Github 上的程式碼。底下我可視化了各函式優化的過程，以下簡稱 Gradient Descent 為 GD、帶 Momentum 的方法為 MM。</p>
+
+<h2 id="f1">F1</h2>
+
+<p>$$f_1(x) = x^4 - 3x^2 + 2$$ 超參數 <code>init_x = [10,]</code>, <code>lr=0.001</code>, <code>iter=1000</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>Optimizer</th>
+<th>$$bbx_n$$</th>
+<th>$$f(bbx_n)$$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Naive Gradient Descent</td>
+<td>1.2249577</td>
+<td>-0.249999</td>
+</tr>
+
+<tr>
+<td>Gradient Descent with Momentum</td>
+<td>1.2247576</td>
+<td>-0.249999</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://i.imgur.com/JhxRyTx.png" alt="" />
+<img src="https://i.imgur.com/CVvKvmP.png" alt="" /></p>
+
+<p>兩者跑出差不多的結果，只是優化的過程非常不同。而負數的產生我猜測原因是浮點數的誤差造成的。從左下的圖可以觀察到函數值的振盪，帶 Momentum 的方法如何預期的因為有動量的存在，衝上了函式的另一測。而從右下的圖可以看到 $$bbx$$ 距離 Global Minima 的歐式距離越來越小，且 MM 優化的速度比 GD 快一些。</p>
+
+<h2 id="f2">F2</h2>
+
+<p>$$f_2(bbx) = 100(x_1 - x_0)^2 + (1 - x_0)^2$$
+超參數 <code>init_x = [80.0, -50.0]</code>, <code>lr=0.001</code>, <code>iter=1000</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>Optimizer</th>
+<th>$$bbx_n$$</th>
+<th>$$f(bbx_n)$$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Naive Gradient Descent</td>
+<td>[6.092 6.117]</td>
+<td>25.995</td>
+</tr>
+
+<tr>
+<td>Gradient Descent with Momentum</td>
+<td>[1.000 1.000]</td>
+<td>2.238e-07</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://i.imgur.com/QSek75H.png" alt="" />
+<img src="https://i.imgur.com/091fR5K.png" alt="" /></p>
+
+<p>對於 $$f_2$$ 兩種方法的結果就差距很大了，GD 根本無法找到全域最佳解，進入到平坦區域後就停住了，而 MM 帶有著動量能繼續前進。不過從左下的圖來說，MM 優化的速度比 GD 還要慢，但從右下的圖可以發現 MM 比 GD 更能接近 Global Minima。兩者各有其優點。</p>
+
+<h2 id="f3">F3</h2>
+
+<p>$$f_3(bbx) = x_0^2 + x_1^2$$ 超參數 <code>init_x = [12.0, -12.0]</code>, <code>lr=0.1</code>, <code>iter=200</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>Optimizer</th>
+<th>$$bbx_n$$</th>
+<th>$$f(bbx_n)$$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Naive Gradient Descent</td>
+<td>[ 8.970e-13 -8.970e-13]</td>
+<td>1.609e-24</td>
+</tr>
+
+<tr>
+<td>Gradient Descent with Momentum</td>
+<td>[-0.00028  0.00028]</td>
+<td>1.586e-07</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://i.imgur.com/ofElnso.png" alt="" />
+<img src="https://i.imgur.com/4V8h8jW.png" alt="" /></p>
+
+<p>$$f_3$$ 這種處處都有非零 gradient 的函式就簡單了。GD 在各方面都比 MM 更好。MM 會衝過頭而造成收斂的比較慢。</p>
+
+<h2 id="f4">F4</h2>
+
+<p>$$ f_4(bbx) = 1/20x_0^2 + x_1^2 $$ 超參數 <code>init_x = [12.0, -12.0]</code>, <code>lr=0.1</code>, <code>iter=500</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>Optimizer</th>
+<th>$$bbx_n$$</th>
+<th>$$f(bbx_n)$$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Naive Gradient Descent</td>
+<td>[7.957e-02 -9.299e-13]</td>
+<td>0.0003165</td>
+</tr>
+
+<tr>
+<td>Gradient Descent with Momentum</td>
+<td>[4.615e-11 4.310e-11]</td>
+<td>1.964e-21</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://i.imgur.com/aKtR1tA.png" alt="" />
+<img src="https://i.imgur.com/DeuEvzI.png" alt="" /></p>
+
+<p>$$f_4$$ 只比 $$f_3$$ 多了一點係數，結果卻大不相同。MM 比 GD 好上許多，不過是找到 $$bbx$$ 還是 $$f(bbx)$$，MM 都比 GD 精準。從左下與右下的圖也可以發現，MM 收斂地比 GD 快，並能跑出較好的解。</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>在整個實驗的過程，我發現不管是 GD 還是 MM 都非常受超參數（$$x_0, lr, iter$$）的影響。調得好，GD/MM 都能找到不錯的解，但調得不好，GD/MM 就會發散，找到的解非常大或非常小。其中，$$lr$$ 的影響最大，一旦太大，值根本跑不回來。</p>
+
+<p>這個結論給了我一個重要的觀念，以後訓練 Deep Learning 的模型時，應該<strong>多嘗試幾組超參數</strong>。模型訓練不出來，很可能不是架構的問題，而是沒用對超參數。在這個實驗中，整體而言，MM 表現地比 GD 好上一些，不過 MM 有時容易衝過頭，反而需要迭代更多次才能找到方向。</p>
+
+<p>最後，老師給的 Banana Function 寫錯了，少了一個平方項。真正的 Banana Function 應該一個四次的函式。我在實驗中也嘗試拿我寫的 2 個方法去優化真正的 Banana Function，但結果慘不忍睹，只有少數幾組可以找到最佳解，大部份情況都很慘，所以我就不放上來了。</p>
+
+    </div>
+
+    
+    
+        <div id="comments">
+    <button id="expand-btn" href="" onclick="expand_disqus()">Comments</button>
+    <div id="disqus_thread"></div>
+</div>
+
+<script type="text/javascript">
+
+function expand_disqus() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    document.getElementById('expand-btn').style.display = "none";
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = false;
+    var disqus_shortname = 'amoshyc-blog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+};
+</script>
+    
+</article>
+
+        </main>
+
+        
+        <footer>
+    
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+    <p>
+        © 2018 by amoshyc
+    </p>
+</footer>
+
+        
+        
+            <script>
+                anchors.options = {
+                    placement: 'right',
+                };
+                anchors.add('.md-content > h1, .md-content > h2, .md-content > h3, .md-content > h4');
+            </script>
+        
+</body>
+
+</html>
