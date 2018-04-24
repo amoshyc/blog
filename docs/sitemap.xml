@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://amoshyc.github.io/blog/2018/%E6%9C%80%E4%BD%B3%E5%8C%96-hw1-%E5%A0%B1%E5%91%8A.html</loc>
+    <loc>http://amoshyc.github.io/blog/2018/ccu-optimization-hw1.html</loc>
     <lastmod>2018-04-24T13:29:33+08:00</lastmod>
   </url>
   
@@ -115,13 +115,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/cheatsheet.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/cheatsheet.html</loc>
     <lastmod>2017-12-09T13:55:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/cheatsheet.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/cheatsheet.html</loc>
     <lastmod>2017-12-09T13:55:37+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -145,13 +145,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/fedora.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/fedora.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/fedora.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/fedora.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -199,13 +199,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/linux.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/linux.html</loc>
     <lastmod>2018-04-19T13:28:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/linux.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/linux.html</loc>
     <lastmod>2018-04-19T13:28:26+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -217,13 +217,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/matlab.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/matlab.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/matlab.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/matlab.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -253,13 +253,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/python.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/python.html</loc>
     <lastmod>2018-02-22T17:32:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/python.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/python.html</loc>
     <lastmod>2018-02-22T17:32:32+08:00</lastmod>
     <priority>0</priority>
   </url>
