@@ -95,6 +95,6 @@ img = img / img.max()
 img = np.uint8(img * 255)
 Image.fromarray(img).save('./out.jpg')
 {{< /highlight >}}
-{{< figure src="https://i.imgur.com/WgYtjLb.jpg" width="100">}}
+{{< figure src="https://i.imgur.com/ix9ugHS.jpg" width="500">}}
 
 其中要注意的是函式的值可能太小（例如 `sigma=1` 時，函式值最大為 0.5），可以考慮將之調整。例如上段程式碼就是將整個圖的最大值縮放成 1。
