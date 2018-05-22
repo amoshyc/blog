@@ -83,13 +83,11 @@ from PIL import Image
 
 img = np.zeros((100, 100), dtype=np.float32)
 rr, cc, g = gaussian2d([50, 50], [3, 3], shape=img.shape)
-img[rr, cc] += g
+img[rr, cc] = np.maximum(img[rr, cc], g / g.max())
 rr, cc, g = gaussian2d([55, 55], [3, 3], shape=img.shape)
-img[rr, cc] += g
+img[rr, cc] = np.maximum(img[rr, cc], g / g.max())
 rr, cc, g = gaussian2d([20, 20], [3, 3], shape=img.shape)
-img[rr, cc] += g
-
-img = img / img.max()
+img[rr, cc] = np.maximum(img[rr, cc], g / g.max())
 
 # Save Image
 img = np.uint8(img * 255)
