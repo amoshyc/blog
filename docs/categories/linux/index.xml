@@ -6,10 +6,23 @@
     <description>Recent content in Linux on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Apr 2018 13:28:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jun 2018 15:58:14 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在 Fedora 安裝 Zotero</title>
+      <link>http://amoshyc.github.io/blog/2018/install-zotero-on-fedora.html</link>
+      <pubDate>Thu, 07 Jun 2018 15:58:14 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/install-zotero-on-fedora.html</guid>
+      <description>背景 最近因為在做計畫，大量地看論文，然後發現只使用 Chrome 的書籤已經不夠我管理這堆論文了，所以打算使用 Zotero 來管理。Zotero 是一個文獻管理軟體，不過目前為止我還沒要用到他生成 Reference 的功能，只是拿他來管理論文。跟他同性質的軟體包含 EndNote, Mendeley 等，不過看來看去，覺得 Zotero 應該是比較好的，而且有出 Linux 版本，讓我可以在 Fedora 上使用。
+安裝 官方指示
+下載 從官網下載針對 Linux 的壓縮檔即可，是用 Java 寫的。解壓後執行該資料夾中的 zotero（不是 zotero-bin 也不是 zotero.jar）。我個人解壓後的資料夾是 ~/Zotero_linux-x86_64/，不過你當然可以選你想要的地方。
+建立 Desktop File 我想將 Zotero 加到 GNOME 的 Favorite 中，讓我方便快速啟動。方法為將 Zotero 的 Desktop File 加到 ~/.local/shared/applications/。照著官方指示做，在 Zotero 的資料夾中執行：
+$ ./set_launcher_icon $ ln -s ~/Zotero_linux-x86_64/zotero.desktop ~/.local/share/applications/zotero.desktop  前者會將 Zotero Desktop File 的 Icon 欄位設定好。後者在目標資料夾建一個 symlink 到 Zotero 的 Desktop File。這樣你應該就可以在 GNOME 中直接搜到 Zotero 了，然後就可以右鍵將他加進 Favorite。</description>
+    </item>
     
     <item>
       <title>使用 Rime 在各大平臺安裝嘸蝦米輸入法</title>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://amoshyc.github.io/blog/2018/install-zotero-on-fedora.html</loc>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/2018/ccu-optimization-hw1.html</loc>
     <lastmod>2018-04-24T13:29:33+08:00</lastmod>
   </url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/2018.html</loc>
-    <lastmod>2018-04-24T13:29:33+08:00</lastmod>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -115,13 +120,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/cheatsheet.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/cheatsheet.html</loc>
     <lastmod>2017-12-09T13:55:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/cheatsheet.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/cheatsheet.html</loc>
     <lastmod>2017-12-09T13:55:37+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -129,6 +134,12 @@
   <url>
     <loc>http://amoshyc.github.io/blog/tags/csh.html</loc>
     <lastmod>2018-02-23T11:34:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/desktop-file.html</loc>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -145,13 +156,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/fedora.html</loc>
-    <lastmod>2018-02-22T14:48:22+08:00</lastmod>
+    <loc>http://amoshyc.github.io/blog/tags/fedora.html</loc>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/fedora.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/fedora.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -199,14 +210,14 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/linux.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/linux.html</loc>
     <lastmod>2018-04-19T13:28:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/linux.html</loc>
-    <lastmod>2018-04-19T13:28:26+08:00</lastmod>
+    <loc>http://amoshyc.github.io/blog/categories/linux.html</loc>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -217,13 +228,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/matlab.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/matlab.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/matlab.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/matlab.html</loc>
     <lastmod>2018-02-22T14:48:22+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -253,13 +264,13 @@
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/categories/python.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/python.html</loc>
     <lastmod>2018-02-22T17:32:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/python.html</loc>
+    <loc>http://amoshyc.github.io/blog/categories/python.html</loc>
     <lastmod>2018-02-22T17:32:32+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -332,13 +343,19 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/</loc>
-    <lastmod>2018-04-24T13:29:33+08:00</lastmod>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://amoshyc.github.io/blog/tags/zmd.html</loc>
     <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/zotero.html</loc>
+    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
     <priority>0</priority>
   </url>
   
