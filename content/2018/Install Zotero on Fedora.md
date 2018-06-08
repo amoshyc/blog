@@ -42,8 +42,6 @@ Zotero 的 Browser Extention 讓你可以在瀏覽網頁時就將網頁加進 Ze
 
 {{< figure src="https://i.imgur.com/g6wESqz.png" width="700">}}
 
------
-
 事實上到目前為止，我還沒找到一個理想的方式來管理讀過的論文，原因有幾個：
 
 1. 我讀論文時，喜歡印下來，看紙本，然後在上面註記，包含寫感想與 Highlight。
