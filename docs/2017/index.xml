@@ -18,10 +18,16 @@
       
       <guid>http://amoshyc.github.io/blog/2017/markdown-cheatsheet.html</guid>
       <description>Standard Markdown Inline Markup 常見的 Markdown 行內標記包含粗體、斜體 、刪除、程式碼、Footnote1 與超連結。他們使用方法分別為：
- 粗體 ：**粗體** 或 __粗體__。 斜體 ：*斜體* 或 _斜體_。 刪除 ：~~刪除~~。 程式碼 ：將內容用 ` 包起來。 1：[^id]，其連結的位置為 [^id]: xxx。 超連結：[text](link “tooltip&amp;quot;)，&amp;quot;tooltip&amp;quot; 可以不寫。  其中要注意的是斜體後面得有空白，造成中文書寫時會有多餘空白，因此書寫中文時建議使用粗體代替。在這個 theme 中，所有的換行都會被保留，這有別於其他 theme，我認為這樣的書寫比較符合我自己的習慣。如果使用本 theme，建議將你的編輯器調成 wrap line 的模式。
+ 粗體 ：**粗體** 或 __粗體__。
+ 斜體 ：*斜體* 或 _斜體_。
+ 刪除 ：~~刪除~~。
+ 程式碼 ：將內容用 ` 包起來。
+ 1：[^id]，其連結的位置為 [^id]: xxx。
+ 超連結：[text](link “tooltip&amp;quot;)，&amp;quot;tooltip&amp;quot; 可以不寫。
+  其中要注意的是斜體後面得有空白，造成中文書寫時會有多餘空白，因此書寫中文時建議使用粗體代替。在這個 theme 中，所有的換行都會被保留，這有別於其他 theme，我認為這樣的書寫比較符合我自己的習慣。如果使用本 theme，建議將你的編輯器調成 wrap line 的模式。
 Image ![Fedora 26](https://i.imgur.com/QzfKyxm.jpg)  這種圖片寬度固定為 theme 的寬度（預設是 700px）。
 Code Block Code Block 一般用來放置一些簡短的、不需要顏色渲染的程式碼，例如在 conda 中創造一個虛擬環境的指令為：
-conda create -n venv python=3.6 source activate venv  Block Quote  Block Quote 一般用來放要強調的東西。 也可以用來放詩詞等。</description>
+conda create -n venv python=3.6 source activate venv  Block Quote  Block Quote 一般用來放要強調的東西。</description>
     </item>
     
     <item>

@@ -121,23 +121,26 @@
 <h1 id="installation">Installation</h1>
 
 <ol>
-<li>下載 linux 版的 Matlab, network.lic 跟說明文件，學校一般都有提供。</li>
+<li>下載 linux 版的 Matlab, network.lic 跟說明文件，學校一般都有提供。<br />
+<br /></li>
 </ol>
 
 <p><img src="https://imgur.com/yqHD2uq.png" alt="" /></p>
 
 <ol>
-<li>Mount 該 iso 檔。這裡你有兩種方法，一個是傳統地用 <code>mount</code> 指令，另一個是在 Nautilus 中，直接在 iso 上點兩下（預設是用 Disk Image Mounter 開啟）。這裡使用第二種方法。這時可以從 Other locations 中看到 Matlab 被 mount 了。</li>
+<li>Mount 該 iso 檔。這裡你有兩種方法，一個是傳統地用 <code>mount</code> 指令，另一個是在 Nautilus 中，直接在 iso 上點兩下（預設是用 Disk Image Mounter 開啟）。這裡使用第二種方法。這時可以從 Other locations 中看到 Matlab 被 mount 了。<br />
+<br /></li>
 </ol>
 
-<p><img src="https://imgur.com/Zx4jUcA.png" alt="" />
+<p><img src="https://imgur.com/Zx4jUcA.png" alt="" /><br />
 <img src="https://imgur.com/iVIfxaj.png" alt="" /></p>
 
 <ol>
-<li>開啟 Terminal，<code>cd</code> 到 <code>/run/media/&lt;user&gt;/MATLAB_R2016A/</code> （這是預設 mount 的位置），執行 <code>./install</code>。注意這裡不要加 <code>sudo</code> （加了會失敗，尚不清楚原因）。之後 matlab 安裝視窗就會出現。照著安裝步驟走即可。 但因為沒給 sudo 權限，無法安裝到 <code>/usr/local/</code> 等位置，所以我安裝到 <code>~/Matlab</code>。</li>
+<li>開啟 Terminal，<code>cd</code> 到 <code>/run/media/&lt;user&gt;/MATLAB_R2016A/</code> （這是預設 mount 的位置），執行 <code>./install</code>。注意這裡不要加 <code>sudo</code> （加了會失敗，尚不清楚原因）。之後 matlab 安裝視窗就會出現。照著安裝步驟走即可。 但因為沒給 sudo 權限，無法安裝到 <code>/usr/local/</code> 等位置，所以我安裝到 <code>~/Matlab</code>。<br />
+<br /></li>
 </ol>
 
-<p><img src="https://imgur.com/2CNMpZB.png" alt="" />
+<p><img src="https://imgur.com/2CNMpZB.png" alt="" /><br />
 <img src="https://imgur.com/E0alIo7.png" alt="" /></p>
 
 <h1 id="desktop-application">Desktop Application</h1>
@@ -145,8 +148,9 @@
 <p>不想每次都從 command line 開啟，可以從 <a href="https://gist.github.com/amoshyc/98c1405c86788be291d026416487fe03">這裡</a> 下載兩個檔案，並將：</p>
 
 <ul>
-<li><code>matlab.desktop</code> 放到 <code>~/.local/share/applications/</code></li>
-<li><code>matlab_icon.png</code> 放到 <code>~/.local/share/icons/</code></li>
+<li><code>matlab.desktop</code> 放到 <code>~/.local/share/applications/</code><br /></li>
+<li><code>matlab_icon.png</code> 放到 <code>~/.local/share/icons/</code><br />
+<br /></li>
 </ul>
 
 <p>這樣即可在 Application 中看到 Matlab。</p>

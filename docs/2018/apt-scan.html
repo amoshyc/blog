@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tw">
+    <head>
+        <title> 
+    APT Scan: 圖像轉正應用 | Yu-Cheng Huang
+ </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+        
+
+        
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96104654-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-96104654-1');
+            </script>
+        
+
+        
+        
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+            <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                asciimath2jax: {
+                    delimiters: [['$$','$$']]
+                },
+                tex2jax: {
+                    inlineMath: [['$[', ']$']],
+                    displayMath: [['$[[', ']]$']],
+                }
+            });
+            </script>
+        
+
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/06/30</span>
+            <span>@</span>
+            <span>
+                
+            </span>
+        </div>
+
+        <h1 class="title">APT Scan: 圖像轉正應用</h1>
+
+        <div class="bottom">
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#symbols">Symbols</a></li>
+<li><a href="#homogeneous-coordinates">Homogeneous coordinates</a></li>
+<li><a href="#homography">Homography</a></li>
+<li><a href="#warp">Warp</a></li>
+<li><a href="#實作">實作</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="symbols">Symbols</h1>
+
+<h1 id="homogeneous-coordinates">Homogeneous coordinates</h1>
+
+<p>我們會用到簡單的齊次座標系，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。</p>
+
+<p>在齊次座標中，一個 2D 平面中的點 $$(x, y)$$ 會被寫成一個 3D 的向量。如果在齊次座標中看到向量 $$(a, b, c)^T$$，那他實際是指點 $$(a//c, b//c)$$。而這會造成一個有趣的事實：同一個點會有不只一種的寫法，事實上有無限多種。例如點 $$(2, 3)$$ 可以表達成 $$(2, 3, 1)^T$$ 或 $$(4, 6, 2)^T$$。</p>
+
+<h1 id="homography">Homography</h1>
+
+<p>電腦視覺告訴我們從 $$C_(src)$$ 轉換到 $$ C_(src) $$ 是一個 Homography Transform(=Projective Transform=Perspective Transform)，而且這個 Transform 在齊次座標系下是一個線性變換。用數學符號來說明的話，即對 $$C_(src)$$ 中的任一點 $$(x_(src),y_(src))$$ 與 $$C_(dst)$$ 中的<strong>對應點</strong> $$(x_(dst), y_(dst))$$ 有以下關係式：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+     
+        <div class="am-line" style="margin: 5px auto">$$
+((x_(dst)), (y_(dst)), (1))
+=
+(
+    (h_(11), h_(12), h_(13)),
+    (h_(21), h_(22), h_(23)),
+    (h_(31), h_(32), 1)
+)
+((x_(src)), (y_(src)), (1))
+$$</div>
+     
+</div>
+
+
+<p>我們最終的目標是求出 $$h_(ij)$$ 這 8 個未知數。就讓我們先將他乘開吧：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+     
+        <div class="am-line" style="margin: 5px auto">$$
+((x_(dst)), (y_(dst)), (1))
+=
+(
+    (h_(11) x_(src) &#43; h_(12) y_(src) &#43; h_(13)),
+    (h_(21) x_(src) &#43; h_(22) y_(src) &#43; h_(23)),
+    (h_(31) x_(src) &#43; h_(32) y_(src) &#43; 1)
+)
+$$</div>
+     
+</div>
+
+
+<p>依據齊次座標的特性，我們可以得到（注意從這開始就不是齊次座標了）：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+     
+        <div class="am-line" style="margin: 5px auto">$$
+x_(dst) = (h_(11) x_(src) &#43; h_(12) y_(src) &#43; h_(13)) / (h_(31) x_(src) &#43; h_(32) y_(src) &#43; 1) $$</div>
+      
+        <div class="am-line" style="margin: 5px auto">$$
+y_(dst) = (h_(21) x_(src) &#43; h_(22) y_(src) &#43; h_(23)) / (h_(31) x_(src) &#43; h_(32) y_(src) &#43; 1)
+$$</div>
+     
+</div>
+
+
+<p>乘開移項可得：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+     
+        <div class="am-line" style="margin: 5px auto">$$
+h_(11) x_(src) &#43; h_(12) y_(src) &#43;
+h_(13) - h_(31) x_(src) x_(dst) -
+h_(32) y_(src) x_(dst) = x_(dst) $$</div>
+      
+        <div class="am-line" style="margin: 5px auto">$$
+
+h_(21) x_(src) &#43; h_(22) y_(src) &#43;
+h_(23) - h_(31) x_(src) y_(dst) -
+h_(32) y_(src) y_(dst) = y_(dst)
+$$</div>
+     
+</div>
+
+
+<p>寫成針對未知數的矩陣型式：</p>
+
+<div class="am-block" style="display:flex; flex-direction:column">
+     
+        <div class="am-line" style="margin: 5px auto">$$
+(
+    (x_(src), y_(src), 1, 0, 0, 0, -x_(src) x_(dst), -y_(src) x_(dst)),
+    (0, 0, 0, x_(src), y_(src), 1, -x_(src) y_(dst), -y_(src) y_(dst)),
+    ( ,  ,  ,  ,  ,  ,  ,  ),
+    ( ,  ,  ,  ,  ,  ,  ,  ),
+    ( ,  ,  ,  ,  ,  ,  ,  ),
+    ( ,  ,  ,  ,  ,  ,  ,  ),
+    ( ,  ,  ,  ,  ,  ,  ,  ),
+    ( ,  ,  ,  ,  ,  ,  ,  )
+)
+((h_(11)), (h_(12)), (h_(13)), (h_(21)), (h_(22)), (h_(23)), (h_(31)), (h_(32)))
+=
+(
+    (x_(dst)), (y_(dst)), ( ), ( ), ( ), ( ), ( ), ( )
+)
+$$</div>
+     
+</div>
+
+
+<p>一組對應點 $$(x_(src), y_(src)) (x_(dst), y_(dst))$$ 我們可以得到二條關於未知數的方程式。也就是我們<strong>只需要四組對應點就可以解出所有的未知數</strong>。</p>
+
+<h1 id="warp">Warp</h1>
+
+<h1 id="實作">實作</h1>
+
+    </div>
+
+    
+    
+        <div id="comments">
+    <button id="expand-btn" href="" onclick="expand_disqus()">Comments</button>
+    <div id="disqus_thread"></div>
+</div>
+
+<script type="text/javascript">
+
+function expand_disqus() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    document.getElementById('expand-btn').style.display = "none";
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = false;
+    var disqus_shortname = 'amoshyc-blog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+};
+</script>
+    
+</article>
+
+        </main>
+
+        
+        <footer>
+    
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+    <p>
+        © 2018 by amoshyc
+        <a href="./index.xml" title="RSS">♥</a>
+    </p>
+</footer>
+
+
+        
+        
+            <script>
+                anchors.options = {
+                    placement: 'right',
+                };
+                anchors.add('.md-content > h1, .md-content > h2, .md-content > h3, .md-content > h4');
+            </script>
+        
+</body>
+
+</html>

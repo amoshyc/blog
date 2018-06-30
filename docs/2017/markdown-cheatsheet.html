@@ -156,12 +156,13 @@
 <p>常見的 Markdown 行內標記包含<strong>粗體</strong>、<em>斜體</em> 、<del>刪除</del>、<code>程式碼</code>、Footnote<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> 與<a href="https://example.org/" title="tooltip">超連結</a>。他們使用方法分別為：</p>
 
 <ul>
-<li><strong>粗體</strong> ：<code>**粗體**</code> 或 <code>__粗體__</code>。</li>
-<li><em>斜體</em> ：<code>*斜體*</code> 或 <code>_斜體_</code>。</li>
-<li><del>刪除</del> ：<code>~~刪除~~</code>。</li>
-<li><code>程式碼</code> ：將內容用 ` 包起來。</li>
-<li><sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>：<code>[^id]</code>，其連結的位置為 <code>[^id]: xxx</code>。</li>
-<li><a href="https://example.org/">超連結</a>：<code>[text](link “tooltip&quot;)</code>，<code>&quot;tooltip&quot;</code> 可以不寫。</li>
+<li><strong>粗體</strong> ：<code>**粗體**</code> 或 <code>__粗體__</code>。<br /></li>
+<li><em>斜體</em> ：<code>*斜體*</code> 或 <code>_斜體_</code>。<br /></li>
+<li><del>刪除</del> ：<code>~~刪除~~</code>。<br /></li>
+<li><code>程式碼</code> ：將內容用 ` 包起來。<br /></li>
+<li><sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>：<code>[^id]</code>，其連結的位置為 <code>[^id]: xxx</code>。<br /></li>
+<li><a href="https://example.org/">超連結</a>：<code>[text](link “tooltip&quot;)</code>，<code>&quot;tooltip&quot;</code> 可以不寫。<br />
+<br /></li>
 </ul>
 
 <p>其中要注意的是斜體後面得有空白，造成中文書寫時會有多餘空白，因此書寫中文時建議使用粗體代替。在這個 theme 中，<strong>所有</strong>的換行都會被保留，這有別於其他 theme，我認為這樣的書寫比較符合我自己的習慣。如果使用本 theme，建議將你的編輯器調成 wrap line 的模式。</p>
@@ -186,12 +187,12 @@ source activate venv
 <h2 id="block-quote">Block Quote</h2>
 
 <blockquote>
-<p>Block Quote 一般用來放要強調的東西。
+<p>Block Quote 一般用來放要強調的東西。<br />
 也可以用來放詩詞等。</p>
 
 <blockquote>
-<p>它可以巢狀使用，但很少用到。也可以包含其他東西，像是 List:
-1. list item 1
+<p>它可以巢狀使用，但很少用到。也可以包含其他東西，像是 List:<br />
+1. list item 1<br />
 2. list item 2</p>
 </blockquote>
 </blockquote>
@@ -249,29 +250,33 @@ source activate venv
 <h3 id="unordered-list">Unordered List</h3>
 
 <ul>
-<li>第 1 級</li>
-<li>第 1 級</li>
-<li>another list
+<li>第 1 級<br /></li>
+<li>第 1 級<br /></li>
+<li>another list<br />
 
 <ul>
-<li>第 2 級</li>
-<li>第 2 級</li>
+<li>第 2 級<br /></li>
+<li>第 2 級<br /></li>
 </ul></li>
-<li>第 1 級</li>
+<li>第 1 級<br />
+<br /></li>
 </ul>
 
 <h3 id="ordered-list">Ordered List</h3>
 
 <ol>
-<li>第 1 級</li>
-<li>第 1 級</li>
-<li>another list
+<li>第 1 級<br /></li>
+<li>第 1 級<br /></li>
+<li>another list<br />
 
 <ol>
-<li>第 2 級</li>
-<li>第 2 級</li>
+<li>第 2 級<br /></li>
+<li>第 2 級<br /></li>
 </ol></li>
-<li>第 1 級</li>
+<li>第 1 級<br />
+<br />
+<br />
+<br /></li>
 </ol>
 
 <h1 id="hugo-shortcodes">Hugo Shortcodes</h1>
@@ -281,9 +286,10 @@ source activate venv
 <p>用來顯示顏色渲染的程式碼，可以指定：</p>
 
 <ol>
-<li>顯示行號或模式</li>
-<li>加亮顯示哪些行</li>
-<li>行數起始值</li>
+<li>顯示行號或模式<br /></li>
+<li>加亮顯示哪些行<br /></li>
+<li>行數起始值<br />
+<br /></li>
 </ol>
 
 <p>無行號模式：</p>
@@ -360,8 +366,8 @@ source activate venv
 <h2 id="youtube">Youtube</h2>
 
 
-<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/_J73EqmpZ7k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/_J73EqmpZ7k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
 
@@ -537,8 +543,8 @@ source activate venv
     </label>
 
     <div id="in1" class="content">
-        <p>test
-test
+        <p>test<br />
+test<br />
 test</p>
 
     </div>
@@ -590,7 +596,7 @@ test</p>
 
 <h2 id="latex">Latex</h2>
 
-<p>Inline Latex code should be wrapped in <code>$[</code> and <code>]$</code>.
+<p>Inline Latex code should be wrapped in <code>$[</code> and <code>]$</code>.<br />
 Block Latex code in <code>{{&lt; tex &gt;}}</code> short code.</p>
 
 <p><code>$[N_1]$</code> produces $[N_1]$</p>
@@ -610,7 +616,7 @@ x = \frac{-b \pm \sqrt{c^2 - 4ac}}{2a}
 
 <h2 id="asciimath">AsciiMath</h2>
 
-<p>Inline AsciiMath code should be wrappedn in <code>$$</code> and <code>$$</code>.
+<p>Inline AsciiMath code should be wrappedn in <code>$$</code> and <code>$$</code>.<br />
 Block AsciiMath code in <code>{{&lt; am &gt;}}</code> short code.</p>
 
 <p><code>$$N_1$$</code> produces $$N_1$$ .</p>
@@ -623,22 +629,19 @@ x = (-b +- sqrt(c^2 - 4ac)) / (2a)
 <p>produces</p>
 
 <div class="am-block" style="display:flex; flex-direction:column">
-    
-        
-    
-        
-            <div class="am-line" style="margin: 5px auto">$$x = (-b &#43;- sqrt(c^2 - 4ac)) / (2a)$$</div>
-        
-    
-        
-    
+     
+        <div class="am-line" style="margin: 5px auto">$$
+x = (-b &#43;- sqrt(c^2 - 4ac)) / (2a)
+$$</div>
+     
 </div>
+
 <div class="footnotes">
 
 <hr />
 
 <ol>
-<li id="fn:1"><a href="https://example.org/">https://example.org/</a>
+<li id="fn:1"><a href="https://example.org/">https://example.org/</a><br />
  <a class="footnote-return" href="#fnref:1">↩</a></li>
 </ol>
 </div>

@@ -11,6 +11,7 @@ disqusShortName = "amoshyc-blog"
 
 [blackfriday]
     fractions = false
+    extensions = ["hardLineBreak"]
 
 [params]
     avatar = "abouts/me.jpg"

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://amoshyc.github.io/blog/2018/apt-scan.html</loc>
+    <lastmod>2018-06-30T23:33:36+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/2018/install-zotero-on-fedora.html</loc>
     <lastmod>2018-06-07T15:58:14+08:00</lastmod>
   </url>
@@ -79,7 +84,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/2018.html</loc>
-    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
+    <lastmod>2018-06-30T23:33:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -343,7 +348,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/</loc>
-    <lastmod>2018-06-07T15:58:14+08:00</lastmod>
+    <lastmod>2018-06-30T23:33:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
