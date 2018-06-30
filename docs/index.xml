@@ -17,9 +17,9 @@
       <pubDate>Sat, 30 Jun 2018 23:33:36 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/2018/apt-scan.html</guid>
-      <description>Symbols Homogeneous coordinates 我們會用到簡單的齊次座標系，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。
+      <description>Symbols Homogeneous coordinates 我們會用到簡單的齊次座標，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。
 在齊次座標中，一個 2D 平面中的點 $$(x, y)$$ 會被寫成一個 3D 的向量。如果在齊次座標中看到向量 $$(a, b, c)^T$$，那他實際是指點 $$(a//c, b//c)$$。而這會造成一個有趣的事實：同一個點會有不只一種的寫法，事實上有無限多種。例如點 $$(2, 3)$$ 可以表達成 $$(2, 3, 1)^T$$ 或 $$(4, 6, 2)^T$$。
-Homography 電腦視覺告訴我們從 $$C_(src)$$ 轉換到 $$ C_(src) $$ 是一個 Homography Transform(=Projective Transform=Perspective Transform)，而且這個 Transform 在齊次座標系下是一個線性變換。用數學符號來說明的話，即對 $$C_(src)$$ 中的任一點 $$(x_(src),y_(src))$$ 與 $$C_(dst)$$ 中的對應點 $$(x_(dst), y_(dst))$$ 有以下關係式：
+Homography 電腦視覺告訴我們座標從 $$C_(src)$$ 轉換到 $$ C_(src) $$ 是一個 Homography Transform(=Projective Transform=Perspective Transform)，而且這個 Transform 在齊次座標下是一個線性變換。用數學符號來說明的話，即對 $$C_(src)$$ 中的任一點 $$(x_(src),y_(src))$$ 與 $$C_(dst)$$ 中的對應點 $$(x_(dst), y_(dst))$$ 有以下關係式：
 $$ ((x_(dst)), (y_(dst)), (1)) = ( (h_(11), h_(12), h_(13)), (h_(21), h_(22), h_(23)), (h_(31), h_(32), 1) ) ((x_(src)), (y_(src)), (1)) $$  我們最終的目標是求出 $$h_(ij)$$ 這 8 個未知數。就讓我們先將他乘開吧：</description>
     </item>
     
