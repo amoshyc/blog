@@ -31,9 +31,7 @@ $ ./set_launcher_icon $ ln -s ~/Zotero_linux-x86_64/zotero.desktop ~/.local/shar
       
       <guid>http://amoshyc.github.io/blog/2018/install-matlab-on-fedora-25.html</guid>
       <description>Introduction 學校部份課堂會需要使用 Matlab，包含 Computer Vision, Machine Learning, etc。因為我電腦是裝雙系統，之前 Matlab 都裝在 Windows 下，並在 Windows 下使用，但實在覺得切換系統太麻煩了，而且針對一份作業我都是先用 Python 寫一個版本再用 Matlab 寫，當結果不一致時得不斷切換系統來 debug，太花時間。於是我決定裝 Matlab 裝到 Fedora 下，我就可以整天都待在 Fedora 上了。
-Installation  下載 linux 版的 Matlab, network.lic 跟說明文件，學校一般都有提供。
-   Mount 該 iso 檔。這裡你有兩種方法，一個是傳統地用 mount 指令，另一個是在 Nautilus 中，直接在 iso 上點兩下（預設是用 Disk Image Mounter 開啟）。這裡使用第二種方法。這時可以從 Other locations 中看到 Matlab 被 mount 了。
-   開啟 Terminal，cd 到 /run/media/&amp;lt;user&amp;gt;/MATLAB_R2016A/ （這是預設 mount 的位置），執行 ./install。注意這裡不要加 sudo （加了會失敗，尚不清楚原因）。之後 matlab 安裝視窗就會出現。照著安裝步驟走即可。 但因為沒給 sudo 權限，無法安裝到 /usr/local/ 等位置，所以我安裝到 ~/Matlab。</description>
+Installation  下載 linux 版的 Matlab, network.lic 跟說明文件，學校一般都有提供。   Mount 該 iso 檔。這裡你有兩種方法，一個是傳統地用 mount 指令，另一個是在 Nautilus 中，直接在 iso 上點兩下（預設是用 Disk Image Mounter 開啟）。這裡使用第二種方法。這時可以從 Other locations 中看到 Matlab 被 mount 了。   開啟 Terminal，cd 到 /run/media/&amp;lt;user&amp;gt;/MATLAB_R2016A/ （這是預設 mount 的位置），執行 ./install。注意這裡不要加 sudo （加了會失敗，尚不清楚原因）。之後 matlab 安裝視窗就會出現。照著安裝步驟走即可。 但因為沒給 sudo 權限，無法安裝到 /usr/local/ 等位置，所以我安裝到 ~/Matlab。  Desktop Application 不想每次都從 command line 開啟，可以從 這裡 下載兩個檔案，並將：</description>
     </item>
     
   </channel>

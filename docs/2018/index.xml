@@ -12,15 +12,14 @@
     
     
     <item>
-      <title>APT Scan: 圖像轉正應用</title>
+      <title>APT Scan: Image Correction</title>
       <link>http://amoshyc.github.io/blog/2018/apt-scan.html</link>
       <pubDate>Sat, 30 Jun 2018 23:33:36 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/2018/apt-scan.html</guid>
-      <description>Symbols Homogeneous coordinates 我們會用到簡單的齊次座標，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。
-在齊次座標中，一個 2D 直角座標的點 $$(x, y)$$ 會用 3 個數來表示。如果在齊次座標中看到向量 $$(a, b, c)^T$$，那他實際是指直角座標中的 $$(a//c, b//c)$$。而這會造成一個有趣的事實：直角座標中任一點都會有不只一種的寫法，例如直角座標的點 $$(2, 3)$$ 用齊次座標可以寫成 $$(2, 3, 1)^T$$ 也可以寫成 $$(4, 6, 2)^T$$。
-Homography 電腦視覺告訴我們座標從 $$C_(src)$$ 轉換到 $$ C_(src) $$ 是一個 Homography Transform(=Projective Transform=Perspective Transform)，而且這個 Transform 在齊次座標下是一個線性變換。用數學符號來說明的話，即對 $$C_(src)$$ 中的任一點 $$(x_(src),y_(src))$$ 與 $$C_(dst)$$ 中的對應點 $$(x_(dst), y_(dst))$$ 有以下關係式：
-$$ ((x_(dst)), (y_(dst)), (1)) = ( (h_(11), h_(12), h_(13)), (h_(21), h_(22), h_(23)), (h_(31), h_(32), 1) ) ((x_(src)), (y_(src)), (1)) $$  我們最終的目標是求出 $$h_(ij)$$ 這 8 個未知數。就讓我們先將他乘開吧：</description>
+      <description>Abstract Symbols Method APT-Scan 的流程如下：
+ 找出 $$I_(src)$$ 中目標的 4 個頂點。 估計出轉正後新圖 $$I_(dst)$$ 的大小 $$W = (T + B)//2, H=(L + R)//2$$，其中 $$T, B, L, R$$ 為 $$I_(src)$$ 中目標四條邊的邊長。 目標的 4 個頂點轉正後的座標一定會是新圖的 4 個角落，即他們在 $$C_(dst)$$ 的座標為 $$(0, 0), (W, 0), (W, H), (0, H)$$。 解出 $$C_(src)$$ 與 $$C_(dst)$$ 之間的關係：Homography Matrix $$H$$。 使用 Warp 將 $$I_(src)$$ 轉成 $$I_(dst)$$。  Detail Corners Detection Homography 我們會用到簡單的齊次座標，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。
+在齊次座標中，一個 2D 直角座標的點 $$(x, y)$$ 會用 3 個數來表示。如果在齊次座標中看到向量 $$(a, b, c)^T$$，那他實際是指直角座標中的 $$(a//c, b//c)$$。而這會造成一個有趣的事實：直角座標中任一點都會有不只一種的寫法，例如直角座標的點 $$(2, 3)$$ 用齊次座標可以寫成 $$(2, 3, 1)^T$$ 也可以寫成 $$(4, 6, 2)^T$$。</description>
     </item>
     
     <item>
@@ -44,13 +43,9 @@ $ ./set_launcher_icon $ ln -s ~/Zotero_linux-x86_64/zotero.desktop ~/.local/shar
       <guid>http://amoshyc.github.io/blog/2018/ccu-optimization-hw1.html</guid>
       <description>Abstract 我實作了 2 種最佳化的方法：原始的 Gradient Descent 與帶 Momentum 的 Gradient Descent，然後在 4 個函式上應用這 2 種方法並進行比較。這 2 種方法都需要計算函式的導數（偏微分），我使用數值方法來計算導數而不使用代數方法。最後展示了每個函數的 1. 可視化 2. 隨著迭代的函式值 3. 隨著迭代 x 到全域最佳解的距離。
 Environment 使用 Python 的科學計算環境在 Fedora 27 上完成這個作業：
- Python 3.6
- Matplotlib
- Numpy
- Jupyter
-  程式碼放在 Github 上。如果想復現請在安裝好 Dependencies 後，在 Jupyter 中選 Cell/Run All。
+ Python 3.6 Matplotlib Numpy Jupyter  程式碼放在 Github 上。如果想復現請在安裝好 Dependencies 後，在 Jupyter 中選 Cell/Run All。
 Gradient Descent Numerical Gradient 我使用以下式子來求偏微分：
-$$ (del)/(del x_i) f(bbx) = lim_(2h -&amp;gt; 0) (f(x_0, ..., x_i &amp;#43; h, .</description>
+$$ (del)/(del x_i) f(bbx) = lim_(2h -&amp;gt; 0) (f(x_0, ..., x_i &amp;#43; h, ..., x_(n-1)) - f(x_0, .</description>
     </item>
     
     <item>
@@ -83,11 +78,7 @@ pip install numpy conda install -c anaconda numpy -n &amp;lt;venv&amp;gt;  1impo
       
       <guid>http://amoshyc.github.io/blog/2018/scientific-python-quickstart-1.html</guid>
       <description>Introduction Python
- Interpreter
- 一行一行執行
- Use indention
- Python 3.6
-  Virtual Environment 主流是 Conda，共分兩個版本：Anaconda, Miniconda。前者預設就安裝了非常多的 package，所以要非常大的硬碟空間（3GB+）1。但大部份 package 我們都不會用，所以推薦使用 Miniconda。
+ Interpreter 一行一行執行 Use indention Python 3.6  Virtual Environment 主流是 Conda，共分兩個版本：Anaconda, Miniconda。前者預設就安裝了非常多的 package，所以要非常大的硬碟空間（3GB+）1。但大部份 package 我們都不會用，所以推薦使用 Miniconda。
 安裝方法為去官方下載 bash，並執行，一般來說會將 conda 的執行檔加進系統的 bash：
 Editor/IDE   ides   Input/Output 1 2 3 4  input() _ = input() x = input(&amp;#39;&amp;gt; &amp;#39;) # x is str x = int(input(&amp;#39;&amp;gt; &amp;#39;))    1 2 3 4 5 6 7 8 9 10 11 12 13 14  loss = 2e-1 acc = 0.</description>
     </item>
@@ -110,8 +101,7 @@ Editor/IDE   ides   Input/Output 1 2 3 4  input() _ = input() x = input(&amp;#39
       <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/2018/syntax-highlighting-of-bash.html</guid>
-      <description> 前情提要 學校工作站預設的 shell 是 csh，用的很不習慣，而且也有一些 bug。
-可以切換成 bash 但沒有顏色渲染，今天查了一下資料，筆記一下。
+      <description> 前情提要 學校工作站預設的 shell 是 csh，用的很不習慣，而且也有一些 bug。 可以切換成 bash 但沒有顏色渲染，今天查了一下資料，筆記一下。
 顏色渲染 更改 ls 的顏色，在 .bashrc 中加入
 alias ls=&amp;#39;ls --color=auto&amp;#39; alias ll=&amp;#39;ls -alh --color=auto&amp;#39; 更改 prompt 顏色，這個指令來自 這，一樣在 .bashrc 中加入
 PS1=&amp;#39;\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] &amp;#39; 結果 </description>
@@ -134,9 +124,7 @@ PS1=&amp;#39;\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\
       
       <guid>http://amoshyc.github.io/blog/2018/install-matlab-on-fedora-25.html</guid>
       <description>Introduction 學校部份課堂會需要使用 Matlab，包含 Computer Vision, Machine Learning, etc。因為我電腦是裝雙系統，之前 Matlab 都裝在 Windows 下，並在 Windows 下使用，但實在覺得切換系統太麻煩了，而且針對一份作業我都是先用 Python 寫一個版本再用 Matlab 寫，當結果不一致時得不斷切換系統來 debug，太花時間。於是我決定裝 Matlab 裝到 Fedora 下，我就可以整天都待在 Fedora 上了。
-Installation  下載 linux 版的 Matlab, network.lic 跟說明文件，學校一般都有提供。
-   Mount 該 iso 檔。這裡你有兩種方法，一個是傳統地用 mount 指令，另一個是在 Nautilus 中，直接在 iso 上點兩下（預設是用 Disk Image Mounter 開啟）。這裡使用第二種方法。這時可以從 Other locations 中看到 Matlab 被 mount 了。
-   開啟 Terminal，cd 到 /run/media/&amp;lt;user&amp;gt;/MATLAB_R2016A/ （這是預設 mount 的位置），執行 ./install。注意這裡不要加 sudo （加了會失敗，尚不清楚原因）。之後 matlab 安裝視窗就會出現。照著安裝步驟走即可。 但因為沒給 sudo 權限，無法安裝到 /usr/local/ 等位置，所以我安裝到 ~/Matlab。</description>
+Installation  下載 linux 版的 Matlab, network.lic 跟說明文件，學校一般都有提供。   Mount 該 iso 檔。這裡你有兩種方法，一個是傳統地用 mount 指令，另一個是在 Nautilus 中，直接在 iso 上點兩下（預設是用 Disk Image Mounter 開啟）。這裡使用第二種方法。這時可以從 Other locations 中看到 Matlab 被 mount 了。   開啟 Terminal，cd 到 /run/media/&amp;lt;user&amp;gt;/MATLAB_R2016A/ （這是預設 mount 的位置），執行 ./install。注意這裡不要加 sudo （加了會失敗，尚不清楚原因）。之後 matlab 安裝視窗就會出現。照著安裝步驟走即可。 但因為沒給 sudo 權限，無法安裝到 /usr/local/ 等位置，所以我安裝到 ~/Matlab。  Desktop Application 不想每次都從 command line 開啟，可以從 這裡 下載兩個檔案，並將：</description>
     </item>
     
   </channel>

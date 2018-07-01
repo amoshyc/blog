@@ -140,11 +140,10 @@
 <p>使用 Python 的科學計算環境在 Fedora 27 上完成這個作業：</p>
 
 <ol>
-<li>Python 3.6<br /></li>
-<li>Matplotlib<br /></li>
-<li>Numpy<br /></li>
-<li>Jupyter<br />
-<br /></li>
+<li>Python 3.6</li>
+<li>Matplotlib</li>
+<li>Numpy</li>
+<li>Jupyter</li>
 </ol>
 
 <p>程式碼放在 <a href="https://github.com/amoshyc/ccu-optimization/blob/master/hw1.ipynb">Github</a> 上。如果想復現請在安裝好 Dependencies 後，在 Jupyter 中選 Cell/Run All。</p>
@@ -379,14 +378,14 @@ $$</div>
 </tbody>
 </table>
 
-<p><img src="https://i.imgur.com/JhxRyTx.png" alt="" /><br />
+<p><img src="https://i.imgur.com/JhxRyTx.png" alt="" />
 <img src="https://i.imgur.com/CVvKvmP.png" alt="" /></p>
 
 <p>兩者跑出差不多的結果，只是優化的過程非常不同。而負數的產生我猜測原因是浮點數的誤差造成的。從左下的圖可以觀察到函數值的振盪，帶 Momentum 的方法如何預期的因為有動量的存在，衝上了函式的另一測。而從右下的圖可以看到 $$bbx$$ 距離 Global Minima 的歐式距離越來越小，且 MM 優化的速度比 GD 快一些。</p>
 
 <h2 id="f2">F2</h2>
 
-<p>$$f_2(bbx) = 100(x_1 - x_0)^2 + (1 - x_0)^2$$<br />
+<p>$$f_2(bbx) = 100(x_1 - x_0)^2 + (1 - x_0)^2$$
 超參數 <code>init_x = [80.0, -50.0]</code>, <code>lr=0.001</code>, <code>iter=1000</code>。</p>
 
 <table>
@@ -413,7 +412,7 @@ $$</div>
 </tbody>
 </table>
 
-<p><img src="https://i.imgur.com/QSek75H.png" alt="" /><br />
+<p><img src="https://i.imgur.com/QSek75H.png" alt="" />
 <img src="https://i.imgur.com/091fR5K.png" alt="" /></p>
 
 <p>對於 $$f_2$$ 兩種方法的結果就差距很大了，GD 根本無法找到全域最佳解，進入到平坦區域後就停住了，而 MM 帶有著動量能繼續前進。不過從左下的圖來說，MM 優化的速度比 GD 還要慢，但從右下的圖可以發現 MM 比 GD 更能接近 Global Minima。兩者各有其優點。</p>
@@ -446,7 +445,7 @@ $$</div>
 </tbody>
 </table>
 
-<p><img src="https://i.imgur.com/ofElnso.png" alt="" /><br />
+<p><img src="https://i.imgur.com/ofElnso.png" alt="" />
 <img src="https://i.imgur.com/4V8h8jW.png" alt="" /></p>
 
 <p>$$f_3$$ 這種處處都有非零 gradient 的函式就簡單了。GD 在各方面都比 MM 更好。MM 會衝過頭而造成收斂的比較慢。</p>
@@ -479,7 +478,7 @@ $$</div>
 </tbody>
 </table>
 
-<p><img src="https://i.imgur.com/aKtR1tA.png" alt="" /><br />
+<p><img src="https://i.imgur.com/aKtR1tA.png" alt="" />
 <img src="https://i.imgur.com/DeuEvzI.png" alt="" /></p>
 
 <p>$$f_4$$ 只比 $$f_3$$ 多了一點係數，結果卻大不相同。MM 比 GD 好上許多，不過是找到 $$bbx$$ 還是 $$f(bbx)$$，MM 都比 GD 精準。從左下與右下的圖也可以發現，MM 收斂地比 GD 快，並能跑出較好的解。</p>

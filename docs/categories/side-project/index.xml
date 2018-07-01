@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Side Project on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/categories/side-project.html</link>
+    <description>Recent content in Side Project on Yu-Cheng Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jun 2018 23:33:36 +0800</lastBuildDate>
+    
+	<atom:link href="http://amoshyc.github.io/blog/categories/side-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>APT Scan: Image Correction</title>
+      <link>http://amoshyc.github.io/blog/2018/apt-scan.html</link>
+      <pubDate>Sat, 30 Jun 2018 23:33:36 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/apt-scan.html</guid>
+      <description>Abstract Symbols Method APT-Scan 的流程如下：
+ 找出 $$I_(src)$$ 中目標的 4 個頂點。 估計出轉正後新圖 $$I_(dst)$$ 的大小 $$W = (T + B)//2, H=(L + R)//2$$，其中 $$T, B, L, R$$ 為 $$I_(src)$$ 中目標四條邊的邊長。 目標的 4 個頂點轉正後的座標一定會是新圖的 4 個角落，即他們在 $$C_(dst)$$ 的座標為 $$(0, 0), (W, 0), (W, H), (0, H)$$。 解出 $$C_(src)$$ 與 $$C_(dst)$$ 之間的關係：Homography Matrix $$H$$。 使用 Warp 將 $$I_(src)$$ 轉成 $$I_(dst)$$。  Detail Corners Detection Homography 我們會用到簡單的齊次座標，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。
+在齊次座標中，一個 2D 直角座標的點 $$(x, y)$$ 會用 3 個數來表示。如果在齊次座標中看到向量 $$(a, b, c)^T$$，那他實際是指直角座標中的 $$(a//c, b//c)$$。而這會造成一個有趣的事實：直角座標中任一點都會有不只一種的寫法，例如直角座標的點 $$(2, 3)$$ 用齊次座標可以寫成 $$(2, 3, 1)^T$$ 也可以寫成 $$(4, 6, 2)^T$$。</description>
+    </item>
+    
+  </channel>
+</rss>

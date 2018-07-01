@@ -2,7 +2,7 @@
 <html lang="tw">
     <head>
         <title> 
-    APT Scan: 圖像轉正應用 | Yu-Cheng Huang
+    APT Scan: Image Correction | Yu-Cheng Huang
  </title>
 
         
@@ -82,10 +82,13 @@
             <span>@</span>
             <span>
                 
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/side-project.html">Side Project</a>
+                
             </span>
         </div>
 
-        <h1 class="title">APT Scan: 圖像轉正應用</h1>
+        <h1 class="title">APT Scan: Image Correction</h1>
 
         <div class="bottom">
             
@@ -101,11 +104,16 @@
                 <span>TOC</span>
                 <nav id="TableOfContents">
 <ul>
+<li><a href="#abstract">Abstract</a></li>
 <li><a href="#symbols">Symbols</a></li>
-<li><a href="#homogeneous-coordinates">Homogeneous coordinates</a></li>
+<li><a href="#method">Method</a></li>
+<li><a href="#detail">Detail</a>
+<ul>
+<li><a href="#corners-detection">Corners Detection</a></li>
 <li><a href="#homography">Homography</a></li>
 <li><a href="#warp">Warp</a></li>
 <li><a href="#實作">實作</a></li>
+</ul></li>
 </ul>
 </nav>
             </div>
@@ -113,17 +121,35 @@
         
         
 
+<h1 id="abstract">Abstract</h1>
+
 <h1 id="symbols">Symbols</h1>
 
-<h1 id="homogeneous-coordinates">Homogeneous coordinates</h1>
+<h1 id="method">Method</h1>
+
+<p>APT-Scan 的流程如下：</p>
+
+<ol>
+<li>找出 $$I_(src)$$ 中目標的 4 個頂點。</li>
+<li>估計出轉正後新圖 $$I_(dst)$$ 的大小 $$W = (T + B)//2, H=(L + R)//2$$，其中 $$T, B, L, R$$ 為 $$I_(src)$$ 中目標四條邊的邊長。</li>
+<li>目標的 4 個頂點轉正後的座標一定會是新圖的 4 個角落，即他們在 $$C_(dst)$$ 的座標為 $$(0, 0), (W, 0), (W, H), (0, H)$$。</li>
+<li>解出 $$C_(src)$$ 與 $$C_(dst)$$ 之間的關係：Homography Matrix $$H$$。</li>
+<li>使用 Warp 將 $$I_(src)$$ 轉成 $$I_(dst)$$。</li>
+</ol>
+
+<h1 id="detail">Detail</h1>
+
+<h2 id="corners-detection">Corners Detection</h2>
+
+<h2 id="homography">Homography</h2>
 
 <p>我們會用到簡單的齊次座標，在此簡介一下，簡單來講齊次座標是為了延遲除法的運算所使用的座標表示法。至於為什麼我們要延遲除法呢，這是因為除法的運算成本相對於加減乘的運算是昂貴的，使用齊次座標可以把許多需要除法的運算轉成矩陣相剩乘，在當代的架構上可以有效的加速運算。</p>
 
 <p>在齊次座標中，一個 2D 直角座標的點 $$(x, y)$$ 會用 3 個數來表示。如果在齊次座標中看到向量 $$(a, b, c)^T$$，那他實際是指直角座標中的 $$(a//c, b//c)$$。而這會造成一個有趣的事實：直角座標中任一點都會有不只一種的寫法，例如直角座標的點 $$(2, 3)$$ 用齊次座標可以寫成 $$(2, 3, 1)^T$$ 也可以寫成 $$(4, 6, 2)^T$$。</p>
 
-<h1 id="homography">Homography</h1>
+<hr />
 
-<p>電腦視覺告訴我們座標從 $$C_(src)$$ 轉換到 $$ C_(src) $$ 是一個 Homography Transform(=Projective Transform=Perspective Transform)，而且這個 Transform 在齊次座標下是一個線性變換。用數學符號來說明的話，即對 $$C_(src)$$ 中的任一點 $$(x_(src),y_(src))$$ 與 $$C_(dst)$$ 中的<strong>對應點</strong> $$(x_(dst), y_(dst))$$ 有以下關係式：</p>
+<p>電腦視覺告訴我們座標從 $$C_(src)$$ 轉換到 $$ C_(dst) $$ 是一個 Homography Transform(=Projective Transform=Perspective Transform)，而且這個 Transform 在齊次座標下是一個線性變換。更詳細地說，對 $$C_(src)$$ 中的任一點 $$(x_(src),y_(src))$$ 與 $$C_(dst)$$ 中的<strong>對應點</strong> $$(x_(dst), y_(dst))$$ 有以下關係式：</p>
 
 <div class="am-block" style="display:flex; flex-direction:column">
      
@@ -141,7 +167,7 @@ $$</div>
 </div>
 
 
-<p>我們最終的目標是求出 $$h_(ij)$$ 這 8 個未知數。就讓我們先將他乘開吧：</p>
+<p>其中，中間那個矩陣就是 Homography Matrix $$H$$。我們的目標就是求出這個矩陣，共 8 個未知數。就讓我們先將右式乘開吧：</p>
 
 <div class="am-block" style="display:flex; flex-direction:column">
      
@@ -172,7 +198,7 @@ $$</div>
 </div>
 
 
-<p>乘開移項可得：</p>
+<p>整理可得：</p>
 
 <div class="am-block" style="display:flex; flex-direction:column">
      
@@ -216,11 +242,23 @@ $$</div>
 </div>
 
 
-<p>一組對應點 $$(x_(src), y_(src)) (x_(dst), y_(dst))$$ 我們可以得到二條關於未知數的方程式。也就是我們<strong>只需要四組對應點就可以解出所有的未知數</strong>。</p>
+<p>一組對應點 $$(x_(src), y_(src)) (x_(dst), y_(dst))$$ 我們可以得到二條關於未知數的方程式。也就是說我們<strong>只需要四組對應點就可以解出所有的未知數</strong>；另外如果你有四組以上的對應點，那這個方程還是可以利用最小平方法解出。</p>
 
-<h1 id="warp">Warp</h1>
+<h2 id="warp">Warp</h2>
 
-<h1 id="實作">實作</h1>
+<p>當我們得到兩個座標系 $$C_(src), C_(dst)$$ 後，我們就可以使用 Warp 將 $$I_(src)$$ 轉成 $$I_(dst)$$。Warp 操作基本就是給定座標之間的關係函式 $$f:C_(dst) -&gt; C_(src)$$，說明結果圖片中的每個 pixel 對應到原圖中哪個 pixel，然後針對結果圖片中的每個 pixel，把對應的原圖位置的顏色複製過來。底下給出 pseudo code：</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">H</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">W</span><span class="p">):</span>
+        <span class="n">src_r</span><span class="p">,</span> <span class="n">src_c</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">inp</span><span class="p">[</span><span class="n">src_r</span><span class="p">,</span> <span class="n">src_c</span><span class="p">]</span></code></pre></div>
+
+<p>在這個專案中，$$f$$ 就是我們前面求出的 Homography Matrix 的反矩陣 $$H^(-1)$$，$$H^(-1)$$ 將 $$C_(dst)$$ 的點轉到了 $$C_(src)$$ 中。</p>
+
+<h2 id="實作">實作</h2>
+
+<p>然後你就發現 scikit-image 直接內建上述的操作，我們只需要找出 4 組對應點，剩下的事 scikit-image 都幫你搞定了（OpenCV 也內建，不過我比較愛用 scikit-image），scikit-image 的範例可以看 <a href="http://scikit-image.org/docs/dev/auto_examples/xx_applications/plot_geometric.html#sphx-glr-auto-examples-xx-applications-plot-geometric-py">這裡</a>。其中要注意的是他範例中的變數名稱跟本文是反過來的。本文用 src 指原圖，而 dst 指轉正後的結果，與範例相反。我猜這是想減少最後 warp 時所須的反矩陣運算吧。</p>
 
     </div>
 
