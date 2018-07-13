@@ -68,9 +68,6 @@ Rime 第一次啟動時會先「部署」，即 Rime 會根據他的設定檔（
 
 {{< figure src="https://i.imgur.com/J3PEut0.png" title="用整合進 GNOME 的界面打嘸蝦米">}}
 
-# Windows
-
-待補
 
 # Android
 
