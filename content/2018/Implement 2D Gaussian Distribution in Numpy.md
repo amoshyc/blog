@@ -49,31 +49,33 @@ def gaussian2d(mu, sigma, shape=None):
 
         This function does NOT support mu, sigma as double.
     """
-    mu_r, mu_c = mu
-    sigma_r, sigma_c = sigma
-
-    R, C = 6 * sigma_r + 1, 6 * sigma_c + 1
-    r = np.arange(-3 * sigma_r, +3 * sigma_r + 1) + mu_r
-    c = np.arange(-3 * sigma_c, +3 * sigma_c + 1) + mu_c
-    if shape:
-        r = np.clip(r, 0, shape[0] - 1)
-        c = np.clip(c, 0, shape[1] - 1)
-
-    coef_r = 1 / (sigma_r * np.sqrt(2 * np.pi))
-    coef_c = 1 / (sigma_c * np.sqrt(2 * np.pi))
-    exp_r = -1 / (2 * (sigma_r**2)) * ((r - mu_r)**2)
-    exp_c = -1 / (2 * (sigma_c**2)) * ((c - mu_c)**2)
-
-    gr = coef_r * np.exp(exp_r)
-    gc = coef_c * np.exp(exp_c)
-    g = np.outer(gr, gc)
-
-    r = r.reshape(R, 1)
-    c = c.reshape(1, C)
-    rr = np.broadcast_to(r, (R, C))
-    cc = np.broadcast_to(c, (R, C))
-    return rr.ravel(), cc.ravel(), g.ravel()
+    (r, c), (sr, sc), (H, W) = mu, sigma, shape
+    rr = np.arange(r - 3 * sr, r + 3 * sr + 1)
+    cc = np.arange(c - 3 * sc, c + 3 * sc + 1)
+    rr = rr[(rr >= 0) & (rr < H)]
+    cc = cc[(cc >= 0) & (cc < W)]
+    gr = np.exp(-0.5 * ((rr - r) / sr)**2) / (np.sqrt(2 * np.pi) * sr)
+    gc = np.exp(-0.5 * ((cc - c) / sc)**2) / (np.sqrt(2 * np.pi) * sc)
+    g = np.outer(gr, gc).ravel()
+    R, C = len(rr), len(cc)
+    rr = np.broadcast_to(rr.reshape(1, -1), (R, C)).ravel()
+    cc = np.broadcast_to(cc.reshape(-1, 1), (R, C)).ravel()
+    return rr, cc, g
 {{< /highlight >}}
+
+另一個利用 `np.mgrid` 的寫法為：
+{{< highlight python "linenos=table,noclasses=false" >}}
+def gaussian2d(mu, sigma, shape=None):
+    (r, c), (sr, sc), (H, W) = mu, sigma, shape
+    rr, cc = np.mgrid[(r - 3*sr):(r + 3*sr + 1), (c - 3*sc):(c + 3*sc + 1)]
+    rr, cc = rr.ravel(), cc.ravel()
+    rr = rr[(rr >= 0) & (rr < H)]
+    cc = cc[(cc >= 0) & (cc < W)]
+    g = np.exp(-0.5 * (((rr - r) / sr)**2 + ((cc - c) / sc)**2))
+    g = g / (2 * np.pi * sr * sc)
+    return rr, cc, g
+{{< /highlight >}}
+
 
 # 範例
 
