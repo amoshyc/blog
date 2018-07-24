@@ -58,21 +58,8 @@ def gaussian2d(mu, sigma, shape=None):
     gc = np.exp(-0.5 * ((cc - c) / sc)**2) / (np.sqrt(2 * np.pi) * sc)
     g = np.outer(gr, gc).ravel()
     R, C = len(rr), len(cc)
-    rr = np.broadcast_to(rr.reshape(1, -1), (R, C)).ravel()
-    cc = np.broadcast_to(cc.reshape(-1, 1), (R, C)).ravel()
-    return rr, cc, g
-{{< /highlight >}}
-
-另一個利用 `np.mgrid` 的寫法為：
-{{< highlight python "linenos=table,noclasses=false" >}}
-def gaussian2d(mu, sigma, shape=None):
-    (r, c), (sr, sc), (H, W) = mu, sigma, shape
-    rr, cc = np.mgrid[(r - 3*sr):(r + 3*sr + 1), (c - 3*sc):(c + 3*sc + 1)]
-    rr, cc = rr.ravel(), cc.ravel()
-    rr = rr[(rr >= 0) & (rr < H)]
-    cc = cc[(cc >= 0) & (cc < W)]
-    g = np.exp(-0.5 * (((rr - r) / sr)**2 + ((cc - c) / sc)**2))
-    g = g / (2 * np.pi * sr * sc)
+    rr = np.broadcast_to(rr.reshape(R, 1), (R, C)).ravel()
+    cc = np.broadcast_to(cc.reshape(1, C), (R, C)).ravel()
     return rr, cc, g
 {{< /highlight >}}
 
