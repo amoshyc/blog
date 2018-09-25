@@ -62,28 +62,6 @@ ibus: 英語（美式） 漢語（Rime）: 嘸蝦米 注音 ---------- ibus 透�
     </item>
     
     <item>
-      <title>Python 科學計算快速入門 2/2</title>
-      <link>http://amoshyc.github.io/blog/2018/scientific-python-quickstart-2.html</link>
-      <pubDate>Wed, 21 Mar 2018 11:38:58 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/2018/scientific-python-quickstart-2.html</guid>
-      <description>Numpy Tensor on CPU~
-pip install numpy conda install -c anaconda numpy -n &amp;lt;venv&amp;gt;  1import numpy as np 2x = np.zeros((10, 10), dtype=np.float32) 3print(x.shape) # (10, 10) 4print(x.dtype) # dtype(&amp;#39;float32&amp;#39;) 5 6&amp;#39;&amp;#39;&amp;#39; Other dtypes: 7np.bool 8np.uint8 9np.int32 10&amp;#39;&amp;#39;&amp;#39; Creation 1x = np.array([1, 2, 3]) 2x = np.uint8([1, 2, 3]) 3 4x = np.arange(0.0, 10.0, 2) # array([0., 2., 4., 6., 8.]) 5x = np.zeros((10, 10, 10), dtype=np.float32) 6x = np.</description>
-    </item>
-    
-    <item>
-      <title>Python 科學計算快速入門 1/2</title>
-      <link>http://amoshyc.github.io/blog/2018/scientific-python-quickstart-1.html</link>
-      <pubDate>Tue, 20 Mar 2018 11:07:11 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/2018/scientific-python-quickstart-1.html</guid>
-      <description>Introduction Python
- Interpreter 一行一行執行 Use indention Python 3.6  Virtual Environment 主流是 Conda，共分兩個版本：Anaconda, Miniconda。前者預設就安裝了非常多的 package，所以要非常大的硬碟空間（3GB+）1。但大部份 package 我們都不會用，所以推薦使用 Miniconda。
-安裝方法為去官方下載 bash，並執行，一般來說會將 conda 的執行檔加進系統的 bash：
-Editor/IDE   ides   Input/Output 1 2 3 4  input() _ = input() x = input(&amp;#39;&amp;gt; &amp;#39;) # x is str x = int(input(&amp;#39;&amp;gt; &amp;#39;))    1 2 3 4 5 6 7 8 9 10 11 12 13 14  loss = 2e-1 acc = 0.</description>
-    </item>
-    
-    <item>
       <title>License</title>
       <link>http://amoshyc.github.io/blog/abouts/license.html</link>
       <pubDate>Sun, 04 Mar 2018 20:47:34 +0800</pubDate>
