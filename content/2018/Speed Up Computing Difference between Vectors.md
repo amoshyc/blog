@@ -51,13 +51,13 @@ C = C1 - C2
 
 # Pytorch 實現
 
-如同 Numpy 的實現，Pytorch 使用 `unsqueeze`, `expand` 來實現。不過 Pytorch 習慣將 Channel 放在第 0 個維度，所以數字有所不同：
+類似於 Numpy 的實現，Pytorch 使用 `unsqueeze`, `expand` 來實現。不過 Pytorch 習慣將 Channel 放在第 0 個維度，所以細節有所不同：
 
 {{< highlight python "linenos=table,noclasses=false" >}}
 import torch
 
 N, M, D = 8, 6, 3
-device = torch.device('cuda:0')
+device = torch.device('cuda:0') # or 'cpu'
 
 A = torch.rand(D, N, device=device)
 B = torch.rand(D, M, device=device)
