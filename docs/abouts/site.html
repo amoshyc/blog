@@ -150,6 +150,13 @@
 
 <p>透過 <code>git submodule add https://github.com/amoshyc/hugo-zmd-theme themes/zmd</code> 將我的 zmd theme 複製下來，儲存在 <code>theme/zmd</code>，並做為這個專案的一個 submodule。當然，你可以直接用我 theme 的 zip，但這會造成一旦 theme 更新，你無法透過 <code>git pull</code> 更新，得自己手動更新。</p>
 
+<p>另一個方法是 clone theme，然後建立 softlink：</p>
+
+<pre><code>git clone https://github.com/amoshyc/hugo-zmd-theme
+cd &lt;blog_dir&gt;/themes/
+ln -s &lt;path_to_theme_folder&gt; ./zmd
+</code></pre>
+
 <h2 id="改-config">改 config</h2>
 
 <p>將 zmd 下的 <code>themes/zmd/exampleSite/config.toml</code> 的內容加到你的 <code>config.toml</code> 中。裡面有我的 theme 的預設參數，如果你的 <code>config.toml</code> 中已經有相同的欄位，我是建議直接改掉，來確保 zmd theme 可以正確運作。所以在操作前，先備份你的 <code>config.toml</code> 會是不錯的選擇。</p>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="tw">
+    <head>
+        <title> 
+    矩陣化加速計算向量之間的差 | Yu-Cheng Huang
+ </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+        
+
+        
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96104654-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-96104654-1');
+            </script>
+        
+
+        
+        
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+            <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                asciimath2jax: {
+                    delimiters: [['$$','$$']]
+                },
+                tex2jax: {
+                    inlineMath: [['$[', ']$']],
+                    displayMath: [['$[[', ']]$']],
+                }
+            });
+            </script>
+        
+
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/10/03</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/snippet.html">Snippet</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">矩陣化加速計算向量之間的差</h1>
+
+        <div class="bottom">
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#問題">問題</a></li>
+<li><a href="#矩陣化">矩陣化</a></li>
+<li><a href="#numpy-實現">Numpy 實現</a></li>
+<li><a href="#pytorch-實現">Pytorch 實現</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="問題">問題</h1>
+
+<p>給定維度 <code>[N, D]</code> 的矩陣 <code>A</code>，與 <code>[M, D]</code> 的矩陣 <code>B</code>，輸出維度 <code>[N, M, D]</code> 的矩陣 <code>C</code>，其中 <code>C[i, j]</code> 代表向量 <code>A[i]</code> 與向量 <code>B[j]</code> 的差，即 <code>A[i] - B[j]</code>。</p>
+
+<h1 id="矩陣化">矩陣化</h1>
+
+<p>最直覺的做法，兩個 <code>for</code> 迭代一下，簡單：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+        <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>但這個的計算速度非常非常慢，我們可以將這個計算改寫成矩陣的型式，讓 Numpy/Pytorch 可以利用 SIMD/GPU 來加速計算。</p>
+
+<p>我們想讓結果是兩個矩陣 <code>C1</code>, <code>C2</code> 相減，即 <code>C = C1 - C2</code>，由此避掉大量的 indexing。其中，<code>C1</code>, <code>C2</code> 的維度都是 <code>[N, M, D]</code>。至此問題變成 <code>C1</code>, <code>C2</code> 分別是什麼。畫一下圖，發揮一下空間感，可以發現：</p>
+
+<ol>
+<li><code>C1</code> 是 <code>A</code> 的所有向量排在第 <code>0, 2</code> 個維度後，往第 <code>2</code> 個維度複製 <code>M</code> 次。</li>
+<li><code>C2</code> 是 <code>B</code> 的所有向量排在第 <code>1, 2</code> 個維度後，往第 <code>0</code> 個維度複製 <code>N</code> 次。</li>
+</ol>
+
+<p>圖解如下：</p>
+
+<p>TODO</p>
+
+<h1 id="numpy-實現">Numpy 實現</h1>
+
+<p>利用 <code>np.expand_dims</code>, <code>np.broadcast_to</code>，程式碼可以寫成：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+
+<span class="n">C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">-</span> <span class="n">C2</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="pytorch-實現">Pytorch 實現</h1>
+
+<p>如同 Numpy 的實現，Pytorch 使用 <code>unsqueeze</code>, <code>expand</code> 來實現。不過 Pytorch 習慣將 Channel 放在第 0 個維度，所以數字有所不同：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">C1</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">-</span> <span class="n">C2</span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+
+    
+    
+        <div id="comments">
+    <button id="expand-btn" href="" onclick="expand_disqus()">Comments</button>
+    <div id="disqus_thread"></div>
+</div>
+
+<script type="text/javascript">
+
+function expand_disqus() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    document.getElementById('expand-btn').style.display = "none";
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = false;
+    var disqus_shortname = 'amoshyc-blog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+};
+</script>
+    
+</article>
+
+        </main>
+
+        
+        <footer>
+    
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+    <p>
+        © 2018 by amoshyc
+        <a href="./index.xml" title="RSS">♥</a>
+    </p>
+</footer>
+
+
+        
+        
+            <script>
+                anchors.options = {
+                    placement: 'right',
+                };
+                anchors.add('.md-content > h1, .md-content > h2, .md-content > h3, .md-content > h4');
+            </script>
+        
+</body>
+
+</html>

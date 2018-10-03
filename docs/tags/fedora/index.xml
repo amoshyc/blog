@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fedora on Yu-Cheng Huang</title>
+    <title>fedora on Yu-Cheng Huang</title>
     <link>http://amoshyc.github.io/blog/tags/fedora.html</link>
-    <description>Recent content in Fedora on Yu-Cheng Huang</description>
+    <description>Recent content in fedora on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Jun 2018 15:58:14 +0800</lastBuildDate>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bash on Yu-Cheng Huang</title>
+    <title>bash on Yu-Cheng Huang</title>
     <link>http://amoshyc.github.io/blog/tags/bash.html</link>
-    <description>Recent content in Bash on Yu-Cheng Huang</description>
+    <description>Recent content in bash on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 23 Feb 2018 11:34:06 +0800</lastBuildDate>

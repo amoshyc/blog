@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Yu-Cheng Huang</title>
+    <title>python on Yu-Cheng Huang</title>
     <link>http://amoshyc.github.io/blog/tags/python.html</link>
-    <description>Recent content in Python on Yu-Cheng Huang</description>
+    <description>Recent content in python on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Feb 2018 17:32:32 +0800</lastBuildDate>

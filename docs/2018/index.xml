@@ -6,10 +6,22 @@
     <description>Recent content in 2018s on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jun 2018 23:33:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Oct 2018 15:13:10 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/2018/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>矩陣化加速計算向量之間的差</title>
+      <link>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</link>
+      <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</guid>
+      <description>問題 給定維度 [N, D] 的矩陣 A，與 [M, D] 的矩陣 B，輸出維度 [N, M, D] 的矩陣 C，其中 C[i, j] 代表向量 A[i] 與向量 B[j] 的差，即 A[i] - B[j]。
+矩陣化 最直覺的做法，兩個 for 迭代一下，簡單：
+1 2 3  for i, a in enumerate(A): for j, b in enumerate(B): C[i, j] = a - b   但這個的計算速度非常非常慢，我們可以將這個計算改寫成矩陣的型式，讓 Numpy/Pytorch 可以利用 SIMD/GPU 來加速計算。
+我們想讓結果是兩個矩陣 C1, C2 相減，即 C = C1 - C2，由此避掉大量的 indexing。其中，C1, C2 的維度都是 [N, M, D]。至此問題變成 C1, C2 分別是什麼。畫一下圖，發揮一下空間感，可以發現：</description>
+    </item>
     
     <item>
       <title>APT Scan: Image Correction</title>
