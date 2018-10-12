@@ -2,9 +2,9 @@
 title: "矩陣化加速計算向量之間的差"
 date: 2018-10-03T15:13:10+08:00
 categories: ["Snippet"]
-tags: []
+tags: ["vector", "difference", "vectorize"]
 toc: true
-math: true
+math: false
 ---
 
 # 問題
@@ -28,10 +28,6 @@ for i, a in enumerate(A):
 1. `C1` 是 `A` 的所有向量排在第 `0, 2` 個維度後，往第 `2` 個維度複製 `M` 次。
 2. `C2` 是 `B` 的所有向量排在第 `1, 2` 個維度後，往第 `0` 個維度複製 `N` 次。
 
-圖解如下：
-
-TODO
-
 # Numpy 實現
 
 利用 `np.expand_dims`, `np.broadcast_to`，程式碼可以寫成：
@@ -46,7 +42,6 @@ B = np.random.rand(M, D)
 C1 = np.broadcast_to(np.expand_dims(A, 1), (N, M, D))
 C2 = np.broadcast_to(np.expand_dims(B, 0), (N, M, D))
 C = C1 - C2
-
 {{< / highlight >}}
 
 # Pytorch 實現
@@ -65,5 +60,4 @@ B = torch.rand(D, M, device=device)
 C1 = A.unsqueeze(2).expand(D, N, M)
 C2 = B.unsqueeze(1).expand(D, N, M)
 C = C1 - C2
-
 {{< / highlight >}}

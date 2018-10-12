@@ -198,6 +198,12 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/tags/difference.html</loc>
+    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/tags/docs.html</loc>
     <lastmod>2018-03-04T20:45:49+08:00</lastmod>
     <priority>0</priority>
@@ -338,6 +344,18 @@
   <url>
     <loc>http://amoshyc.github.io/blog/tags/theme.html</loc>
     <lastmod>2018-03-04T20:45:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/vector.html</loc>
+    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/vectorize.html</loc>
+    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   

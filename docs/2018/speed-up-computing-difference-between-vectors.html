@@ -31,19 +31,6 @@
 
         
         
-            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-            <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                asciimath2jax: {
-                    delimiters: [['$$','$$']]
-                },
-                tex2jax: {
-                    inlineMath: [['$[', ']$']],
-                    displayMath: [['$[[', ']]$']],
-                }
-            });
-            </script>
-        
 
     </head>
 
@@ -91,6 +78,12 @@
         <h1 class="title">矩陣化加速計算向量之間的差</h1>
 
         <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/vector.html">vector</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/difference.html">difference</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/vectorize.html">vectorize</a>
             
         </div>
     </div>
@@ -144,10 +137,6 @@
 <li><code>C1</code> 是 <code>A</code> 的所有向量排在第 <code>0, 2</code> 個維度後，往第 <code>2</code> 個維度複製 <code>M</code> 次。</li>
 <li><code>C2</code> 是 <code>B</code> 的所有向量排在第 <code>1, 2</code> 個維度後，往第 <code>0</code> 個維度複製 <code>N</code> 次。</li>
 </ol>
-
-<p>圖解如下：</p>
-
-<p>TODO</p>
 
 <h1 id="numpy-實現">Numpy 實現</h1>
 
