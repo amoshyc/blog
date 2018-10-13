@@ -83,4 +83,4 @@ upload:
 4. 撰寫完畢，使用 `make upload` 將資料推到 Github。
 5. 一次都沒問題的話，稍等個幾分鐘後就可以在你 repo 的 Github Page 看到結果。
 
-hugo-zmd-theme 有一些特有的東西與設定，可以讓你的文章內容更有多樣性，詳情請參考 [這篇文](https://example.org/)。
+hugo-zmd-theme 有一些特有的東西與設定，可以讓你的文章內容更有多樣性，詳情請參考 [這篇文](../2017/markdown-cheatsheet.html) 與他的 Markdown [原始碼](https://raw.githubusercontent.com/amoshyc/blog/master/content/2017/Markdown%20Cheatsheet.md)
