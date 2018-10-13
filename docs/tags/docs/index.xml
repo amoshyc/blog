@@ -18,7 +18,8 @@
       
       <guid>http://amoshyc.github.io/blog/abouts/site.html</guid>
       <description>TL;DR 這個網站是使用 hugo 架設，使用我自己寫的 theme。在此我記錄一下架設的步驟，主要有三個：初使化、設定 Github、設定 theme。另外，因為這個 theme 我是設計給自己使用，所以有一些地方寫得比較死，如果你有任何建議，歡迎 PR。這個網站架設在 Github Page 上，並使用同一個 repo 同時儲存與管理原始碼（你寫的 md 與 hugo 的設定檔）與渲染出來的 html。
-初使化  hugo new site &amp;lt;name&amp;gt;：初化化一個 hugo 專案。 cd &amp;lt;name&amp;gt;：之後所有操作都是在這個資料夾下。 git init：讓這專案使用 git 管理。  設定 Github  在 Github 新增一個 repo，並在這個 repo 的 Setting 中，將 Github Page 設為從 docs/ 顯示。 git remote add origin &amp;lt;repo&amp;gt;： 是 1. 的 SSH/HTTPS 位置。這個指令將專案的 origin 設為剛新增的 repo。 git pull origin master：將 LICENSE 等預設內容拉下來。  設定 theme 分成 5 個小步驟。</description>
+初使化 我假設你是在 Linux 下操作，Windows/Mac 我不熟，平常也沒在用。
+ hugo new site &amp;lt;name&amp;gt;：初化化一個 hugo 專案。 cd &amp;lt;name&amp;gt;：之後所有操作都是在這個資料夾下。 git init：讓這專案使用 git 管理。  設定 Github  在 Github 新增一個 repo，並在這個 repo 的 Setting 中，將 Github Page 設為從 docs/ 顯示。 git remote add origin &amp;lt;repo&amp;gt;： 是 1. 的 SSH/HTTPS 位置。這個指令將專案的 origin 設為剛新增的 repo。 git pull origin master：將 LICENSE 等預設內容拉下來。  設定 theme 分成 5 個小步驟。</description>
     </item>
     
   </channel>

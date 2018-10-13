@@ -128,6 +128,8 @@
 
 <h1 id="初使化">初使化</h1>
 
+<p>我假設你是在 Linux 下操作，Windows/Mac 我不熟，平常也沒在用。</p>
+
 <ol>
 <li><code>hugo new site &lt;name&gt;</code>：初化化一個 hugo 專案。</li>
 <li><code>cd &lt;name&gt;</code>：之後所有操作都是在這個資料夾下。</li>
@@ -163,7 +165,7 @@ ln -s &lt;path_to_theme_folder&gt; ./zmd
 
 <h2 id="改-archetypes">改 archetypes</h2>
 
-<p>將 <code>themes/zmd/exampleSite/archetypes/default.md</code> 的所有檔案複製到你的 <code>archetypes/default.md</code> 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。因為你的 archetypes 的優先權比 theme 中的 archetypes 高，所以這一步你也可以改成刪掉你的 <code>archetypes/default.md</code>。刪掉後 hugo 渲染時會去使用 theme 的 archetypes。</p>
+<p>將 <code>themes/zmd/exampleSite/archetypes/default.md</code> 的所有內容複製到你的 <code>archetypes/default.md</code> 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。預設情況下，因為你的 archetypes 的優先權比 theme 中的 archetypes 高，hugo 會去使用預設的 <code>archetypes/default.md</code>。這一步你也可以改成刪掉你的 <code>archetypes/default.md</code>，刪掉後 hugo 渲染時會去使用 theme 的 archetypes。</p>
 
 <h2 id="abouts">abouts</h2>
 
@@ -174,7 +176,7 @@ ln -s &lt;path_to_theme_folder&gt; ./zmd
 <p>如果你前面都沒有出錯，那當你下指令 <code>hugo</code> 時，HTML 會被產生至 <code>docs/</code> 資料夾中。並且，你可以透過平常的 <code>git add</code>, <code>git commit</code>, <code>git push</code> 流程將你整個專案推到 Github 上。因為我並不想每次都在想 commit message，畢竟就是寫個文章或改改字，所以我建立了 makefile 來加速這個流程：</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">MSG</span> <span class="o">=</span> <span class="s2">&#34;Build at </span><span class="k">$(</span>shell /bin/date <span class="s1">&#39;+%Y-%m-%d %H-%M-%S&#39;</span><span class="k">)</span><span class="s2">&#34;</span>
-upload: 
+upload:
 	rm -rf ./docs <span class="o">&amp;&amp;</span> hugo
 	git add -A
 	git commit -m <span class="k">$(</span>MSG<span class="k">)</span>
@@ -184,9 +186,7 @@ upload:
 
 <h1 id="what-s-next">What&rsquo;s Next</h1>
 
-<p>到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。
-關於 hugo 的使用可以參考 <a href="https://example.org">官網</a> 或我的 <a href="https://example.org">教學</a>。
-關於 zmd theme 的詳細設定可以參考 <a href="https://example.org">這裡</a>。</p>
+<p>到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。</p>
 
     </div>
 

@@ -13,6 +13,8 @@ math: false
 
 # 初使化
 
+我假設你是在 Linux 下操作，Windows/Mac 我不熟，平常也沒在用。
+
 1. `hugo new site <name>`：初化化一個 hugo 專案。
 2. `cd <name>`：之後所有操作都是在這個資料夾下。
 3. `git init`：讓這專案使用 git 管理。
@@ -44,7 +46,7 @@ ln -s <path_to_theme_folder> ./zmd
 
 ## 改 archetypes
 
-將 `themes/zmd/exampleSite/archetypes/default.md` 的所有檔案複製到你的 `archetypes/default.md` 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。因為你的 archetypes 的優先權比 theme 中的 archetypes 高，所以這一步你也可以改成刪掉你的 `archetypes/default.md`。刪掉後 hugo 渲染時會去使用 theme 的 archetypes。
+將 `themes/zmd/exampleSite/archetypes/default.md` 的所有內容複製到你的 `archetypes/default.md` 中。archetypes 代表當你創立新的文章時，文章的預設內容與 front-matter。預設情況下，因為你的 archetypes 的優先權比 theme 中的 archetypes 高，hugo 會去使用預設的 `archetypes/default.md`。這一步你也可以改成刪掉你的 `archetypes/default.md`，刪掉後 hugo 渲染時會去使用 theme 的 archetypes。
 
 ## abouts
 
@@ -56,7 +58,7 @@ ln -s <path_to_theme_folder> ./zmd
 
 {{< highlight sh "noclasses=false" >}}
 MSG = "Build at $(shell /bin/date '+%Y-%m-%d %H-%M-%S')"
-upload: 
+upload:
 	rm -rf ./docs && hugo
 	git add -A
 	git commit -m $(MSG)
@@ -65,10 +67,7 @@ upload:
 
 每次要推資料至 Github 時只要下 `make upload` 即可。
 
-
 # What's Next
 
 到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。
-關於 hugo 的使用可以參考 [官網](https://example.org) 或我的 [教學](https://example.org)。
-關於 zmd theme 的詳細設定可以參考 [這裡](https://example.org)。
 
