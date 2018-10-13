@@ -67,7 +67,20 @@ upload:
 
 每次要推資料至 Github 時只要下 `make upload` 即可。
 
-# What's Next
+{{% admonition title="Hint!" color="blue" %}}
+記得 Github Repo 要設定成從 `docs/` 生成 Github Page
+{{% /admonition %}}
+
+# 開始寫文章
 
 到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。
+以後每次要寫新文章，流程為：
 
+0. `cd blog`：假設 blog 是你 repo 的資料夾
+1. `hugo new <path/to/post.md>` 新增文章
+2. 使用編輯器編輯 `<path/to/post.md>`
+3. 同時，使用指令 `hugo serve`，結果即時渲染於 http://localhost:1313/blog/
+4. 撰寫完畢，使用 `make upload` 將資料推到 Github。
+5. 一次都沒問題的話，稍等個幾分鐘後就可以在你 repo 的 Github Page 看到結果。
+
+hugo-zmd-theme 有一些特有的東西與設定，可以讓你的文章內容更有多樣性，詳情請參考 [這篇文](https://example.org/)。

@@ -114,7 +114,7 @@
 <li><a href="#abouts">abouts</a></li>
 <li><a href="#與-github-的結合">與 Github 的結合</a></li>
 </ul></li>
-<li><a href="#what-s-next">What&rsquo;s Next</a></li>
+<li><a href="#開始寫文章">開始寫文章</a></li>
 </ul>
 </nav>
             </div>
@@ -184,9 +184,43 @@ upload:
 
 <p>每次要推資料至 Github 時只要下 <code>make upload</code> 即可。</p>
 
-<h1 id="what-s-next">What&rsquo;s Next</h1>
+<div class="admonition">
+    
+    
 
-<p>到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。</p>
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+    <span class="title" style="background-color: #64b5f6">
+        Hint!
+    </span>
+
+    <div class="content"><p>記得 Github Repo 要設定成從 <code>docs/</code> 生成 Github Page</p>
+</div>
+</div>
+
+<h1 id="開始寫文章">開始寫文章</h1>
+
+<p>到此設定就完成了，你可以開始使用 hugo 與 zmd theme 來完成你的網站了。
+以後每次要寫新文章，流程為：</p>
+
+<ol>
+<li><code>cd blog</code>：假設 blog 是你 repo 的資料夾</li>
+<li><code>hugo new &lt;path/to/post.md&gt;</code> 新增文章</li>
+<li>使用編輯器編輯 <code>&lt;path/to/post.md&gt;</code></li>
+<li>同時，使用指令 <code>hugo serve</code>，結果即時渲染於 <a href="http://localhost:1313/blog/">http://localhost:1313/blog/</a></li>
+<li>撰寫完畢，使用 <code>make upload</code> 將資料推到 Github。</li>
+<li>一次都沒問題的話，稍等個幾分鐘後就可以在你 repo 的 Github Page 看到結果。</li>
+</ol>
+
+<p>hugo-zmd-theme 有一些特有的東西與設定，可以讓你的文章內容更有多樣性，詳情請參考 <a href="https://example.org/">這篇文</a>。</p>
 
     </div>
 
