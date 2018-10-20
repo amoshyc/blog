@@ -18,7 +18,7 @@
       
       <guid>http://amoshyc.github.io/blog/2018/visualization-with-svgwrite.html</guid>
       <description> Introduction 許多 CV 問題都需要可視化，不管是可視化原始的資料，還是模型的預測結果，可視化總讓人能以直觀的方法了解你 code 有沒有寫錯，或模型是不是有什麼弱點。而有一大類的可視化不是生成圖表，而是必須在圖上標記，例如 Human Pose Estimation 與 Object Detection。
-目前大家的做法是利用 OpenCV, Pillow 或 Skimage 直接把 edge, keypoint, text 畫在該圖片上，即直接修改該圖片的 pixel。也有不少人是用 matplotlib 來做可視化。但這兩種方法我都不太喜歡，他們都會有失真的問題。當你把圖片放大時，你會發現可視化的部份會變得模糊，線條尤為明顯，如下圖：
+目前大家的做法是利用 OpenCV, Pillow 或 Skimage 直接把 edge, keypoint, text 畫在該圖片上，即直接修改該圖片的 pixel。也有不少人是用 matplotlib 來做可視化。但這兩種方法我都不太喜歡，後者是輸出的圖片會有各種留白，一直找不到方法把他們全部去掉；前者則有失真的問題：當你把圖片放大時，你會發現可視化的部份會變得模糊，線條尤為明顯，如下圖：
 TODO
 另外還有一些原因，上述的函式庫不容易畫出理想的圖形，例如 Skimage 畫不少太小的圓形、Pillow 沒法指定矩形的邊的粗細等等。為了解決這些問題（沒辦法，我就是受不了），我決定使用 svgwrite 來做這種「在圖片上標記」的可視化 1，也就是說我將圖片內嵌到 SVG 中，然後再加入一些 SVG 的 element，例如 Circle, Rect, Text 等來做可視化 2。
 SVG 有著許多優點，例如他是向量圖形所以可視化部份不會有失真的問題，而且他內建的那個 element 有著許多參數可以調整，舉凡顏色、粗細等他都有著類似於 CSS 的一致 API，也因此，他可以使用半透明顏色，這在解決一些可視化的問題中還挺方便的。另外 SVG 內部可以使用 &amp;lt;g&amp;gt;&amp;lt;/g&amp;gt; 來任意嵌套，這在疊圖之類的事情還挺方便的。
