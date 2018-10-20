@@ -97,7 +97,7 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#basic">Basic</a></li>
-<li><a href="#coco-keypoint">COCO Keypoint</a></li>
+<li><a href="#keypoint">Keypoint</a></li>
 <li><a href="#object-detection">Object Detection</a></li>
 <li><a href="#segmentation">Segmentation</a></li>
 </ul>
@@ -117,7 +117,7 @@
 
 <p>另外還有一些原因，上述的函式庫不容易畫出理想的圖形，例如 Skimage 畫不少太小的圓形、Pillow 沒法指定矩形的邊的粗細等等。為了解決這些問題（沒辦法，我就是受不了），我決定使用 svgwrite 來做這種「<strong>在圖片上標記</strong>」的可視化 <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>，也就是說我將圖片內嵌到 SVG 中，然後再加入一些 SVG 的 element，例如 Circle, Rect, Text 等來做可視化 <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>。</p>
 
-<p>SVG 有著許多優點，例如他是向量圖形所以可視化部份不會有失真的問題，而且他內建的那個 element 有著許多參數可以調整，舉凡顏色、粗細等他都有著類似於 CSS 的一致 API，也因此，他可以使用半透明顏色，這在解決一些可視化的問題中還挺方便的。另外 SVG 內部可以使用 <code>&lt;g&gt;&lt;/g&gt;</code> 來任意嵌套，這在疊圖之類的事情還挺方便的。</p>
+<p>SVG 有著許多優點，例如他是向量圖形所以可視化部份不會有失真的問題，而且他內建的那個 element 有著許多參數可以調整，舉凡顏色、粗細等他都有著類似於 CSS 的一致 API，也因此，他可以使用半透明顏色。另外 SVG 內部可以使用 <code>&lt;g&gt;&lt;/g&gt;</code> 來任意嵌套，這在疊圖之類的事情還挺方便的。</p>
 
 <p>這篇文的目的要記錄一些輔助我可視化函式，以防每次我都要重新想重新打，同時也給其他人參考。目前我是傾向使用 function-based 的設計而非 OOP，這樣在使用上會比較方便，這些函式應該全部放在同一個檔案，例如 <code>svg.py</code> 中，然後 <code>import svg</code> 來使用。</p>
 
@@ -203,7 +203,7 @@
 </div>
 </div>
 
-<h1 id="coco-keypoint">COCO Keypoint</h1>
+<h1 id="keypoint">Keypoint</h1>
 
 <h1 id="object-detection">Object Detection</h1>
 
