@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://amoshyc.github.io/blog/2018/visualization-with-svgwrite.html</loc>
+    <lastmod>2018-10-21T00:27:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</loc>
     <lastmod>2018-10-03T15:13:10+08:00</lastmod>
   </url>
@@ -79,7 +84,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/2018.html</loc>
-    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
+    <lastmod>2018-10-21T00:27:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -151,7 +156,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/categories/snippet.html</loc>
-    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
+    <lastmod>2018-10-21T00:27:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -163,7 +168,7 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/</loc>
-    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
+    <lastmod>2018-10-21T00:27:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -360,6 +365,12 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/tags/visualization.html</loc>
+    <lastmod>2018-10-21T00:27:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/tags/windows.html</loc>
     <lastmod>2018-04-19T13:28:26+08:00</lastmod>
     <priority>0</priority>
@@ -374,6 +385,12 @@
   <url>
     <loc>http://amoshyc.github.io/blog/tags/zotero.html</loc>
     <lastmod>2018-06-07T15:58:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://amoshyc.github.io/blog/tags/svg.html</loc>
+    <lastmod>2018-10-21T00:27:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tw">
+    <head>
+        <title> 
+    使用 Svgwrite 來可視化圖片 | Yu-Cheng Huang
+ </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+        
+
+        
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96104654-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-96104654-1');
+            </script>
+        
+
+        
+        
+
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2018/10/21</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/snippet.html">Snippet</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">使用 Svgwrite 來可視化圖片</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/svg.html">“svg&#34;</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/visualization.html">visualization</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic">Basic</a></li>
+<li><a href="#coco-keypoint">COCO Keypoint</a></li>
+<li><a href="#object-detection">Object Detection</a></li>
+<li><a href="#segmentation">Segmentation</a></li>
+</ul>
+</nav>
+            </div>
+        
+        
+        
+
+<h1 id="introduction">Introduction</h1>
+
+<p>許多 CV 問題都需要可視化，不管是可視化原始的資料，還是模型的預測結果，可視化總讓人能以直觀的方法了解你 code 有沒有寫錯，或模型是不是有什麼弱點。而有一大類的可視化不是生成圖表，而是必須在圖上標記，例如 Human Pose Estimation 與 Object Detection。</p>
+
+<p>目前大家的做法是利用 OpenCV, Pillow 或 Skimage 直接把 edge, keypoint, text 畫在該圖片上，即直接修改該圖片的 pixel。也有不少人是用 matplotlib 來做可視化。但這兩種方法我都不太喜歡，他們都會有失真的問題。當你把圖片放大時，你會發現可視化的部份會變得模糊，線條尤為明顯，如下圖：</p>
+
+<p>TODO</p>
+
+<p>另外還有一些原因，上述的函式庫不容易畫出理想的圖形，例如 Skimage 畫不少太小的圓形、Pillow 沒法指定矩形的邊的粗細等等。為了解決這些問題（沒辦法，我就是受不了），我決定使用 svgwrite 來做這種「<strong>在圖片上標記</strong>」的可視化 <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>，也就是說我將圖片內嵌到 SVG 中，然後再加入一些 SVG 的 element，例如 Circle, Rect, Text 等來做可視化 <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>。</p>
+
+<p>SVG 有著許多優點，例如他是向量圖形所以可視化部份不會有失真的問題，而且他內建的那個 element 有著許多參數可以調整，舉凡顏色、粗細等他都有著類似於 CSS 的一致 API，也因此，他可以使用半透明顏色，這在解決一些可視化的問題中還挺方便的。另外 SVG 內部可以使用 <code>&lt;g&gt;&lt;/g&gt;</code> 來任意嵌套，這在疊圖之類的事情還挺方便的。</p>
+
+<p>這篇文的目的要記錄一些輔助我可視化函式，以防每次我都要重新想重新打，同時也給其他人參考。目前我是傾向使用 function-based 的設計而非 OOP，這樣在使用上會比較方便，這些函式應該全部放在同一個檔案，例如 <code>svg.py</code> 中，然後 <code>import svg</code> 來使用。</p>
+
+<h1 id="basic">Basic</h1>
+
+<p>Hint:</p>
+
+<ol>
+<li><code>g</code> 可以任意嵌套</li>
+<li>使用 <code>x, y</code> 而不是 <code>r, c</code>，原點在左上</li>
+</ol>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">svgwrite</span> <span class="kn">as</span> <span class="nn">sw</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">pil</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">img</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">per_row</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pad_val</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">to_png</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span> <span class="n">dst_path</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="kn">import</span> <span class="nn">cairosvg</span>
+    <span class="k">pass</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="coco-keypoint">COCO Keypoint</h1>
+
+<h1 id="object-detection">Object Detection</h1>
+
+<h1 id="segmentation">Segmentation</h1>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">如果只是要畫畫圖表，我還是使用 matplotlib （記得指定 style 為 seaborn）然後輸出成 SVG（是的 matplotlib 可以輸出 svg，如果你還不知道的話記得嘗試看看）。
+ <a class="footnote-return" href="#fnref:1">↩</a></li>
+<li id="fn:2">如果是無法使用 SVG 的場合，例如 Facebook, Imgur, Google Docs，我會先用 cairosvg 將 SVG 轉成 PNG（scale 為 2），再做處理。
+ <a class="footnote-return" href="#fnref:2">↩</a></li>
+</ol>
+</div>
+
+    </div>
+
+    
+    
+        <div id="comments">
+    <button id="expand-btn" href="" onclick="expand_disqus()">Comments</button>
+    <div id="disqus_thread"></div>
+</div>
+
+<script type="text/javascript">
+
+function expand_disqus() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    document.getElementById('expand-btn').style.display = "none";
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = false;
+    var disqus_shortname = 'amoshyc-blog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+};
+</script>
+    
+</article>
+
+        </main>
+
+        
+        <footer>
+    
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+    <p>
+        © 2018 by amoshyc
+        <a href="./index.xml" title="RSS">♥</a>
+    </p>
+</footer>
+
+
+        
+        
+            <script>
+                anchors.options = {
+                    placement: 'right',
+                };
+                anchors.add('.md-content > h1, .md-content > h2, .md-content > h3, .md-content > h4');
+            </script>
+        
+</body>
+
+</html>

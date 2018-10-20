@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Snippet on Yu-Cheng Huang</title>
-    <link>http://amoshyc.github.io/blog/categories/snippet.html</link>
-    <description>Recent content in Snippet on Yu-Cheng Huang</description>
+    <title>“svg&#34; on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/tags/svg.html</link>
+    <description>Recent content in “svg&#34; on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Oct 2018 00:27:00 +0800</lastBuildDate>
     
-	<atom:link href="http://amoshyc.github.io/blog/categories/snippet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://amoshyc.github.io/blog/tags/svg/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,30 +25,6 @@ SVG 有著許多優點，例如他是向量圖形所以可視化部份不會有�
 這篇文的目的要記錄一些輔助我可視化函式，以防每次我都要重新想重新打，同時也給其他人參考。目前我是傾向使用 function-based 的設計而非 OOP，這樣在使用上會比較方便，這些函式應該全部放在同一個檔案，例如 svg.py 中，然後 import svg 來使用。
 Basic Hint:
  g 可以任意嵌套 使用 x, y 而不是 r, c，原點在左上  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  from math import ceil from io import BytesIO from base64 import b64encode import numpy as np from PIL import Image import svgwrite as sw def g(elems): &amp;#39;&amp;#39;&amp;#39; &amp;#39;&amp;#39;&amp;#39; pass def pil(img): &amp;#39;&amp;#39;&amp;#39; &amp;#39;&amp;#39;&amp;#39; pass def img(img): &amp;#39;&amp;#39;&amp;#39; &amp;#39;&amp;#39;&amp;#39; pass def save(elems, fname, size, per_row=-1, padding=2, pad_val=None): &amp;#39;&amp;#39;&amp;#39; &amp;#39;&amp;#39;&amp;#39; pass def to_png(src_path, dst_path, scale=2): &amp;#39;&amp;#39;&amp;#39; &amp;#39;&amp;#39;&amp;#39; import cairosvg pass   COCO Keypoint Object Detection Segmentation  如果只是要畫畫圖表，我還是使用 matplotlib （記得指定 style 為 seaborn）然後輸出成 SVG（是的 matplotlib 可以輸出 svg，如果你還不知道的話記得嘗試看看）。 ↩ 如果是無法使用 SVG 的場合，例如 Facebook, Imgur, Google Docs，我會先用 cairosvg 將 SVG 轉成 PNG（scale 為 2），再做處理。 ↩   </description>
-    </item>
-    
-    <item>
-      <title>矩陣化加速計算向量之間的差</title>
-      <link>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</link>
-      <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</guid>
-      <description>問題 給定維度 [N, D] 的矩陣 A，與 [M, D] 的矩陣 B，輸出維度 [N, M, D] 的矩陣 C，其中 C[i, j] 代表向量 A[i] 與向量 B[j] 的差，即 A[i] - B[j]。
-矩陣化 最直覺的做法，兩個 for 迭代一下，簡單：
-1 2 3  for i, a in enumerate(A): for j, b in enumerate(B): C[i, j] = a - b   但這個的計算速度非常非常慢，我們可以將這個計算改寫成矩陣的型式，讓 Numpy/Pytorch 可以利用 SIMD/GPU 來加速計算。
-我們想讓結果是兩個矩陣 C1, C2 相減，即 C = C1 - C2，由此避掉大量的 indexing。其中，C1, C2 的維度都是 [N, M, D]。至此問題變成 C1, C2 分別是什麼。畫一下圖，發揮一下空間感，可以發現：</description>
-    </item>
-    
-    <item>
-      <title>Numpy 中實現二維高斯分佈</title>
-      <link>http://amoshyc.github.io/blog/2018/implement-2d-gaussian-distribution-in-numpy.html</link>
-      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/2018/implement-2d-gaussian-distribution-in-numpy.html</guid>
-      <description>前情 最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 1 2 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈 (Gaussian Distribution) 來指示位置。但我翻了一下文檔，numpy 似乎沒有提供生成二維高斯分佈的函式，只提供從高斯分佈取樣的函式，於是我模彷了 skimage.draw 的 API，寫了一個函式。
-實作原理 二維高斯分佈就是兩個一維高斯分佈取外積。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [sigma-3sigma, sigma+3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 np.outer 即為所求。
-程式碼 Hint!  此函式不支援 double 型態的 mu 與 sigma！
-  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  def gaussian2d(mu, sigma, shape=None): &amp;#34;&amp;#34;&amp;#34;Generate 2d gaussian distribution coordinates and values.</description>
     </item>
     
   </channel>
