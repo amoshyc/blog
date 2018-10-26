@@ -37,31 +37,81 @@ import numpy as np
 from PIL import Image
 import svgwrite as sw
 
+
 def g(elems):
     '''
     '''
-    pass
+    g = sw.container.Group()
+    for elem in elems:
+        g.add(elem)
+    return g
+
 
 def pil(img):
     '''
     '''
-    pass
+    w, h = img.size
+    buf = BytesIO()
+    img.save(buf, 'png')
+    b64 = b64encode(buf.getvalue()).decode()
+    href = 'data:image/png;base64,' + b64
+    elem = sw.image.Image(href, (0, 0), width=w, height=h)
+    return elem
+
 
 def img(img):
     '''
     '''
-    pass
+    img = (img * 255).clip(0, 255).astype(np.uint8)
+    img = Image.fromarray(img)
+    return pil(img)
+
 
 def save(elems, fname, size, per_row=-1, padding=2, pad_val=None):
     '''
     '''
-    pass
+    n_elem = len(elems)
+    elems = [g.copy() for g in elems]
+    imgH, imgW = size
+    per_row = n_elem if per_row == -1 else per_row
+    per_col = ceil(n_elem / per_row)
+    gridW = per_row * imgW + (per_row - 1) * padding
+    gridH = per_col * imgH + (per_col - 1) * padding
+
+    svg = sw.Drawing(size=[gridW, gridH])
+    if pad_val:
+        svg.add(sw.shapes.Rect((0, 0), (gridW, gridH), fill=pad_value))
+    for i in range(n_elem):
+        c = (i % per_row) * (imgW + padding)
+        r = (i // per_row) * (imgH + padding)
+        elems[i].translate(c, r)
+        svg.add(elems[i])
+
+    with open(str(fname), 'w') as f:
+        svg.write(f, pretty=True)
+
 
 def to_png(src_path, dst_path, scale=2):
     '''
     '''
     import cairosvg
     pass
+
+########################################
+
+def bboxs(bboxes, c='red', **extra):
+    def transform(bbox):
+        x, y, w, h = bbox
+        args = {
+            'insert': (round(x), round(y)),
+            'size': (round(w), round(h)),
+            'stroke': c,
+            'stroke_width': 2,
+            'fill_opacity': 0.0
+        }
+        return sw.shapes.Rect(**args)
+    return g([transform(bbox) for bbox in bboxes])
+
 {{< /highlight >}}
 
 
