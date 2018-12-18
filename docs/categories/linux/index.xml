@@ -6,10 +6,21 @@
     <description>Recent content in Linux on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Jun 2018 15:58:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Dec 2018 20:06:22 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在 Fedora 上調整滑鼠按鍵</title>
+      <link>http://amoshyc.github.io/blog/2018/tweaking-mouse-buttons-on-fedora.html</link>
+      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2018/tweaking-mouse-buttons-on-fedora.html</guid>
+      <description>需求 Chrome 的分頁可以用滑鼠中鍵關閉，這比花時間瞄準分頁上的 X 方便，於是我按中鍵的頻率比按右鍵的頻率高上許多，但滑鼠的中鍵必不好按，這讓我決定交換我滑鼠的中鍵與右鍵。
+方法 在不同的 GNOME Backend 上用不同的方法。
+Xorg xmodmap -e &amp;quot;pointer = 1 3 2&amp;quot;  Wayland 待補</description>
+    </item>
     
     <item>
       <title>在 Fedora 安裝 Zotero</title>
