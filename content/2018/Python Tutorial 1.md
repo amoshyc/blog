@@ -543,7 +543,7 @@ class ClassName(object):
     def public_method(self):
         pass
 
-    def __private_method(self):
+    def _private_method(self):
         pass
 
 def function_name(...):
