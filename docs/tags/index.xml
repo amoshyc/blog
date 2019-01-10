@@ -246,11 +246,38 @@
     </item>
     
     <item>
+      <title>pytorch</title>
+      <link>http://amoshyc.github.io/blog/tags/pytorch.html</link>
+      <pubDate>Thu, 10 Jan 2019 18:53:38 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/pytorch.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>r2016a</title>
       <link>http://amoshyc.github.io/blog/tags/r2016a.html</link>
       <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/tags/r2016a.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducibility</title>
+      <link>http://amoshyc.github.io/blog/tags/reproducibility.html</link>
+      <pubDate>Thu, 10 Jan 2019 18:53:38 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/reproducibility.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducible</title>
+      <link>http://amoshyc.github.io/blog/tags/reproducible.html</link>
+      <pubDate>Thu, 10 Jan 2019 18:53:38 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/reproducible.html</guid>
       <description></description>
     </item>
     

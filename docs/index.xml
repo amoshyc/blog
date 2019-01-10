@@ -6,10 +6,20 @@
     <description>Recent content on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Dec 2018 20:06:22 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jan 2019 18:53:38 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reproducible PyTorch</title>
+      <link>http://amoshyc.github.io/blog/2019/reproducible-pytorch.html</link>
+      <pubDate>Thu, 10 Jan 2019 18:53:38 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2019/reproducible-pytorch.html</guid>
+      <description>將以下程式碼加在程式的 entry point，透過設定 seed 的方式，來讓整個訓練過程能夠複現。只在 pytorch 1.0 測試過，不保證其他版本也有相同效果。
+1 2 3 4 5  seed = 999 random.seed(seed) np.random.seed(seed) torch.manual_seed(seed) torch.backends.cudnn.deterministic = True   </description>
+    </item>
     
     <item>
       <title>在 Fedora 上調整滑鼠按鍵</title>
