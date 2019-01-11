@@ -85,3 +85,26 @@ Image.fromarray(img).save('./out.jpg')
 {{< figure src="https://i.imgur.com/ix9ugHS.jpg" width="500">}}
 
 其中要注意的是函式的值可能太小（例如 `sigma=1` 時，函式值最大為 0.5），可以考慮將之調整。例如上段程式碼就是將每個高斯分佈的最大值縮放成 1。
+
+
+# Pytorch 
+
+{{< highlight python "linenos=table,noclasses=false" >}}
+
+def gaussian2d(mu, sigma, shape):
+    (r, c), (sr, sc), (H, W) = mu, sigma, shape
+    pi = torch.tensor(math.pi)
+    rr = torch.arange(r - 3 * sr, r + 3 * sr + 1).float()
+    cc = torch.arange(c - 3 * sc, c + 3 * sc + 1).float()
+    rr = rr[(rr >= 0) & (rr < H)]
+    cc = cc[(cc >= 0) & (cc < W)]
+    gr = torch.exp(-0.5 * ((rr - r) / sr)**2) / (torch.sqrt(2 * pi) * sr)
+    gc = torch.exp(-0.5 * ((cc - c) / sc)**2) / (torch.sqrt(2 * pi) * sc)
+    g = torch.ger(gr, gc).view(-1)
+    R, C = len(rr), len(cc)
+    rr = rr.long().contiguous().view(R, 1)
+    cc = cc.long().contiguous().view(1, C)
+    rr = rr.expand(R, C).contiguous().view(-1)
+    cc = cc.expand(R, C).contiguous().view(-1)
+    return rr, cc, g
+{{< /highlight >}}

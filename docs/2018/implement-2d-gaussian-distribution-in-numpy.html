@@ -116,6 +116,7 @@
 <li><a href="#實作原理">實作原理</a></li>
 <li><a href="#程式碼">程式碼</a></li>
 <li><a href="#範例">範例</a></li>
+<li><a href="#pytorch">Pytorch</a></li>
 </ul>
 </nav>
             </div>
@@ -256,6 +257,47 @@
 </p>
 
 <p>其中要注意的是函式的值可能太小（例如 <code>sigma=1</code> 時，函式值最大為 0.5），可以考慮將之調整。例如上段程式碼就是將每個高斯分佈的最大值縮放成 1。</p>
+
+<h1 id="pytorch">Pytorch</h1>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">gaussian2d</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">sc</span><span class="p">),</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">shape</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sr</span><span class="p">,</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nb">float</span><span class="p">()</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sc</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nb">float</span><span class="p">()</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">rr</span><span class="p">[(</span><span class="n">rr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">rr</span> <span class="o">&lt;</span> <span class="n">H</span><span class="p">)]</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">cc</span><span class="p">[(</span><span class="n">cc</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cc</span> <span class="o">&lt;</span> <span class="n">W</span><span class="p">)]</span>
+    <span class="n">gr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">rr</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="n">sr</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">sr</span><span class="p">)</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">cc</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">sc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">sc</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ger</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">gc</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rr</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">rr</span><span class="o">.</span><span class="nb">long</span><span class="p">()</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="nb">long</span><span class="p">()</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">rr</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">g</span></code></pre></td></tr></table>
+</div>
+</div>
 <div class="footnotes">
 
 <hr />
