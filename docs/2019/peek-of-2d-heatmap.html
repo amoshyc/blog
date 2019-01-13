@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tw">
+    <head>
+        <title> 
+    Peek of 2D Heatmap | Yu-Cheng Huang
+ </title>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" type="image/jpeg" href="/blog/abouts/me.jpg" />
+        
+        
+        <link rel="stylesheet" href="/blog/style.min.css">
+
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+        
+
+        
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96104654-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-96104654-1');
+            </script>
+        
+
+        
+        
+
+    </head>
+
+    <body>
+        
+        <header>
+    
+    
+    <div class="icon">
+        <a href="http://amoshyc.github.io/blog"><img src="/blog/abouts/me.jpg" alt="me"></a>
+    </div>
+
+    
+    <div class="name">
+        <a href="http://amoshyc.github.io/blog">Yu-Cheng Huang</a>
+    </div>
+
+    
+    <div class="menu">
+        <a href="/blog/abouts.html">ABOUT</a>
+        <a href="/blog/categories.html">CATEGORY</a>
+        <a href="/blog/tags.html">TAG</a>
+    </div>
+
+</header>
+
+        
+        <main>
+            
+    <article>
+
+    
+    <div class="info">
+        <div class="top">
+            <span title="Date">2019/01/14</span>
+            <span>@</span>
+            <span>
+                
+                   
+                   <a href="http://amoshyc.github.io/blog/categories/snippet.html">Snippet</a>
+                
+            </span>
+        </div>
+
+        <h1 class="title">Peek of 2D Heatmap</h1>
+
+        <div class="bottom">
+            
+                <a href="http://amoshyc.github.io/blog/tags/pytorch.html">pytorch</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/heatmap.html">heatmap</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/peek.html">peek</a>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="md-content">
+        
+        
+            <div class="toc">
+                <span>TOC</span>
+                
+            </div>
+        
+        
+        <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">peek2d</span><span class="p">(</span><span class="n">lbl</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    Args:
+</span><span class="s1">        lbl: (FloatTensor) sized [N, 4, H, W]
+</span><span class="s1">    Return:
+</span><span class="s1">        kpt: (FloatTensor) sized [N, 4, 2]
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">lbl</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">lbl</span><span class="o">.</span><span class="n">device</span>
+    <span class="n">lbl</span> <span class="o">=</span> <span class="n">lbl</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">H</span> <span class="o">*</span> <span class="n">W</span><span class="p">)</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">lbl</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># [N, 4]</span>
+    <span class="n">yy</span><span class="p">,</span> <span class="n">xx</span> <span class="o">=</span> <span class="n">loc</span> <span class="o">/</span> <span class="n">W</span><span class="p">,</span> <span class="n">loc</span> <span class="o">%</span> <span class="n">W</span> <span class="c1"># [N, 4], [N, 4]</span>
+    <span class="n">kpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># [N, 4, 2]</span>
+    <span class="n">kpt</span> <span class="o">=</span> <span class="n">kpt</span><span class="o">.</span><span class="nb">float</span><span class="p">()</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kpt</span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+
+    
+    
+        <div id="comments">
+    <button id="expand-btn" href="" onclick="expand_disqus()">Comments</button>
+    <div id="disqus_thread"></div>
+</div>
+
+<script type="text/javascript">
+
+function expand_disqus() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    document.getElementById('expand-btn').style.display = "none";
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = false;
+    var disqus_shortname = 'amoshyc-blog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+};
+</script>
+    
+</article>
+
+        </main>
+
+        
+        <footer>
+    
+    <p>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with theme
+        <a href="https://github.com/amoshyc/hugo-zmd-theme">zmd</a>
+    </p>
+    <p>
+        © 2019 by amoshyc
+        <a href="./index.xml" title="RSS">♥</a>
+    </p>
+</footer>
+
+
+        
+        
+            <script>
+                anchors.options = {
+                    placement: 'right',
+                };
+                anchors.add('.md-content > h1, .md-content > h2, .md-content > h3, .md-content > h4');
+            </script>
+        
+</body>
+
+</html>

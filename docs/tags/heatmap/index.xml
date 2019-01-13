@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2019s on Yu-Cheng Huang</title>
-    <link>http://amoshyc.github.io/blog/2019.html</link>
-    <description>Recent content in 2019s on Yu-Cheng Huang</description>
+    <title>heatmap on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/tags/heatmap.html</link>
+    <description>Recent content in heatmap on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 14 Jan 2019 01:21:36 +0800</lastBuildDate>
     
-	<atom:link href="http://amoshyc.github.io/blog/2019/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://amoshyc.github.io/blog/tags/heatmap/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,16 +18,6 @@
       
       <guid>http://amoshyc.github.io/blog/2019/peek-of-2d-heatmap.html</guid>
       <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  def peek2d(lbl): &amp;#39;&amp;#39;&amp;#39; Args: lbl: (FloatTensor) sized [N, 4, H, W] Return: kpt: (FloatTensor) sized [N, 4, 2] &amp;#39;&amp;#39;&amp;#39; N, _, H, W = lbl.size() device = lbl.device lbl = lbl.view(N, 4, H * W) loc = lbl.argmax(dim=2) # [N, 4] yy, xx = loc / W, loc % W # [N, 4], [N, 4] kpt = torch.</description>
-    </item>
-    
-    <item>
-      <title>Reproducible PyTorch</title>
-      <link>http://amoshyc.github.io/blog/2019/reproducible-pytorch.html</link>
-      <pubDate>Thu, 10 Jan 2019 18:53:38 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/2019/reproducible-pytorch.html</guid>
-      <description>將以下程式碼加在程式的 entry point，透過設定 seed 的方式，來讓整個訓練過程能夠複現。只在 pytorch 1.0 測試過，不保證其他版本也有相同效果。
-1 2 3 4 5  seed = 999 random.seed(seed) np.random.seed(seed) torch.manual_seed(seed) torch.backends.cudnn.deterministic = True   </description>
     </item>
     
   </channel>
