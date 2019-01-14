@@ -57,9 +57,9 @@ def gaussian2d(mu, sigma, shape=None):
     gr = np.exp(-0.5 * ((rr - r) / sr)**2) / (np.sqrt(2 * np.pi) * sr)
     gc = np.exp(-0.5 * ((cc - c) / sc)**2) / (np.sqrt(2 * np.pi) * sc)
     g = np.outer(gr, gc).ravel()
-    R, C = len(rr), len(cc)
-    rr = np.broadcast_to(rr.reshape(R, 1), (R, C)).ravel()
-    cc = np.broadcast_to(cc.reshape(1, C), (R, C)).ravel()
+    rr, cc = np.meshgrid(rr, cc)
+    rr = rr.ravel()
+    cc = cc.ravel()
     return rr, cc, g
 {{< /highlight >}}
 
@@ -87,7 +87,7 @@ Image.fromarray(img).save('./out.jpg')
 其中要注意的是函式的值可能太小（例如 `sigma=1` 時，函式值最大為 0.5），可以考慮將之調整。例如上段程式碼就是將每個高斯分佈的最大值縮放成 1。
 
 
-# Pytorch 
+# Pytorch
 
 {{< highlight python "linenos=table,noclasses=false" >}}
 
@@ -101,10 +101,8 @@ def gaussian2d(mu, sigma, shape):
     gr = torch.exp(-0.5 * ((rr - r) / sr)**2) / (torch.sqrt(2 * pi) * sr)
     gc = torch.exp(-0.5 * ((cc - c) / sc)**2) / (torch.sqrt(2 * pi) * sc)
     g = torch.ger(gr, gc).view(-1)
-    R, C = len(rr), len(cc)
-    rr = rr.long().contiguous().view(R, 1)
-    cc = cc.long().contiguous().view(1, C)
-    rr = rr.expand(R, C).contiguous().view(-1)
-    cc = cc.expand(R, C).contiguous().view(-1)
+    rr, cc = torch.meshgrid(rr.long(), cc.long())
+    rr = rr.contiguous().view(-1)
+    cc = cc.contiguous().view(-1)
     return rr, cc, g
 {{< /highlight >}}
