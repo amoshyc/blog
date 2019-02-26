@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gradcam on Yu-Cheng Huang</title>
+    <link>http://amoshyc.github.io/blog/tags/gradcam.html</link>
+    <description>Recent content in gradcam on Yu-Cheng Huang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Feb 2019 22:39:40 +0800</lastBuildDate>
+    
+	<atom:link href="http://amoshyc.github.io/blog/tags/gradcam/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grad-CAM Using Pytorch</title>
+      <link>http://amoshyc.github.io/blog/2019/grad-cam-using-pytorch.html</link>
+      <pubDate>Tue, 26 Feb 2019 22:39:40 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/2019/grad-cam-using-pytorch.html</guid>
+      <description>簡介 之前在打一個 regression 的比賽，發現 Grad-CAM 是一個很好用的可視化工具。於是我在網路上找了一下 Pytorch 的 implementation，找到 kazuto1011 實現得不錯。只是程式碼有點過於複雜，且只適用於 classificaiton 問題。所以我修改了他的程式碼，並包上 Context Manager，來讓程式碼更符合我的風格。
+原理 待補
+實作 Grad-CAM 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41  class GradCam: def __init__(self, model, layers): self.model = model self.</description>
+    </item>
+    
+  </channel>
+</rss>
