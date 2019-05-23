@@ -130,8 +130,7 @@ Editor/IDE   ides   Input/Output 1 2 3 4  input() _ = input() x = input(&amp;#39
       <guid>http://amoshyc.github.io/blog/2018/implement-2d-gaussian-distribution-in-numpy.html</guid>
       <description>前情 最近讀了 Pose Estimation 相關的論文，發現一些 Bottom Up 的方法 1 2 會直接生成各個 Keypoints 會哪，中間不經過 RPN 等方法。而生成的 Confidence Map 的 Ground Truth 是使用高斯分佈 (Gaussian Distribution) 來指示位置。但我翻了一下文檔，numpy 似乎沒有提供生成二維高斯分佈的函式，只提供從高斯分佈取樣的函式，於是我模彷了 skimage.draw 的 API，寫了一個函式。
 實作原理 二維高斯分佈就是兩個一維高斯分佈取外積。於是我分別對 row 與 col 各生成一個高斯分佈，函數 domain 為 $$ [sigma-3sigma, sigma+3sigma] $$，因為是整數域，共 $$ 6sigma + 1 $$ 個值。然後將這兩個分佈使用 np.outer 即為所求。
-程式碼 Hint!  此函式不支援 double 型態的 mu 與 sigma！
-  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  def gaussian2d(mu, sigma, shape=None): &amp;#34;&amp;#34;&amp;#34;Generate 2d gaussian distribution coordinates and values.</description>
+程式碼 Hint!  此函式不支援 double 型態的 mu 與 sigma！   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  def gaussian2d(mu, sigma, shape=None): &amp;#34;&amp;#34;&amp;#34;Generate 2d gaussian distribution coordinates and values.</description>
     </item>
     
     <item>

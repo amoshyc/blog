@@ -6,136 +6,10 @@
     <description>Recent content in Tags on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Mar 2018 15:46:53 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Feb 2019 22:39:40 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>2d</title>
-      <link>http://amoshyc.github.io/blog/tags/2d.html</link>
-      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/2d.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>android</title>
-      <link>http://amoshyc.github.io/blog/tags/android.html</link>
-      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/android.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bash</title>
-      <link>http://amoshyc.github.io/blog/tags/bash.html</link>
-      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/bash.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>button</title>
-      <link>http://amoshyc.github.io/blog/tags/button.html</link>
-      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/button.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cheatsheet</title>
-      <link>http://amoshyc.github.io/blog/tags/cheatsheet.html</link>
-      <pubDate>Sat, 09 Dec 2017 13:55:37 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/cheatsheet.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>csh</title>
-      <link>http://amoshyc.github.io/blog/tags/csh.html</link>
-      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/csh.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>desktop file</title>
-      <link>http://amoshyc.github.io/blog/tags/desktop-file.html</link>
-      <pubDate>Thu, 07 Jun 2018 15:58:14 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/desktop-file.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>difference</title>
-      <link>http://amoshyc.github.io/blog/tags/difference.html</link>
-      <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/difference.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docs</title>
-      <link>http://amoshyc.github.io/blog/tags/docs.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/docs.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>email</title>
-      <link>http://amoshyc.github.io/blog/tags/email.html</link>
-      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/email.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fedora</title>
-      <link>http://amoshyc.github.io/blog/tags/fedora.html</link>
-      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/fedora.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gaussian</title>
-      <link>http://amoshyc.github.io/blog/tags/gaussian.html</link>
-      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/gaussian.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>http://amoshyc.github.io/blog/tags/github.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/github.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gmail</title>
-      <link>http://amoshyc.github.io/blog/tags/gmail.html</link>
-      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/gmail.html</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>gradcam</title>
@@ -143,132 +17,6 @@
       <pubDate>Tue, 26 Feb 2019 22:39:40 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/tags/gradcam.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gradient descent</title>
-      <link>http://amoshyc.github.io/blog/tags/gradient-descent.html</link>
-      <pubDate>Tue, 24 Apr 2018 13:29:33 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/gradient-descent.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>heatmap</title>
-      <link>http://amoshyc.github.io/blog/tags/heatmap.html</link>
-      <pubDate>Mon, 14 Jan 2019 01:21:36 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/heatmap.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>http://amoshyc.github.io/blog/tags/hugo.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/hugo.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>imshow</title>
-      <link>http://amoshyc.github.io/blog/tags/imshow.html</link>
-      <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/imshow.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>license</title>
-      <link>http://amoshyc.github.io/blog/tags/license.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:47:34 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/license.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>http://amoshyc.github.io/blog/tags/linux.html</link>
-      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/linux.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>markdown</title>
-      <link>http://amoshyc.github.io/blog/tags/markdown.html</link>
-      <pubDate>Sat, 09 Dec 2017 13:55:37 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/markdown.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>matlab</title>
-      <link>http://amoshyc.github.io/blog/tags/matlab.html</link>
-      <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/matlab.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>momentum</title>
-      <link>http://amoshyc.github.io/blog/tags/momentum.html</link>
-      <pubDate>Tue, 24 Apr 2018 13:29:33 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/momentum.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mouse</title>
-      <link>http://amoshyc.github.io/blog/tags/mouse.html</link>
-      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/mouse.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>normal</title>
-      <link>http://amoshyc.github.io/blog/tags/normal.html</link>
-      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/normal.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>numpy</title>
-      <link>http://amoshyc.github.io/blog/tags/numpy.html</link>
-      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/numpy.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>peek</title>
-      <link>http://amoshyc.github.io/blog/tags/peek.html</link>
-      <pubDate>Mon, 14 Jan 2019 01:21:36 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/peek.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>http://amoshyc.github.io/blog/tags/python.html</link>
-      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/python.html</guid>
       <description></description>
     </item>
     
@@ -282,11 +30,20 @@
     </item>
     
     <item>
-      <title>r2016a</title>
-      <link>http://amoshyc.github.io/blog/tags/r2016a.html</link>
-      <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
+      <title>heatmap</title>
+      <link>http://amoshyc.github.io/blog/tags/heatmap.html</link>
+      <pubDate>Mon, 14 Jan 2019 01:21:36 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/r2016a.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/heatmap.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>peek</title>
+      <link>http://amoshyc.github.io/blog/tags/peek.html</link>
+      <pubDate>Mon, 14 Jan 2019 01:21:36 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/peek.html</guid>
       <description></description>
     </item>
     
@@ -309,38 +66,29 @@
     </item>
     
     <item>
-      <title>rime</title>
-      <link>http://amoshyc.github.io/blog/tags/rime.html</link>
-      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
+      <title>button</title>
+      <link>http://amoshyc.github.io/blog/tags/button.html</link>
+      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/rime.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/button.html</guid>
       <description></description>
     </item>
     
     <item>
-      <title>site</title>
-      <link>http://amoshyc.github.io/blog/tags/site.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      <title>fedora</title>
+      <link>http://amoshyc.github.io/blog/tags/fedora.html</link>
+      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/site.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/fedora.html</guid>
       <description></description>
     </item>
     
     <item>
-      <title>smtp</title>
-      <link>http://amoshyc.github.io/blog/tags/smtp.html</link>
-      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
+      <title>mouse</title>
+      <link>http://amoshyc.github.io/blog/tags/mouse.html</link>
+      <pubDate>Tue, 18 Dec 2018 20:06:22 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/smtp.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>smtplib</title>
-      <link>http://amoshyc.github.io/blog/tags/smtplib.html</link>
-      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/smtplib.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/mouse.html</guid>
       <description></description>
     </item>
     
@@ -354,20 +102,20 @@
     </item>
     
     <item>
-      <title>syntax hightlight</title>
-      <link>http://amoshyc.github.io/blog/tags/syntax-hightlight.html</link>
-      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
+      <title>visualization</title>
+      <link>http://amoshyc.github.io/blog/tags/visualization.html</link>
+      <pubDate>Sun, 21 Oct 2018 00:27:00 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/syntax-hightlight.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/visualization.html</guid>
       <description></description>
     </item>
     
     <item>
-      <title>theme</title>
-      <link>http://amoshyc.github.io/blog/tags/theme.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      <title>difference</title>
+      <link>http://amoshyc.github.io/blog/tags/difference.html</link>
+      <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/theme.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/difference.html</guid>
       <description></description>
     </item>
     
@@ -390,29 +138,11 @@
     </item>
     
     <item>
-      <title>visualization</title>
-      <link>http://amoshyc.github.io/blog/tags/visualization.html</link>
-      <pubDate>Sun, 21 Oct 2018 00:27:00 +0800</pubDate>
+      <title>desktop file</title>
+      <link>http://amoshyc.github.io/blog/tags/desktop-file.html</link>
+      <pubDate>Thu, 07 Jun 2018 15:58:14 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/visualization.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>windows</title>
-      <link>http://amoshyc.github.io/blog/tags/windows.html</link>
-      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/windows.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zmd</title>
-      <link>http://amoshyc.github.io/blog/tags/zmd.html</link>
-      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/zmd.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/desktop-file.html</guid>
       <description></description>
     </item>
     
@@ -422,6 +152,60 @@
       <pubDate>Thu, 07 Jun 2018 15:58:14 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/tags/zotero.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gradient descent</title>
+      <link>http://amoshyc.github.io/blog/tags/gradient-descent.html</link>
+      <pubDate>Tue, 24 Apr 2018 13:29:33 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/gradient-descent.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>momentum</title>
+      <link>http://amoshyc.github.io/blog/tags/momentum.html</link>
+      <pubDate>Tue, 24 Apr 2018 13:29:33 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/momentum.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>http://amoshyc.github.io/blog/tags/android.html</link>
+      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/android.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://amoshyc.github.io/blog/tags/linux.html</link>
+      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/linux.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rime</title>
+      <link>http://amoshyc.github.io/blog/tags/rime.html</link>
+      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/rime.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>http://amoshyc.github.io/blog/tags/windows.html</link>
+      <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/windows.html</guid>
       <description></description>
     </item>
     
@@ -449,6 +233,222 @@
       <pubDate>Thu, 19 Apr 2018 13:28:26 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/tags/%E5%98%B8%E8%9D%A6%E7%B1%B3%E8%BC%B8%E5%85%A5%E6%B3%95.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>license</title>
+      <link>http://amoshyc.github.io/blog/tags/license.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:47:34 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/license.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docs</title>
+      <link>http://amoshyc.github.io/blog/tags/docs.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/docs.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>http://amoshyc.github.io/blog/tags/github.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/github.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>http://amoshyc.github.io/blog/tags/hugo.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/hugo.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>site</title>
+      <link>http://amoshyc.github.io/blog/tags/site.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/site.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>http://amoshyc.github.io/blog/tags/theme.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/theme.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zmd</title>
+      <link>http://amoshyc.github.io/blog/tags/zmd.html</link>
+      <pubDate>Sun, 04 Mar 2018 20:45:49 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/zmd.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2d</title>
+      <link>http://amoshyc.github.io/blog/tags/2d.html</link>
+      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/2d.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gaussian</title>
+      <link>http://amoshyc.github.io/blog/tags/gaussian.html</link>
+      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/gaussian.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>normal</title>
+      <link>http://amoshyc.github.io/blog/tags/normal.html</link>
+      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/normal.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numpy</title>
+      <link>http://amoshyc.github.io/blog/tags/numpy.html</link>
+      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/numpy.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>http://amoshyc.github.io/blog/tags/bash.html</link>
+      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/bash.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csh</title>
+      <link>http://amoshyc.github.io/blog/tags/csh.html</link>
+      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/csh.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax hightlight</title>
+      <link>http://amoshyc.github.io/blog/tags/syntax-hightlight.html</link>
+      <pubDate>Fri, 23 Feb 2018 11:34:06 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/syntax-hightlight.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>email</title>
+      <link>http://amoshyc.github.io/blog/tags/email.html</link>
+      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/email.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gmail</title>
+      <link>http://amoshyc.github.io/blog/tags/gmail.html</link>
+      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/gmail.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://amoshyc.github.io/blog/tags/python.html</link>
+      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/python.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smtp</title>
+      <link>http://amoshyc.github.io/blog/tags/smtp.html</link>
+      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/smtp.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smtplib</title>
+      <link>http://amoshyc.github.io/blog/tags/smtplib.html</link>
+      <pubDate>Thu, 22 Feb 2018 17:32:32 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/smtplib.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imshow</title>
+      <link>http://amoshyc.github.io/blog/tags/imshow.html</link>
+      <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/imshow.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matlab</title>
+      <link>http://amoshyc.github.io/blog/tags/matlab.html</link>
+      <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/matlab.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r2016a</title>
+      <link>http://amoshyc.github.io/blog/tags/r2016a.html</link>
+      <pubDate>Thu, 22 Feb 2018 14:48:22 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/r2016a.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheatsheet</title>
+      <link>http://amoshyc.github.io/blog/tags/cheatsheet.html</link>
+      <pubDate>Sat, 09 Dec 2017 13:55:37 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/cheatsheet.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>http://amoshyc.github.io/blog/tags/markdown.html</link>
+      <pubDate>Sat, 09 Dec 2017 13:55:37 +0800</pubDate>
+      
+      <guid>http://amoshyc.github.io/blog/tags/markdown.html</guid>
       <description></description>
     </item>
     

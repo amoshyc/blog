@@ -100,8 +100,6 @@ int(1.5)                # 1 (int)
 
 ### List
 
-mutable
-
 {{< highlight python "linenos=table,noclasses=false" >}}
 l = list('abc')         # l: ['a', 'b', 'c']
 l[1] = 'd'              # l: ['a', 'd', 'c']
@@ -110,8 +108,6 @@ l.extend([2, 3])        # l: ['a', 'd', 'c', 1, 2, 3]
 {{< /highlight >}}
 
 ### Tuple
-
-immutable
 
 {{< highlight python "linenos=table,noclasses=false" >}}
 t = tuple('abc')        # t: ('a', 'b', 'c')
@@ -247,7 +243,7 @@ else:
 {{< highlight python "linenos=table,noclasses=false" >}}
 False, 0, 0.0, '', [], (), {}   # False Condition
 and, or, not                    # Operations
-<, >, <=, =>, !=, is, is not    # Comparison
+<, >, <=, >=, !=, is, is not    # Comparison
 a = (1 if 2 > 1 else 0)         # Ternary operator
 
 data = []
