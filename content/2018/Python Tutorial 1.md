@@ -312,7 +312,6 @@ while ...:
 
 {{< highlight py "linenos=table,noclasses=false" >}}
 ''' Loop certain times '''
-print(list(range(3))) # [0, 1, 2]
 for _ in range(3):
     pass
 
