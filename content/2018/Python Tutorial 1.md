@@ -427,7 +427,9 @@ f(a, b)                   # p1 = [], p2 = [], n1 = 123, n2 = 456
 f(a, b, 789, -1)          # p1 = [], p2 = [], n1 = 789, n2 = -1
 f(a, b, n2=-1)            # p1 = [], p2 = [], n1 = 123, n2 = -1
 f(a, b, n2=-1, n1=789)    # p1 = [], p2 = [], n1 = 789, n2 = -1
+{{< /highlight >}}
 
+{{< highlight py "linenos=table,noclasses=false" >}}
 ''' Unpacking arguments '''
 args = ([], ())
 kwargs = {'n1': 789, 'n2': -1}
@@ -512,6 +514,7 @@ class Classifier(object):
     ''' Don't forget the first argument is self
     '''
     def __init__(self, var=None):
+        super().__init__(var)
         self.var1 = var
         self.var2 = None
 

@@ -879,11 +879,6 @@
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">n1</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mi">456</span><span class="p">):</span>
@@ -909,9 +904,19 @@
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>                   <span class="c1"># p1 = [], p2 = [], n1 = 123, n2 = 456</span>
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">789</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># p1 = [], p2 = [], n1 = 789, n2 = -1</span>
 <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n2</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># p1 = [], p2 = [], n1 = 123, n2 = -1</span>
-<span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n1</span><span class="o">=</span><span class="mi">789</span><span class="p">)</span>    <span class="c1"># p1 = [], p2 = [], n1 = 789, n2 = -1</span>
+<span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n1</span><span class="o">=</span><span class="mi">789</span><span class="p">)</span>    <span class="c1"># p1 = [], p2 = [], n1 = 789, n2 = -1</span></code></pre></td></tr></table>
+</div>
+</div>
 
-<span class="s1">&#39;&#39;&#39; Unpacking arguments &#39;&#39;&#39;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="s1">&#39;&#39;&#39; Unpacking arguments &#39;&#39;&#39;</span>
 <span class="n">args</span> <span class="o">=</span> <span class="p">([],</span> <span class="p">())</span>
 <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n1&#39;</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
 <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code></pre></td></tr></table>
@@ -1079,12 +1084,14 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">Classifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="s1">&#39;&#39;&#39; Don&#39;t forget the first argument is self
 </span><span class="s1">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var1</span> <span class="o">=</span> <span class="n">var</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var2</span> <span class="o">=</span> <span class="bp">None</span>
 

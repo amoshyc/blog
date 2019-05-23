@@ -6,20 +6,10 @@
     <description>Recent content in 2019s on Yu-Cheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Apr 2019 21:07:43 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Feb 2019 22:39:40 +0800</lastBuildDate>
     
 	<atom:link href="http://amoshyc.github.io/blog/2019/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Randomized Algorithm HW #2</title>
-      <link>http://amoshyc.github.io/blog/2019/hw.html</link>
-      <pubDate>Wed, 17 Apr 2019 21:07:43 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/2019/hw.html</guid>
-      <description>107062566 Yu-Cheng Huang 黃鈺程 amoshuangyc@gmail.com
-Problem #1 $$ &amp;#34;Assume &amp;#34; X ~ &amp;#34;Uniform&amp;#34;[a, b] &amp;#34; then &amp;#34; &amp;#34;Var&amp;#34;[X] = (b - a)^2 / 12 $$ $$ Var[X] $$ $$ = E[X^2] - E[X]^2 $$ $$ = [int_b^a j^2 Pr(X=j) \ dj] - ((a &amp;#43; b) / 2)^2 $$ $$ = [int_b^a j^2 (1 / (b - a)) dj] - ((a &amp;#43; b) / 2)^2 $$ $$ = (1 / (b - a)) \int_b^a j^2 dj - ((a &amp;#43; b) / 2)^2 $$ $$ = (1 / (b - a)) [1/3 j^3 &amp;#43; C]_a^b - ((a &amp;#43; b) / 2)^2 $$ $$ = (b - a)^2 / 12 $$ $$ $$  a</description>
-    </item>
     
     <item>
       <title>Grad-CAM Using Pytorch</title>
