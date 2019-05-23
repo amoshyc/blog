@@ -362,7 +362,7 @@ For with else
 {{< highlight py "linenos=table,noclasses=false" >}}
 for ...:
     if ...:
-        pass
+        break
 else:
     pass
 {{< /highlight >}}
