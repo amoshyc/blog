@@ -375,6 +375,7 @@ for (...) {
     if (...) {
         flag = True;
         ...
+        break;
     }
 }
 if (!flag) {
