@@ -46,20 +46,22 @@ C = C1 - C2
 
 # Pytorch 實現
 
-類似於 Numpy 的實現，Pytorch 使用 `unsqueeze`, `expand` 來實現。不過 Pytorch 習慣將 Channel 放在第 0 個維度，所以細節有所不同：
+類似於 Numpy 的實現，Pytorch 使用 `unsqueeze`, `expand` 來實現。
 
 {{< highlight python "linenos=table,noclasses=false" >}}
-import torch
-
-N, M, D = 8, 6, 3
-device = torch.device('cuda:0') # or 'cpu'
-
-A = torch.rand(D, N, device=device)
-B = torch.rand(D, M, device=device)
-
-C1 = A.unsqueeze(2).expand(D, N, M)
-C2 = B.unsqueeze(1).expand(D, N, M)
-C = C1 - C2
+def pairwise_difference(A, B):
+    '''
+    Args
+        A: (FloatTensor) sized [N, D]
+        B: (FloatTensor) sized [M, D]
+    Return
+        C: (FloatTensor) C[i, j] = A[i] - B[j], sized [N, M, D]
+    '''
+    N, D = A.size()
+    M, D = B.size()
+    C1 = A.unsqueeze(dim=1).expand(N, M, D)
+    C2 = B.unsqueeze(dim=0).expand(N, M, D)
+    return C1 - C2
 {{< / highlight >}}
 
 # IOU
