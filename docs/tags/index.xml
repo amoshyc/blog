@@ -120,20 +120,20 @@
     </item>
     
     <item>
-      <title>vector</title>
-      <link>http://amoshyc.github.io/blog/tags/vector.html</link>
+      <title>numpy</title>
+      <link>http://amoshyc.github.io/blog/tags/numpy.html</link>
       <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/vector.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/numpy.html</guid>
       <description></description>
     </item>
     
     <item>
-      <title>vectorize</title>
-      <link>http://amoshyc.github.io/blog/tags/vectorize.html</link>
+      <title>pairwise</title>
+      <link>http://amoshyc.github.io/blog/tags/pairwise.html</link>
       <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/tags/vectorize.html</guid>
+      <guid>http://amoshyc.github.io/blog/tags/pairwise.html</guid>
       <description></description>
     </item>
     
@@ -323,15 +323,6 @@
       <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
       
       <guid>http://amoshyc.github.io/blog/tags/normal.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>numpy</title>
-      <link>http://amoshyc.github.io/blog/tags/numpy.html</link>
-      <pubDate>Sat, 03 Mar 2018 15:46:53 +0800</pubDate>
-      
-      <guid>http://amoshyc.github.io/blog/tags/numpy.html</guid>
       <description></description>
     </item>
     

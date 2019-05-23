@@ -1,8 +1,8 @@
 ---
-title: "矩陣化加速計算向量之間的差"
+title: "Pairwise Difference in Numpy and PyTorch"
 date: 2018-10-03T15:13:10+08:00
 categories: ["Snippet"]
-tags: ["vector", "difference", "vectorize"]
+tags: ["difference", "pairwise", "pytorch", "numpy"]
 toc: true
 math: false
 ---
@@ -60,4 +60,32 @@ B = torch.rand(D, M, device=device)
 C1 = A.unsqueeze(2).expand(D, N, M)
 C2 = B.unsqueeze(1).expand(D, N, M)
 C = C1 - C2
+{{< / highlight >}}
+
+# IOU
+
+同樣的方法可以類推至 pairwise IOU 的計算：
+
+
+{{< highlight python "linenos=table,noclasses=false" >}}
+def pairwise_iou(A, B):
+    '''
+    Args
+        A: (FloatTensor) first set of boxes in xyxy format, sized [N, 4]
+        B: (FloatTensor) second set of boxes in xyxy format, sized [M, 4]
+    Return
+        C: (FloatTensor) C[i, j] is the iou of A[i] and B[j], sized [N, M]
+    '''
+    N, M = A.size(0), B.size(0)
+    A = A.unsqueeze(1).expand(N, M, 4)
+    B = B.unsqueeze(0).expand(N, M, 4)
+
+    Ix = torch.min(A[..., 2], B[..., 2]) - torch.max(A[..., 0], B[..., 0])
+    Iy = torch.min(A[..., 3], B[..., 3]) - torch.max(A[..., 1], B[..., 1])
+    I = Ix.clamp(min=0) * Iy.clamp(min=0)
+    Aa = (A[..., 2] - A[..., 0]) * (A[..., 3] - A[..., 1])
+    Ab = (B[..., 2] - B[..., 0]) * (B[..., 3] - B[..., 1])
+    U = Aa + Ab - I
+
+    return I / U
 {{< / highlight >}}

@@ -69,11 +69,11 @@ Basic Hint:
     </item>
     
     <item>
-      <title>矩陣化加速計算向量之間的差</title>
-      <link>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</link>
+      <title>Pairwise Difference in Numpy and PyTorch</title>
+      <link>http://amoshyc.github.io/blog/2018/pairwise-difference-in-numpy-and-pytorch.html</link>
       <pubDate>Wed, 03 Oct 2018 15:13:10 +0800</pubDate>
       
-      <guid>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</guid>
+      <guid>http://amoshyc.github.io/blog/2018/pairwise-difference-in-numpy-and-pytorch.html</guid>
       <description>問題 給定維度 [N, D] 的矩陣 A，與 [M, D] 的矩陣 B，輸出維度 [N, M, D] 的矩陣 C，其中 C[i, j] 代表向量 A[i] 與向量 B[j] 的差，即 A[i] - B[j]。
 矩陣化 最直覺的做法，兩個 for 迭代一下，簡單：
 1 2 3  for i, a in enumerate(A): for j, b in enumerate(B): C[i, j] = a - b   但這個的計算速度非常非常慢，我們可以將這個計算改寫成矩陣的型式，讓 Numpy/Pytorch 可以利用 SIMD/GPU 來加速計算。

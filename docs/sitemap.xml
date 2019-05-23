@@ -136,26 +136,26 @@
   </url>
   
   <url>
+    <loc>http://amoshyc.github.io/blog/2018/pairwise-difference-in-numpy-and-pytorch.html</loc>
+    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://amoshyc.github.io/blog/tags/difference.html</loc>
     <lastmod>2018-10-03T15:13:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/vector.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/numpy.html</loc>
     <lastmod>2018-10-03T15:13:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://amoshyc.github.io/blog/tags/vectorize.html</loc>
+    <loc>http://amoshyc.github.io/blog/tags/pairwise.html</loc>
     <lastmod>2018-10-03T15:13:10+08:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://amoshyc.github.io/blog/2018/speed-up-computing-difference-between-vectors.html</loc>
-    <lastmod>2018-10-03T15:13:10+08:00</lastmod>
   </url>
   
   <url>
@@ -366,12 +366,6 @@
   
   <url>
     <loc>http://amoshyc.github.io/blog/tags/normal.html</loc>
-    <lastmod>2018-03-03T15:46:53+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://amoshyc.github.io/blog/tags/numpy.html</loc>
     <lastmod>2018-03-03T15:46:53+08:00</lastmod>
     <priority>0</priority>
   </url>

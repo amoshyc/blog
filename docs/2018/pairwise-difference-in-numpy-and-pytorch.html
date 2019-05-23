@@ -2,7 +2,7 @@
 <html lang="tw">
     <head>
         <title> 
-    矩陣化加速計算向量之間的差 | Yu-Cheng Huang
+    Pairwise Difference in Numpy and PyTorch | Yu-Cheng Huang
  </title>
 
         
@@ -75,15 +75,17 @@
             </span>
         </div>
 
-        <h1 class="title">矩陣化加速計算向量之間的差</h1>
+        <h1 class="title">Pairwise Difference in Numpy and PyTorch</h1>
 
         <div class="bottom">
             
-                <a href="http://amoshyc.github.io/blog/tags/vector.html">vector</a>
-            
                 <a href="http://amoshyc.github.io/blog/tags/difference.html">difference</a>
             
-                <a href="http://amoshyc.github.io/blog/tags/vectorize.html">vectorize</a>
+                <a href="http://amoshyc.github.io/blog/tags/pairwise.html">pairwise</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/pytorch.html">pytorch</a>
+            
+                <a href="http://amoshyc.github.io/blog/tags/numpy.html">numpy</a>
             
         </div>
     </div>
@@ -101,6 +103,7 @@
 <li><a href="#矩陣化">矩陣化</a></li>
 <li><a href="#numpy-實現">Numpy 實現</a></li>
 <li><a href="#pytorch-實現">Pytorch 實現</a></li>
+<li><a href="#iou">IOU</a></li>
 </ul>
 </nav>
             </div>
@@ -197,6 +200,57 @@
 <span class="n">C1</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
 <span class="n">C2</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">-</span> <span class="n">C2</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="iou">IOU</h1>
+
+<p>同樣的方法可以類推至 pairwise IOU 的計算：</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">pairwise_iou</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    Args
+</span><span class="s1">        A: (FloatTensor) first set of boxes in xyxy format, sized [N, 4]
+</span><span class="s1">        B: (FloatTensor) second set of boxes in xyxy format, sized [M, 4]
+</span><span class="s1">    Return
+</span><span class="s1">        C: (FloatTensor) C[i, j] is the iou of A[i] and B[j], sized [N, M]
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">B</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="n">Ix</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">Iy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">Ix</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">Iy</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">Aa</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">Ab</span> <span class="o">=</span> <span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">Aa</span> <span class="o">+</span> <span class="n">Ab</span> <span class="o">-</span> <span class="n">I</span>
+
+    <span class="k">return</span> <span class="n">I</span> <span class="o">/</span> <span class="n">U</span></code></pre></td></tr></table>
 </div>
 </div>
 
